@@ -4,10 +4,11 @@ title: About
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+[Howapped](http://howapped.com) is a software consultancy from London, UK.
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+[words dot howapped](http://words.howapped.com) covers learnings and project updates from the Howapped labs [^1].
+
+This website is powered by **[fastpages](https://github.com/fastai/fastpages)** 
 
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+[^1]: not really a lab with test tubes and stuff.
