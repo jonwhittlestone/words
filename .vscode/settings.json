@@ -3,5 +3,10 @@
         "activityBar.background": "#391B6B",
         "titleBar.activeBackground": "#4F2596",
         "titleBar.activeForeground": "#FBFAFE"
-    }
+    },
+    "python.testing.promptToConfigure": false,
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.pythonPath": "/home/jon/miniconda3/envs/words/bin/python3"
 }
