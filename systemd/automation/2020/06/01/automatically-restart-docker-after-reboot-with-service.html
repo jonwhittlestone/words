@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Automatically restart docker containers after reboot | howapped words</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Automatically restart docker containers after reboot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Creating a cloud server and the service that restarts a web app when rebooted." />
+<meta property="og:description" content="Creating a cloud server and the service that restarts a web app when rebooted." />
+<link rel="canonical" href="https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html" />
+<meta property="og:url" content="https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html" />
+<meta property="og:site_name" content="howapped words" />
+<meta property="og:image" content="https://words.howapped.com/images/on.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Creating a cloud server and the service that restarts a web app when rebooted.","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html"},"@type":"BlogPosting","url":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html","headline":"Automatically restart docker containers after reboot","dateModified":"2020-06-01T00:00:00-05:00","datePublished":"2020-06-01T00:00:00-05:00","image":"https://words.howapped.com/images/on.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Automatically restart docker containers after reboot | howapped words</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Automatically restart docker containers after reboot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Creating a cloud server and the service that restarts a web app when rebooted." />
+<meta property="og:description" content="Creating a cloud server and the service that restarts a web app when rebooted." />
+<link rel="canonical" href="https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html" />
+<meta property="og:url" content="https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html" />
+<meta property="og:site_name" content="howapped words" />
+<meta property="og:image" content="https://words.howapped.com/images/on.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Creating a cloud server and the service that restarts a web app when rebooted.","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html"},"@type":"BlogPosting","url":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html","headline":"Automatically restart docker containers after reboot","dateModified":"2020-06-01T00:00:00-05:00","datePublished":"2020-06-01T00:00:00-05:00","image":"https://words.howapped.com/images/on.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">howapped words</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/contact/">Contact</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Automatically restart docker containers after reboot</h1><p class="page-description">Creating a cloud server and the service that restarts a web app when rebooted.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-01T00:00:00-05:00" itemprop="datePublished">
+        Jun 1, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="//categories/#systemd">systemd</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="//categories/#automation">automation</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#The-Problem">The Problem </a></li>
+<li class="toc-entry toc-h1"><a href="#The-Solution">The Solution </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Prerequisites">Prerequisites </a></li>
+<li class="toc-entry toc-h2"><a href="#Create-a-DigitalOcean-droplet-(optional)">Create a DigitalOcean droplet (optional) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#CURL-to-create-the-droplet">CURL to create the droplet </a></li>
+<li class="toc-entry toc-h3"><a href="#SSH-into-your-new-droplet">SSH into your new droplet </a></li>
+<li class="toc-entry toc-h3"><a href="#Test-the-web-app-is-running">Test the web app is running </a></li>
+<li class="toc-entry toc-h3"><a href="#Test-the-service-is-running">Test the service is running </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Create-a-systemd-service">Create a systemd service </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Scripting-the-starting-of-the-web-app">Scripting the starting of the web app </a></li>
+<li class="toc-entry toc-h3"><a href="#Using-systemctl-to-enable-the-service">Using systemctl to enable the service </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Enable-the-systemd-service">Enable the systemd service </a></li>
+<li class="toc-entry toc-h2"><a href="#Test-it">Test it </a></li>
+<li class="toc-entry toc-h2"><a href="#Clean-up">Clean up </a></li>
+<li class="toc-entry toc-h2"><a href="#Resources">Resources </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-06-01-automatically-restart-docker-after-reboot-with-service.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-Problem">
+<a class="anchor" href="#The-Problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Problem<a class="anchor-link" href="#The-Problem"> </a>
+</h1>
+<p>As part of Covid-19 relief, DigitalOcean donated some free credit for me to work on a local food delivery scheme.</p>
+<p>I need to get most value for money by making that credit go as far as possible. A solution would present another advantage in minimising power consumption.</p>
+<h1 id="The-Solution">
+<a class="anchor" href="#The-Solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Solution<a class="anchor-link" href="#The-Solution"> </a>
+</h1>
+<p>The server should be powered-down outside of operating hours and turned back on before start of business. This can be done using the cloud provider's control panel.</p>
+<p>To avoid manual work to start the web app, a service is needed to bring the containers back online when the droplet is swtiched on.</p>
+<p>Covered in this article is the process for using the DigitalOcean API to create a droplet with the requisite <code>user_data</code> for creating the <code>systemd</code> service to start containers at boot time.</p>
+<p><strong>TLDR; Have a look at the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">companion repo.</a>. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.</strong></p>
+<p>Not covered in this article is the process to automate the power down and up to a schedule. This is covered in a subsequent article.</p>
+<h2 id="Prerequisites">
+<a class="anchor" href="#Prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites<a class="anchor-link" href="#Prerequisites"> </a>
+</h2>
+<ul>
+<li>A Digital Ocean account (free trial available)</li>
+<li>
+<a href="https://www.digitalocean.com/docs/apis-clis/api/">Generate an access token</a> for accessing the DigitalOcean API</li>
+<li>
+<p>Add the token to your environment</p>
+
+<pre><code>  $ export DIGITAL_OCEAN_ACCESS_TOKEN=XXXXXXXX</code></pre>
+</li>
+<li>
+<code>jq</code> installed to format JSON responses<ul>
+<li>
+<a href="https://stedolan.github.io/jq/download/">Download JQ</a> for your OS</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-a-DigitalOcean-droplet-(optional)">
+<a class="anchor" href="#Create-a-DigitalOcean-droplet-(optional)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a DigitalOcean droplet (optional)<a class="anchor-link" href="#Create-a-DigitalOcean-droplet-(optional)"> </a>
+</h2>
+<p>If you already have a web server, with an app, move to section, <a href="#Create-a-systemd-service">'Create a systemd service.'</a></p>
+<p>If you do not already have a web server, launch a Droplet with requisite SSH access.</p>
+<h3 id="CURL-to-create-the-droplet">
+<a class="anchor" href="#CURL-to-create-the-droplet" aria-hidden="true"><span class="octicon octicon-link"></span></a>CURL to create the droplet<a class="anchor-link" href="#CURL-to-create-the-droplet"> </a>
+</h3>
+<p>The following CURL statement creates an Ubuntu 18.04 server in London. The <code>user_data</code> key in the payload is used for defining various statements to execute once the server is created. In this case we are cloning the repo containing the dockerized app, starting it, and creating the upstart service to restart the app when the server is restarted.</p>
+
+<pre><code>    $ curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    -d '{"name":"scheduled-serverless","region":"lon1","size":"s-2vcpu-4gb","image":"docker-18-04", "user_data":
+    "#!/bin/bash
+    apt-get update
+    apt-get upgrade -y
+    git clone https://github.com/jonwhittlestone/scheduled-serverless-startup.git /root/scheduled-serverless-startup
+    sh /root/scheduled-serverless-startup/start-containers.sh
+    sh /root/scheduled-serverless-startup/create-service.sh"}' \
+    "https://api.digitalocean.com/v2/droplets" 
+
+</code></pre>
+<h3 id="SSH-into-your-new-droplet">
+<a class="anchor" href="#SSH-into-your-new-droplet" aria-hidden="true"><span class="octicon octicon-link"></span></a>SSH into your new droplet<a class="anchor-link" href="#SSH-into-your-new-droplet"> </a>
+</h3>
+<p>You will be emailed your root password. 
+After you SSH in using the provided password, you will be asked to change it.</p>
+<p><img src="/words-fastpages/images/copied_from_nb/email.png" alt="email.png"></p>
+<h3 id="Test-the-web-app-is-running">
+<a class="anchor" href="#Test-the-web-app-is-running" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test the web app is running<a class="anchor-link" href="#Test-the-web-app-is-running"> </a>
+</h3>
+<p>The app is running with Docker on port 80, so it's simply a case of:</p>
+
+<pre><code>root@scheduled-serverless:~# curl localhost
+
+A Howapped Project.
+
+</code></pre>
+<h3 id="Test-the-service-is-running">
+<a class="anchor" href="#Test-the-service-is-running" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test the service is running<a class="anchor-link" href="#Test-the-service-is-running"> </a>
+</h3>
+<p>Restart your server with</p>
+
+<pre><code>root@scheduled-serverless:~# sudo reboot
+
+</code></pre>
+<p>And then ssh and repeat the CURL statement to the web service</p>
+
+<pre><code>(base) ➜  ~ ssh root@167.172.56.239 curl localhost
+root@167.172.56.239's password: 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                             Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+A Howapped Project.
+
+100    22  100    22    0     0   1294      0 --:--:-- --:--:-- --:--:--  1294</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-a-systemd-service">
+<a class="anchor" href="#Create-a-systemd-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a systemd service<a class="anchor-link" href="#Create-a-systemd-service"> </a>
+</h2>
+<p>Ubuntu's init system is called <code>systemd</code> and various flavours of Linux may have differing init systems.</p>
+<h3 id="Scripting-the-starting-of-the-web-app">
+<a class="anchor" href="#Scripting-the-starting-of-the-web-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scripting the starting of the web app<a class="anchor-link" href="#Scripting-the-starting-of-the-web-app"> </a>
+</h3>
+<p>We need to define what should be automated which is starting the containers.</p>
+<p>In this case, I have an example dockerized app defined in the companion repo, so let's clone that.</p>
+<p>If this directory is present (because it has been previously cloned), then just update the local repo.</p>
+
+<pre><code>#!/bin/bash
+
+if [ -d "/root/scheduled-serverless-startup" ] 
+then
+    git pull origin master
+else
+    cd /root/scheduled-serverless-startup
+     git clone https://github.com/jonwhittlestone/scheduled-serverless-startup.git /root/scheduled-serverless-startup
+fi
+cd /root/scheduled-serverless-startup/app
+docker-compose up -d</code></pre>
+<p>Lastly, we start containers with <code>docker-compose</code></p>
+<h3 id="Using-systemctl-to-enable-the-service">
+<a class="anchor" href="#Using-systemctl-to-enable-the-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using <code>systemctl</code> to enable the service<a class="anchor-link" href="#Using-systemctl-to-enable-the-service"> </a>
+</h3>
+<p>Using the interface <code>systemctl</code> we can manage the init system. Each service is called a unit file. This means loading a service, <a href="https://www.linode.com/docs/quick-answers/linux-essentials/introduction-to-systemctl/#enabling-a-service-at-boot">enabling at boot</a> and restarting.</p>
+<p>On an Ubuntu system, you may inspect the running services:</p>
+
+<pre><code>$ systemctl status | head
+● madebyjon
+    State: running
+     Jobs: 0 queued
+   Failed: 0 units
+    Since: Mon 2020-06-08 05:56:42 BST; 1 day 2h ago
+   CGroup: /
+           ├─3770 bpfilter_umh
+           ├─user.slice
+           │ └─user-1000.slice
+           │   ├─user@1000.service</code></pre>
+<p>The following <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup/blob/master/create-service.sh">shell script</a> creates the unit file, enables it at boot and starts the service.</p>
+
+<pre><code>#!/bin/bash
+touch /etc/systemd/system/howapped.service
+cat &gt; /etc/systemd/system/howapped.service&lt;&lt;-EOF
+    [Unit]
+    Description=HowappedProjectStartOnBoot
+    After=network.target
+    [Service]
+    Type=simple
+    User=root
+    WorkingDirectory=/root/scheduled-serverless-startup
+    ExecStart=/bin/sh /root/scheduled-serverless-startup/start-containers.sh
+    Restart=on-abort
+    [Install]
+    WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl enable howapped.service
+systemctl restart howapped.service</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Enable-the-systemd-service">
+<a class="anchor" href="#Enable-the-systemd-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enable the systemd service<a class="anchor-link" href="#Enable-the-systemd-service"> </a>
+</h2>
+<p>The below excerpt verifies we have the working directory created.</p>
+
+<pre><code>root@scheduled-serverless:~/scheduled-serverless-startup# ls
+README.md    app                create-service.sh
+Vagrantfile  cloud-config.yaml  start-containers.sh
+root@scheduled-serverless:~/scheduled-serverless-startup# pwd
+/root/scheduled-serverless-startup</code></pre>
+<p>And this runs the shell script to create the unit file and enable it.</p>
+
+<pre><code>root@scheduled-serverless:~/scheduled-serverless-startup# sh create-service.sh 
+Created symlink /etc/systemd/system/multi-user.target.wants/howapped.service → /etc/systemd/system/howapped.service.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Test-it">
+<a class="anchor" href="#Test-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test it<a class="anchor-link" href="#Test-it"> </a>
+</h2>
+<p>We will use the CURL statement to find the ID of our droplet, so that we can then use a CURL statement to power down the machine.</p>
+
+<pre><code>$ curl \
+        -H 'Content-Type: application/json' \
+        -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    "https://api.digitalocean.com/v2/droplets?name=scheduled-serverless" | jq '.droplets[] | {id:.id, name:.name, status: .status}'
+
+{
+  "id": 195393249,
+  "name": "scheduled-serverless",
+  "status": "on"
+}
+
+
+# power it down
+$ curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    -d '{"type":"power_off"}' \
+    "https://api.digitalocean.com/v2/droplets/195393249/actions" | jq '.[] | {id:.id, status:.status, type:.type}'</code></pre>
+<p>We power it back up:</p>
+
+<pre><code>$ curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    -d '{"type":"power_on"}' \
+    "https://api.digitalocean.com/v2/droplets/195393249/actions" | jq '.[] | {id:.id, status:.status, type:.type}'
+
+{
+  "id": 953153688,
+  "status": "in-progress",
+  "type": "power_on"
+}</code></pre>
+<p>And verify our app is running.</p>
+
+<pre><code>$ ssh root@104.248.174.117 curl localhost
+root@104.248.174.117's password: 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+A Howapped Project.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Clean-up">
+<a class="anchor" href="#Clean-up" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clean up<a class="anchor-link" href="#Clean-up"> </a>
+</h2>
+<p>If you were following along by creating a DigitalOcean droplet, you may wish to power down or destroy the machine if not in use.</p>
+<p><img src="/words-fastpages/images/copied_from_nb/destroy.png" alt="destroy.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Resources">
+<a class="anchor" href="#Resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources<a class="anchor-link" href="#Resources"> </a>
+</h2>
+<ul>
+<li><a href="https://www.linode.com/docs/quick-answers/linux-essentials/introduction-to-systemctl/">Linode - Introduction to Systemctl</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Learnings and updates from the Howapped labs.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/jonwhittlestone" title="jonwhittlestone"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
