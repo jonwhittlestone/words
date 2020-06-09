@@ -10,7 +10,7 @@ permalink: /contact/
 
 I help SAAS companies retain larger, more valuable subscribers.
 
-Please contact for project and mentoring opportunities [words@howapped.com](mailto:words@howapped.com)
+Please contact for project or mentorship opportunities [words@howapped.com](mailto:words@howapped.com)
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** 
 
