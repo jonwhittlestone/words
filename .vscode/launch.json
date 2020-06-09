@@ -8,7 +8,7 @@
             "name": "CONDA NOTEBOOK",
             "type": "python",
             "request": "launch",
-            "program": "/home/jon/miniconda3/envs/words/bin/jupyter-lab",
+            "program": "/home/jon/miniconda3/envs/words/bin/jupyter-notebook",
             "console": "integratedTerminal",
             "args": [
                 "--notebook-dir",
