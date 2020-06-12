@@ -31,9 +31,9 @@ layout: notebook
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="The-Problem">The Problem<a class="anchor-link" href="#The-Problem"> </a></h1><p>As part of Covid-19 relief, DigitalOcean donated some free credit for me to work on a local food delivery scheme.</p>
-<p>I need to get most value for money by making that credit go as far as possible. A solution would present another advantage in minimising power consumption.</p>
+<p>I need to get most value for money by making that credit go as far as possible. It would also be nice to minimise power consumption.</p>
 <h1 id="The-Solution">The Solution<a class="anchor-link" href="#The-Solution"> </a></h1><p>The server should be powered-down outside of operating hours and turned back on before start of business. This can be done using the cloud provider's control panel.</p>
-<p>To avoid manual work to start the web app, a service is needed to bring the containers back online when the droplet is swtiched on.</p>
+<p>To avoid manual work starting the web app, a service is needed to bring the containers back online when the droplet is swtiched on.</p>
 <p>Covered in this article is the process for using the DigitalOcean API to create a droplet with the requisite <code>user_data</code> for creating the <code>systemd</code> service to start containers at boot time.</p>
 <p><strong>TLDR; Have a look at the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">companion repo.</a>. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.</strong></p>
 <p>Not covered in this article is the process to automate the power down and up to a schedule. This is covered in a subsequent article.</p>
@@ -57,7 +57,7 @@ layout: notebook
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Create-a-DigitalOcean-droplet-(optional)">Create a DigitalOcean droplet (optional)<a class="anchor-link" href="#Create-a-DigitalOcean-droplet-(optional)"> </a></h2><p>If you already have a web server, with an app, move to section, <a href="#Create-a-systemd-service">'Create a systemd service.'</a></p>
 <p>If you do not already have a web server, launch a Droplet with requisite SSH access.</p>
-<h3 id="CURL-to-create-the-droplet">CURL to create the droplet<a class="anchor-link" href="#CURL-to-create-the-droplet"> </a></h3><p>The following CURL statement creates an Ubuntu 18.04 server in London. The <code>user_data</code> key in the payload is used for defining various statements to execute once the server is created. In this case we are cloning the repo containing the dockerized app, starting it, and creating the upstart service to restart the app when the server is restarted.</p>
+<h3 id="CURL-to-create-the-droplet">CURL to create the droplet<a class="anchor-link" href="#CURL-to-create-the-droplet"> </a></h3><p>The following CURL statement creates an Ubuntu 18.04 server in London. The <code>user_data</code> key in the payload is used for defining various statements to execute once the server is created. In this case we are cloning the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">repo</a> containing the dockerized app, starting it, and creating the systemd service to restart the app when the server boots up.</p>
 
 <pre><code>    $ curl -X POST \
     -H 'Content-Type: application/json' \
@@ -105,8 +105,8 @@ A Howapped Project.
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Create-a-systemd-service">Create a systemd service<a class="anchor-link" href="#Create-a-systemd-service"> </a></h2><p>Ubuntu's init system is called <code>systemd</code> and various flavours of Linux may have differing init systems.</p>
 <h3 id="Scripting-the-starting-of-the-web-app">Scripting the starting of the web app<a class="anchor-link" href="#Scripting-the-starting-of-the-web-app"> </a></h3><p>We need to define what should be automated which is starting the containers.</p>
-<p>In this case, I have an example dockerized app defined in the companion repo, so let's clone that.</p>
-<p>If this directory is present (because it has been previously cloned), then just update the local repo.</p>
+<p>In this case, I have an example dockerized app defined in the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">companion repo</a>, so let's clone that.</p>
+<p>If this directory is present (because it has been previously cloned), then just pull the latest changes.</p>
 
 <pre><code>#!/bin/bash
 
