@@ -1,20 +1,35 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "CONDA NOTEBOOK",
-            "type": "python",
-            "request": "launch",
-            "program": "/home/jon/miniconda3/envs/words/bin/jupyter-notebook",
-            "console": "integratedTerminal",
-            "args": [
-                "--notebook-dir",
-                "/home/jon/code/words/_notebooks"
-            ],
-            "django":false
-        },
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "CONDA NOTEBOOK",
+      "type": "python",
+      "request": "launch",
+      "program": "/home/jon/miniconda3/envs/words/bin/jupyter-lab",
+      "console": "integratedTerminal",
+      "args": ["--notebook-dir", "/home/jon/code/words/_notebooks"],
+      "django": false
+    },
+
+    {
+      "name": "ARTICLE REPO MODULE: boto3-lambda",
+      "type": "python",
+      "request": "launch",
+      "program": "/home/jon/code/words/repos/lambda-api-boto3/src/lambda_functions.py",
+      "console": "integratedTerminal",
+      "args": [
+      ],
+      "django": false
+    }
+  ]
 }

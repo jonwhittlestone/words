@@ -57,7 +57,7 @@ layout: notebook
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Create-a-DigitalOcean-droplet-(optional)">Create a DigitalOcean droplet (optional)<a class="anchor-link" href="#Create-a-DigitalOcean-droplet-(optional)"> </a></h2><p>If you already have a web server, with an app, move to section, <a href="#Create-a-systemd-service">'Create a systemd service.'</a></p>
 <p>If you do not already have a web server, launch a Droplet with requisite SSH access.</p>
-<h3 id="CURL-to-create-the-droplet">CURL to create the droplet<a class="anchor-link" href="#CURL-to-create-the-droplet"> </a></h3><p>The following CURL statement creates an Ubuntu 18.04 server in London. The <code>user_data</code> key in the payload is used for defining various statements to execute once the server is created. In this case we are cloning the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">repo</a> containing the dockerized app, starting it, and creating the systemd service to restart the app when the server boots up.</p>
+<h3 id="cURL-to-create-the-droplet">cURL to create the droplet<a class="anchor-link" href="#cURL-to-create-the-droplet"> </a></h3><p>This cURL statement creates an Ubuntu 18.04 server in London. The <code>user_data</code> key in the payload is used for defining various statements to execute once the server is created. In this case we are cloning the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">repo</a> containing the dockerized app, starting it, and creating the systemd service to restart the app when the server boots up.</p>
 
 <pre><code>    $ curl -X POST \
     -H 'Content-Type: application/json' \
@@ -87,7 +87,7 @@ A Howapped Project.
 <pre><code>root@scheduled-serverless:~# sudo reboot
 
 </code></pre>
-<p>And then ssh and repeat the CURL statement to the web service</p>
+<p>And then ssh and repeat the cURL statement to the web service</p>
 
 <pre><code>(base) ➜  ~ ssh root@167.172.56.239 curl localhost
 root@167.172.56.239's password: 
