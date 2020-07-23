@@ -21,11 +21,22 @@
       "django": false
     },
 
+    // {
+    //   "name": "ARTICLE REPO MODULE: boto3-lambda",
+    //   "type": "python",
+    //   "request": "launch",
+    //   "program": "/home/jon/code/words/repos/lambda-api-boto3/src/lambda_functions.py",
+    //   "console": "integratedTerminal",
+    //   "args": [
+    //   ],
+    //   "django": false
+    // }
+
     {
-      "name": "ARTICLE REPO MODULE: boto3-lambda",
+      "name": "scheduledserverless.power_on_server",
       "type": "python",
       "request": "launch",
-      "program": "/home/jon/code/words/repos/lambda-api-boto3/src/lambda_functions.py",
+      "program": "/home/jon/code/words/_notebooks/repos/scheduledserverless/faas/power_on_server.py",
       "console": "integratedTerminal",
       "args": [
       ],

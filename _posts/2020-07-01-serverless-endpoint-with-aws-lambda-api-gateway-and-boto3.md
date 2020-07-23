@@ -109,6 +109,37 @@ When assuming an IAM role (see Trusted Entity), access to a service can be grant
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Testing the endpoint</span>
+
+<span class="c1">## Parting Note</span>
+
+<span class="n">This</span> <span class="n">brief</span> <span class="n">walkthrough</span> <span class="n">essentially</span> <span class="n">achieves</span> <span class="n">the</span> <span class="n">same</span> <span class="n">solution</span> <span class="k">as</span> <span class="n">the</span> <span class="n">AWS</span> <span class="n">Serverless</span> <span class="n">Application</span> <span class="n">model</span> <span class="s1">&#39;Hello World&#39;</span> <span class="n">tutorial</span><span class="o">.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Alternative-Solution">Alternative Solution<a class="anchor-link" href="#Alternative-Solution"> </a></h1><p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html">AWS Serverless Application Model</a> is a framework that allows you to build and deploy serverless applications.</p>
+<p>You may declare the lambda functions to be used and additional resources like APIs and database in a YAML template. It uses an implementation of AWS CloudFormation to define these resources provides myriad other <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html#benefits-of-using-sam">benefits</a>.</p>
+<p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html">AWS Hello World SAM tutorial</a> covers what we outlined manually above and also shows how to run the Lambda and API route locally and remove the CloudFormation stack to clean up.</p>
+<p>However, when dissecting software to understand a technique, it's always useful to strip away layers of abstraction.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
@@ -121,6 +152,7 @@ When assuming an IAM role (see Trusted Entity), access to a service can be grant
 <li><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">AWS Lambda Execution role</a></li>
 <li>Using AWS Lambda with Amazon API Gateway <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html">AWS Tutorial</a></li>
 <li>Setting up API Gateway and integrating it with Lambda proxy in Richard T. Freeman's serverless microservice course <a href="https://learning.oreilly.com/videos/building-a-scalable/9781788622318/9781788622318-video4_3">O'Reilly Videos</a></li>
+<li>AWS SAM Hello World Tutorial - <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html">AWS Docs</a></li>
 </ul>
 
 </div>
