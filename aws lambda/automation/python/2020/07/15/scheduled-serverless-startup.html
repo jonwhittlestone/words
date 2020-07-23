@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Scheduled Severless Startup | howapped words</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Scheduled Severless Startup" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using AWS lambda to automate boot up and down of a Digital Ocean droplet." />
+<meta property="og:description" content="Using AWS lambda to automate boot up and down of a Digital Ocean droplet." />
+<link rel="canonical" href="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html" />
+<meta property="og:url" content="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html" />
+<meta property="og:site_name" content="howapped words" />
+<meta property="og:image" content="http://i.imgur.com/dIAyXJa.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Using AWS lambda to automate boot up and down of a Digital Ocean droplet.","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html"},"@type":"BlogPosting","url":"https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html","headline":"Scheduled Severless Startup","dateModified":"2020-07-15T00:00:00-05:00","datePublished":"2020-07-15T00:00:00-05:00","image":"http://i.imgur.com/dIAyXJa.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Scheduled Severless Startup | howapped words</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Scheduled Severless Startup" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using AWS lambda to automate boot up and down of a Digital Ocean droplet." />
+<meta property="og:description" content="Using AWS lambda to automate boot up and down of a Digital Ocean droplet." />
+<link rel="canonical" href="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html" />
+<meta property="og:url" content="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html" />
+<meta property="og:site_name" content="howapped words" />
+<meta property="og:image" content="http://i.imgur.com/dIAyXJa.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Using AWS lambda to automate boot up and down of a Digital Ocean droplet.","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html"},"@type":"BlogPosting","url":"https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html","headline":"Scheduled Severless Startup","dateModified":"2020-07-15T00:00:00-05:00","datePublished":"2020-07-15T00:00:00-05:00","image":"http://i.imgur.com/dIAyXJa.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">howapped words</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/contact/">Contact</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Scheduled Severless Startup</h1><p class="page-description">Using AWS lambda to automate boot up and down of a Digital Ocean droplet.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-15T00:00:00-05:00" itemprop="datePublished">
+        Jul 15, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="//categories/#AWS Lambda">AWS Lambda</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="//categories/#automation">automation</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="//categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/jonwhittlestone/words/tree/master/_notebooks/2020-07-15-scheduled-serverless-startup.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jonwhittlestone/words/master?filepath=_notebooks%2F2020-07-15-scheduled-serverless-startup.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jonwhittlestone/words/blob/master/_notebooks/2020-07-15-scheduled-serverless-startup.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#The-Problem">The Problem </a></li>
+<li class="toc-entry toc-h1"><a href="#The-Solution">The Solution </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Prerequisites">Prerequisites </a></li>
+<li class="toc-entry toc-h2"><a href="#cURL-statements-to-boot-down-and-up">cURL statements to boot down and up </a></li>
+<li class="toc-entry toc-h2"><a href="#Requests-scripts-in-AWS-Lambda">Requests scripts in AWS Lambda </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#The-cURL-statements-in-Python">The cURL statements in Python </a></li>
+<li class="toc-entry toc-h3"><a href="#Running-the-scripts-in-AWS-Lambda">Running the scripts in AWS Lambda </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Schedule-the-scripts-with-Cloudwatch-events">Schedule the scripts with Cloudwatch events </a></li>
+<li class="toc-entry toc-h2"><a href="#Putting-it-all-together-in-a-Serverless-Application-Framework-template">Putting it all together in a Serverless Application Framework template </a></li>
+<li class="toc-entry toc-h2"><a href="#Quality-of-Life-enhancements">Quality of Life enhancements </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Resources-used:-with-thanks-💚">Resources used: with thanks 💚 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-07-15-scheduled-serverless-startup.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-Problem">
+<a class="anchor" href="#The-Problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Problem<a class="anchor-link" href="#The-Problem"> </a>
+</h1>
+<p>As part of the early Covid-19 response, Digital Ocean donated some free credit to us to host an app for a local food delivery scheme.</p>
+<p>To make that credit go as far as possible and to minimise power consumption, we'd like to power up and down the servers according to a schedule.</p>
+<h1 id="The-Solution">
+<a class="anchor" href="#The-Solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Solution<a class="anchor-link" href="#The-Solution"> </a>
+</h1>
+<p>Here's how to do that with AWS Lambda, with cloudfront events. We iterate on that to use the Serverless Framework.</p>
+<p><strong>TLDR; Have a look at the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">companion repo.</a>. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.</strong></p>
+<p>This article covers how to automate with a Digital Ocean droplet so to follow along with the code, you can create one using the example from <a href="http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet">a previous article</a>.</p>
+<p>We will examine the cURL statements, convert those into Python. We can use AWS Lambda to execute the Python in a serverless environment. Then, the AWS lambda functions can be triggered by Cloudwatch events to a schedule so machines can be brought online only during operating hours.</p>
+<p>We can notify any interested parties using Microsoft Teams - a topic for a subsequent post.</p>
+<h2 id="Prerequisites">
+<a class="anchor" href="#Prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites<a class="anchor-link" href="#Prerequisites"> </a>
+</h2>
+<p>You can always check the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">companion repo.</a></p>
+<p>You will need to:</p>
+<ul>
+<li>.. have <code>jq</code> installed to format JSON responses<ul>
+<li>
+<a href="https://stedolan.github.io/jq/download/">Download JQ</a> for your OS</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>.. have a server on which a dockerized web app will start automatically when the server is restarted<ul>
+<li>See previous article on how to <a href="http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet">create one with DigitalOcean</a>.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>.. have <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation">installed Boto3 with your AWS account credentials</a> so we can work with the AWS Python SDK.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="cURL-statements-to-boot-down-and-up">
+<a class="anchor" href="#cURL-statements-to-boot-down-and-up" aria-hidden="true"><span class="octicon octicon-link"></span></a>cURL statements to boot down and up<a class="anchor-link" href="#cURL-statements-to-boot-down-and-up"> </a>
+</h2>
+<p>As covered in a <a href="http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html">previous post</a>, our web app will restart when rebooted using a systemd service.</p>
+<p>Rather than ssh or the cloud provider's control panel, the server can be started and stopped using cURL.</p>
+<p>In the case of DigitalOcean:</p>
+<p>Find out the ID of the server:</p>
+
+<pre><code>$ curl \
+        -H 'Content-Type: application/json' \
+        -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    "https://api.digitalocean.com/v2/droplets?name=scheduled-serverless" | jq '.droplets[] | {id:.id, name:.name, status: .status}'</code></pre>
+<p>The output gives us the ID</p>
+
+<pre><code>{
+    ...
+},
+{
+  "id": 195786885,
+  "name": "scheduled-serverless",
+  "status": "active"
+}</code></pre>
+<p>And then power it down:</p>
+
+<pre><code>$ curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    -d '{"type":"power_off"}' \
+    "https://api.digitalocean.com/v2/droplets/195786885/actions" | jq '.[] | {id:.id, status:.status, type:.type}'</code></pre>
+<p>Which tells us it's in progress</p>
+
+<pre><code>{
+  "id": 955320153,
+  "status": "in-progress",
+  "type": "power_off"
+}</code></pre>
+<p>The equivalent cURL for powering on the server is virtual identical</p>
+
+<pre><code>$ curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    -d '{"type":"power_on"}' \
+    "https://api.digitalocean.com/v2/droplets/195786885/actions" | jq '.[] | {id:.id, status:.status, type:.type}'</code></pre>
+<p>The web app from the example is running on port 80. We know the server's IP address by referring to the control panel. Let's confirm that the service is running by verifying the output in a browser.</p>
+<p><img src="https://raw.githubusercontent.com/jonwhittlestone/words/master/images/do_ip.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Requests-scripts-in-AWS-Lambda">
+<a class="anchor" href="#Requests-scripts-in-AWS-Lambda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requests scripts in AWS Lambda<a class="anchor-link" href="#Requests-scripts-in-AWS-Lambda"> </a>
+</h2>
+<h3 id="The-cURL-statements-in-Python">
+<a class="anchor" href="#The-cURL-statements-in-Python" aria-hidden="true"><span class="octicon octicon-link"></span></a>The cURL statements in Python<a class="anchor-link" href="#The-cURL-statements-in-Python"> </a>
+</h3>
+<p>First, get the ID of the droplet.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'DIGITAL_OCEAN_ACCESS_TOKEN'</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span>
+<span class="n">DROPLET_NAME</span> <span class="o">=</span> <span class="s1">'scheduled-serverless'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">TOKEN</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="n">TOKEN</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">'Your environment should have the `DIGITAL_OCEAN_ACCESS_TOKEN exported.'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_droplet</span><span class="p">():</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://api.digitalocean.com/v2/droplets'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{})</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'droplets'</span><span class="p">,{})</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span> <span class="o">==</span> <span class="n">DROPLET_NAME</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">DROPLET</span> <span class="o">=</span> <span class="n">get_droplet</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Droplet ID: </span><span class="si">{</span><span class="n">DROPLET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Droplet ID: 195786885
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we have the ID, let's define the functions for bringing the servers down and back up.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">power_off</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s1">'{"type":"power_off"}'</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'https://api.digitalocean.com/v2/droplets/</span><span class="si">{</span><span class="n">DROPLET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span><span class="si">}</span><span class="s1">/actions'</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">power_on</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s1">'{"type":"power_on"}'</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'https://api.digitalocean.com/v2/droplets/</span><span class="si">{</span><span class="n">DROPLET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span><span class="si">}</span><span class="s1">/actions'</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">action_resp</span> <span class="o">=</span> <span class="n">power_off</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">action_resp</span><span class="p">[</span><span class="s1">'action'</span><span class="p">][</span><span class="s1">'type'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">action_resp</span><span class="p">[</span><span class="s1">'action'</span><span class="p">][</span><span class="s1">'status'</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'----'</span><span class="p">)</span>
+
+<span class="c1"># action_resp = power_on()</span>
+<span class="c1"># print(action_resp['action']['type'])</span>
+<span class="c1"># print(action_resp['action']['status'])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>power_off
+in-progress
+----
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Running-the-scripts-in-AWS-Lambda">
+<a class="anchor" href="#Running-the-scripts-in-AWS-Lambda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running the scripts in AWS Lambda<a class="anchor-link" href="#Running-the-scripts-in-AWS-Lambda"> </a>
+</h3>
+<p>Let's translate the cURL statements into Python.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Popping on a new on/off timestamp on a firebase stored stack</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">arrow</span>
+
+
+<span class="n">start</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'off'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2020-08-11 09:04'</span><span class="p">],</span> <span class="s1">'on'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2020-08-11 09:03'</span><span class="p">]}</span>
+
+<span class="c1"># get data</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://wordsdothowappeddotcom.firebaseio.com/scheduled-serverless-startup.json?print=pretty'</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># replace data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'off'</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+In  <span class="ansi-blue-fg">[12]</span>:
+Line <span class="ansi-blue-fg">4</span>:     <span class="ansi-blue-fg">import</span> <span class="ansi-cyan-fg ansi-underline">arrow</span>
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'arrow'
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Schedule-the-scripts-with-Cloudwatch-events">
+<a class="anchor" href="#Schedule-the-scripts-with-Cloudwatch-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Schedule the scripts with Cloudwatch events<a class="anchor-link" href="#Schedule-the-scripts-with-Cloudwatch-events"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Putting-it-all-together-in-a-Serverless-Application-Framework-template">
+<a class="anchor" href="#Putting-it-all-together-in-a-Serverless-Application-Framework-template" aria-hidden="true"><span class="octicon octicon-link"></span></a>Putting it all together in a Serverless Application Framework template<a class="anchor-link" href="#Putting-it-all-together-in-a-Serverless-Application-Framework-template"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Quality-of-Life-enhancements">
+<a class="anchor" href="#Quality-of-Life-enhancements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quality of Life enhancements<a class="anchor-link" href="#Quality-of-Life-enhancements"> </a>
+</h2>
+<p>When the target service is unavailable, it's quite unfriendly to show a blank 500 screen. A subsequent post outlines a solution for a forwarding service which can display an Open/Closed for business page to the user, with 'Opening times'</p>
+<p>As part of what's become known as 'Chatops', it's useful to update team members and stakeholders about the status of the server. A future addition will be to use the Microsoft Teams API to notify interested parties.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Resources-used:-with-thanks-💚">
+<a class="anchor" href="#Resources-used:-with-thanks-%F0%9F%92%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources used: with thanks 💚<a class="anchor-link" href="#Resources-used:-with-thanks-%F0%9F%92%9A"> </a>
+</h1>
+<ul>
+<li>Curl converter <a href="https://github.com/NickCarneiro/curlconverter">Github repo</a>
+</li>
+</ul>
+<ul>
+<li>
+<p>AWS Lambda and Secret Management Overview <a href="https://epsagon.com/development/aws-lambda-and-secret-management/">Blog post from  Espagon</a></p>
+</li>
+<li>
+<p>Sharing Secrets with AWS Lambda Using AWS Systems Manager Parameter Store <a href="https://aws.amazon.com/blogs/compute/sharing-secrets-with-aws-lambda-using-aws-systems-manager-parameter-store/">AWS Compute blog post</a></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jonwhittlestone/words"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Learnings and updates from the Howapped labs.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/jonwhittlestone" title="jonwhittlestone"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

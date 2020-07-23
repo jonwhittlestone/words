@@ -1,4 +1,593 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2020-07-01T06:48:55-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">hello world serverless microservice</title><link href="https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.html" rel="alternate" type="text/html" title="hello world serverless microservice" /><published>2020-07-01T00:00:00-05:00</published><updated>2020-07-01T00:00:00-05:00</updated><id>https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3</id><content type="html" xml:base="https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.html">&lt;!--
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2020-07-23T12:10:36-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Computers are fast - A cheatsheet</title><link href="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html" rel="alternate" type="text/html" title="Computers are fast - A cheatsheet" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet</id><content type="html" xml:base="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html">&lt;style&gt;
+table {
+    width:100%;
+}
+&lt;/style&gt;
+
+&lt;p&gt;This is inspired by Julia Evans and Kamal Marhubi’s excellent mini-quiz on the data rates of systems and components.&lt;/p&gt;
+
+&lt;p&gt;The below cheatsheet serves as a summary of those benchmark speeds, for at-a-glance consumption.&lt;/p&gt;
+
+&lt;h2 id=&quot;orders-of-magnitude&quot;&gt;Orders of magnitude&lt;/h2&gt;
+
+&lt;p&gt;The idea is not necessarily know the exact figures for a particular benchmark, just the right order of magnitude.&lt;/p&gt;
+
+&lt;p&gt;🐌 10&lt;sup&gt;0&lt;/sup&gt; 1&lt;/p&gt;
+
+&lt;p&gt;🦥 10&lt;sup&gt;1&lt;/sup&gt; 10&lt;/p&gt;
+
+&lt;p&gt;🚶 10&lt;sup&gt;2&lt;/sup&gt; 100&lt;/p&gt;
+
+&lt;p&gt;🏃‍♀️ 10&lt;sup&gt;3&lt;/sup&gt; 1,000&lt;/p&gt;
+
+&lt;p&gt;🏇‍ 10&lt;sup&gt;4&lt;/sup&gt; 10,000&lt;/p&gt;
+
+&lt;p&gt;‍🏎️💨 10&lt;sup&gt;5&lt;/sup&gt; 100,000&lt;/p&gt;
+
+&lt;p&gt;🚁 10&lt;sup&gt;6&lt;/sup&gt; 1,000,000&lt;/p&gt;
+
+&lt;p&gt;✈️ 10&lt;sup&gt;7&lt;/sup&gt; 10,000,000&lt;/p&gt;
+
+&lt;p&gt;🚀 10&lt;sup&gt;8&lt;/sup&gt; 100,000,000&lt;/p&gt;
+
+&lt;p&gt;🌠 10&lt;sup&gt;9&lt;/sup&gt; 1,000,000,000&lt;/p&gt;
+
+&lt;h2 id=&quot;how-much-can-be-done-in-a-second&quot;&gt;‘How much can be done in a second’&lt;/h2&gt;
+
+&lt;h3 id=&quot;sumc&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/sum.c&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sum.c&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Each loop adds to total&lt;/li&gt;
+  &lt;li&gt;How many loop iterations per second?
+    &lt;ul&gt;
+      &lt;li&gt;🚀 - 🌠&lt;/li&gt;
+      &lt;li&gt;Between 100 million and 1 Billion&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;8&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;9&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;looppy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/loop.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;loop.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Empty loop contents&lt;/li&gt;
+  &lt;li&gt;How many loop iterations per second?
+    &lt;ul&gt;
+      &lt;li&gt;✈️ - 🚀&lt;/li&gt;
+      &lt;li&gt;Between 10m and 100m&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;7&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;8&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dictpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/dict.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dict.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add elements to a fixed-size dictionary&lt;/li&gt;
+  &lt;li&gt;How many loop iterations per second?
+    &lt;ul&gt;
+      &lt;li&gt;✈️ - 🚀&lt;/li&gt;
+      &lt;li&gt;Between 10m and 100m&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;4&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;5&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;parse_http_requestpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/parse_http_request.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;parse_http_request.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Using Python built-in HTTP request parser&lt;/li&gt;
+  &lt;li&gt;How many HTTP requests parsed per second?
+    &lt;ul&gt;
+      &lt;li&gt;🏇‍️ - ‍🏎️💨‍&lt;/li&gt;
+      &lt;li&gt;Between 10,000 and 100,000&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;4&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;5&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;download_webpagepy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/download_webpage.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;download_webpage.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Downloading with urllib2&lt;/li&gt;
+  &lt;li&gt;How many HTTP requests completed per second?
+    &lt;ul&gt;
+      &lt;li&gt;🐌‍️ - ‍🦥&lt;/li&gt;
+      &lt;li&gt;Between 1 and 10&lt;/li&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;The true cost depends on size, connection speed and distance from servers&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;run_pythonsh&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/run_python.sh&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;run_python.sh&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Running Python script(s) from bash&lt;/li&gt;
+  &lt;li&gt;Bash loop iterations per second
+    &lt;ul&gt;
+      &lt;li&gt;🦥 - ‍🚶‍&lt;/li&gt;
+      &lt;li&gt;Between 10 and 100&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;1&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;2&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;write_to_diskpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/write_to_disk.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;write_to_disk.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Code run on a machine with an SSD&lt;/li&gt;
+  &lt;li&gt;How many bytes written to disk in a second
+    &lt;ul&gt;
+      &lt;li&gt;🚀 - 🌠&lt;/li&gt;
+      &lt;li&gt;Between 100 million and 1 Billion&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How many megabytes written to disk in a second
+    &lt;ul&gt;
+      &lt;li&gt;🚶 - 🏃‍♀️&lt;/li&gt;
+      &lt;li&gt;Between 100 and 1,000&lt;/li&gt;
+      &lt;li&gt;My T480s running Ubuntu with SSD reports write speed: 2.3 GB/s and read 673 MB/s &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;write_to_memorypy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/write_to_memory.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;write_to_memory.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;How many bytes written to a string in memory in a second
+    &lt;ul&gt;
+      &lt;li&gt;🌠+&lt;/li&gt;
+      &lt;li&gt;Above 1 Billion&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;grep_bytessh&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/grep_bytes.sh&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grep_bytes.sh&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bytes search in a second
+    &lt;ul&gt;
+      &lt;li&gt;🌠+&lt;/li&gt;
+      &lt;li&gt;Above 1 Billion&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;find-filenamessh&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/find-filenames.sh&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find-filenames.sh&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Files come from the filesystem cache&lt;/li&gt;
+  &lt;li&gt;How many files listed in one second?
+    &lt;ul&gt;
+      &lt;li&gt;🏎💨 - ‍🚁&lt;/li&gt;
+      &lt;li&gt;Between 100,000 and 1m&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;5&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;6&lt;/sup&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;Grep can search at 2GB/s so more limited by disk speed than grep’s speed&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;json_parsepy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/json-parse.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;json_parse.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Deserializing the same 65k of JSON repeatedly&lt;/li&gt;
+  &lt;li&gt;How many loop iterations in a second?
+    &lt;ul&gt;
+      &lt;li&gt;🚶 - ‍🏃‍♀️&lt;/li&gt;
+      &lt;li&gt;Between 100 and 1,000&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;2&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;3&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;msgpack_parsepy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/msgpack_parse.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;msgpack_parse.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Parse 46k of msgpack data&lt;/li&gt;
+  &lt;li&gt;How many loop iterations in a second?
+    &lt;ul&gt;
+      &lt;li&gt;🏃‍♀️ - ‍🏇‍&lt;/li&gt;
+      &lt;li&gt;Between 1,000 and 10,000&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;3&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;4&lt;/sup&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;Your choice of format and deserialisation library (eg capnproto) makes a big difference&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;database_indexedpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/database_indexed.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;database_indexed.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Select one row from an indexed sqlite table containing 10m rows&lt;/li&gt;
+  &lt;li&gt;How many queries in one second
+    &lt;ul&gt;
+      &lt;li&gt;‍🏇‍ - 🏎️💨&lt;/li&gt;
+      &lt;li&gt;Between 10,000 and 100,000&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;4&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;5&lt;/sup&gt;&lt;/li&gt;
+      &lt;li&gt;Typical query in 20 microseconds&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;database_unindexedpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/database_unindexed.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;database_unindexed.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Select one row from an unindexed sqlite table containing 10m rows&lt;/li&gt;
+  &lt;li&gt;How many queries in one second
+    &lt;ul&gt;
+      &lt;li&gt;🐌‍️ - ‍🦥&lt;/li&gt;
+      &lt;li&gt;Between 1 and 10&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;0&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;1&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hashpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/hash.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hash.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;How many bytes hashed in one second?
+    &lt;ul&gt;
+      &lt;li&gt;🚀 - 🌠&lt;/li&gt;
+      &lt;li&gt;Between 100 million and 1 Billion&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;8&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;9&lt;/sup&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;MD5 is designed to be fast&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bcrypt_hashpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/bcrypt_hash.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bcrypt_hash.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Number of passwords hashed in a second?
+    &lt;ul&gt;
+      &lt;li&gt;🐌‍️ - ‍🦥&lt;/li&gt;
+      &lt;li&gt;Between 1 and 10&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;0&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;1&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;fill_arrayc&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/fill_array.c&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fill_array.c&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Memory is accessed sequentially from a CPU cache&lt;/li&gt;
+  &lt;li&gt;Number of passwords hashed in a second?
+    &lt;ul&gt;
+      &lt;li&gt;🚀 - 🌠&lt;/li&gt;
+      &lt;li&gt;Between 100 million and 1 Billion&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;8&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;9&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;fill_arrayc-1&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/fill_array.c&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fill_array.c&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Number of passwords hashed in a second?
+    &lt;ul&gt;
+      &lt;li&gt;✈️ - 🚀&lt;/li&gt;
+      &lt;li&gt;Between 10m and 100m&lt;/li&gt;
+      &lt;li&gt;10&lt;sup&gt;4&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;5&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;resources-used-with-thanks-&quot;&gt;Resources used: with thanks 💚&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Do you know how much your computer can do in a second? - &lt;a href=&quot;http://computers-are-fast.github.io/&quot;&gt;Mini Quiz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.binarytides.com/linux-test-drive-speed/&quot;&gt;https://www.binarytides.com/linux-test-drive-speed/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://i.imgur.com/pkQnonr.png" /><media:content medium="image" url="http://i.imgur.com/pkQnonr.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Scheduled Severless Startup</title><link href="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html" rel="alternate" type="text/html" title="Scheduled Severless Startup" /><published>2020-07-15T00:00:00-05:00</published><updated>2020-07-15T00:00:00-05:00</updated><id>https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup</id><content type="html" xml:base="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html">&lt;!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-07-15-scheduled-serverless-startup.ipynb
+--&gt;
+
+&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
+        
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+
+&lt;/div&gt;
+    
+
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h1 id=&quot;The-Problem&quot;&gt;The Problem&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Problem&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;As part of the early Covid-19 response, Digital Ocean donated some free credit to us to host an app for a local food delivery scheme.&lt;/p&gt;
+&lt;p&gt;To make that credit go as far as possible and to minimise power consumption, we'd like to power up and down the servers according to a schedule.&lt;/p&gt;
+&lt;h1 id=&quot;The-Solution&quot;&gt;The Solution&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Solution&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Here's how to do that with AWS Lambda, with cloudfront events. We iterate on that to use the Serverless Framework.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TLDR; Have a look at the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;companion repo.&lt;/a&gt;. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This article covers how to automate with a Digital Ocean droplet so to follow along with the code, you can create one using the example from &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet&quot;&gt;a previous article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We will examine the cURL statements, convert those into Python. We can use AWS Lambda to execute the Python in a serverless environment. Then, the AWS lambda functions can be triggered by Cloudwatch events to a schedule so machines can be brought online only during operating hours.&lt;/p&gt;
+&lt;p&gt;We can notify any interested parties using Microsoft Teams - a topic for a subsequent post.&lt;/p&gt;
+&lt;h2 id=&quot;Prerequisites&quot;&gt;Prerequisites&lt;a class=&quot;anchor-link&quot; href=&quot;#Prerequisites&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;You can always check the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;companion repo.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You will need to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;.. have &lt;code&gt;jq&lt;/code&gt; installed to format JSON responses&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stedolan.github.io/jq/download/&quot;&gt;Download JQ&lt;/a&gt; for your OS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;.. have a server on which a dockerized web app will start automatically when the server is restarted&lt;ul&gt;
+&lt;li&gt;See previous article on how to &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet&quot;&gt;create one with DigitalOcean&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;.. have &lt;a href=&quot;https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation&quot;&gt;installed Boto3 with your AWS account credentials&lt;/a&gt; so we can work with the AWS Python SDK.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h2 id=&quot;cURL-statements-to-boot-down-and-up&quot;&gt;cURL statements to boot down and up&lt;a class=&quot;anchor-link&quot; href=&quot;#cURL-statements-to-boot-down-and-up&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;As covered in a &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html&quot;&gt;previous post&lt;/a&gt;, our web app will restart when rebooted using a systemd service.&lt;/p&gt;
+&lt;p&gt;Rather than ssh or the cloud provider's control panel, the server can be started and stopped using cURL.&lt;/p&gt;
+&lt;p&gt;In the case of DigitalOcean:&lt;/p&gt;
+&lt;p&gt;Find out the ID of the server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl \
+        -H 'Content-Type: application/json' \
+        -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    &quot;https://api.digitalocean.com/v2/droplets?name=scheduled-serverless&quot; | jq '.droplets[] | {id:.id, name:.name, status: .status}'&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The output gives us the ID&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    ...
+},
+{
+  &quot;id&quot;: 195786885,
+  &quot;name&quot;: &quot;scheduled-serverless&quot;,
+  &quot;status&quot;: &quot;active&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And then power it down:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    -d '{&quot;type&quot;:&quot;power_off&quot;}' \
+    &quot;https://api.digitalocean.com/v2/droplets/195786885/actions&quot; | jq '.[] | {id:.id, status:.status, type:.type}'&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which tells us it's in progress&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;id&quot;: 955320153,
+  &quot;status&quot;: &quot;in-progress&quot;,
+  &quot;type&quot;: &quot;power_off&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The equivalent cURL for powering on the server is virtual identical&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
+    -d '{&quot;type&quot;:&quot;power_on&quot;}' \
+    &quot;https://api.digitalocean.com/v2/droplets/195786885/actions&quot; | jq '.[] | {id:.id, status:.status, type:.type}'&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The web app from the example is running on port 80. We know the server's IP address by referring to the control panel. Let's confirm that the service is running by verifying the output in a browser.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/jonwhittlestone/words/master/images/do_ip.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h2 id=&quot;Requests-scripts-in-AWS-Lambda&quot;&gt;Requests scripts in AWS Lambda&lt;a class=&quot;anchor-link&quot; href=&quot;#Requests-scripts-in-AWS-Lambda&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;The-cURL-statements-in-Python&quot;&gt;The cURL statements in Python&lt;a class=&quot;anchor-link&quot; href=&quot;#The-cURL-statements-in-Python&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;First, get the ID of the droplet.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+
+&lt;div class=&quot;inner_cell&quot;&gt;
+    &lt;div class=&quot;input_area&quot;&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;DIGITAL_OCEAN_ACCESS_TOKEN&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;DROPLET_NAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;scheduled-serverless&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;Authorization&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Bearer &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Your environment should have the `DIGITAL_OCEAN_ACCESS_TOKEN exported.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_droplet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;droplets&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,{})&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DROPLET_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_droplet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Droplet ID: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;output_wrapper&quot;&gt;
+&lt;div class=&quot;output&quot;&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+&lt;div class=&quot;output_subarea output_stream output_stdout output_text&quot;&gt;
+&lt;pre&gt;Droplet ID: 195786885
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    
+
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;p&gt;Now we have the ID, let's define the functions for bringing the servers down and back up.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+
+&lt;div class=&quot;inner_cell&quot;&gt;
+    &lt;div class=&quot;input_area&quot;&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;power_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;{&amp;quot;type&amp;quot;:&amp;quot;power_off&amp;quot;}&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/actions&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;power_on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;{&amp;quot;type&amp;quot;:&amp;quot;power_on&amp;quot;}&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/actions&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;action&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;action&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;----&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# action_resp = power_on()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# print(action_resp[&amp;#39;action&amp;#39;][&amp;#39;type&amp;#39;])&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# print(action_resp[&amp;#39;action&amp;#39;][&amp;#39;status&amp;#39;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;output_wrapper&quot;&gt;
+&lt;div class=&quot;output&quot;&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+&lt;div class=&quot;output_subarea output_stream output_stdout output_text&quot;&gt;
+&lt;pre&gt;power_off
+in-progress
+----
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    
+
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h3 id=&quot;Running-the-scripts-in-AWS-Lambda&quot;&gt;Running the scripts in AWS Lambda&lt;a class=&quot;anchor-link&quot; href=&quot;#Running-the-scripts-in-AWS-Lambda&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let's translate the cURL statements into Python.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+
+&lt;div class=&quot;inner_cell&quot;&gt;
+    &lt;div class=&quot;input_area&quot;&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Popping on a new on/off timestamp on a firebase stored stack&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;arrow&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;off&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2020-08-11 09:04&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;on&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2020-08-11 09:03&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# get data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;https://wordsdothowappeddotcom.firebaseio.com/scheduled-serverless-startup.json?print=pretty&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{},)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# replace data&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;off&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;output_wrapper&quot;&gt;
+&lt;div class=&quot;output&quot;&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+&lt;div class=&quot;output_subarea output_text output_error&quot;&gt;
+&lt;pre&gt;
+&lt;span class=&quot;ansi-red-fg&quot;&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;ansi-red-fg&quot;&gt;ModuleNotFoundError&lt;/span&gt;                       Traceback (most recent call last)
+In  &lt;span class=&quot;ansi-blue-fg&quot;&gt;[12]&lt;/span&gt;:
+Line &lt;span class=&quot;ansi-blue-fg&quot;&gt;4&lt;/span&gt;:     &lt;span class=&quot;ansi-blue-fg&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;ansi-cyan-fg ansi-underline&quot;&gt;arrow&lt;/span&gt;
+
+&lt;span class=&quot;ansi-red-fg&quot;&gt;ModuleNotFoundError&lt;/span&gt;: No module named &amp;#39;arrow&amp;#39;
+&lt;span class=&quot;ansi-red-fg&quot;&gt;---------------------------------------------------------------------------&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    
+
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h2 id=&quot;Schedule-the-scripts-with-Cloudwatch-events&quot;&gt;Schedule the scripts with Cloudwatch events&lt;a class=&quot;anchor-link&quot; href=&quot;#Schedule-the-scripts-with-Cloudwatch-events&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h2 id=&quot;Putting-it-all-together-in-a-Serverless-Application-Framework-template&quot;&gt;Putting it all together in a Serverless Application Framework template&lt;a class=&quot;anchor-link&quot; href=&quot;#Putting-it-all-together-in-a-Serverless-Application-Framework-template&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h2 id=&quot;Quality-of-Life-enhancements&quot;&gt;Quality of Life enhancements&lt;a class=&quot;anchor-link&quot; href=&quot;#Quality-of-Life-enhancements&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When the target service is unavailable, it's quite unfriendly to show a blank 500 screen. A subsequent post outlines a solution for a forwarding service which can display an Open/Closed for business page to the user, with 'Opening times'&lt;/p&gt;
+&lt;p&gt;As part of what's become known as 'Chatops', it's useful to update team members and stakeholders about the status of the server. A future addition will be to use the Microsoft Teams API to notify interested parties.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h1 id=&quot;Resources-used:-with-thanks-&amp;#128154;&quot;&gt;Resources used: with thanks &amp;#128154;&lt;a class=&quot;anchor-link&quot; href=&quot;#Resources-used:-with-thanks-&amp;#128154;&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Curl converter &lt;a href=&quot;https://github.com/NickCarneiro/curlconverter&quot;&gt;Github repo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;AWS Lambda and Secret Management Overview &lt;a href=&quot;https://epsagon.com/development/aws-lambda-and-secret-management/&quot;&gt;Blog post from  Espagon&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sharing Secrets with AWS Lambda Using AWS Systems Manager Parameter Store &lt;a href=&quot;https://aws.amazon.com/blogs/compute/sharing-secrets-with-aws-lambda-using-aws-systems-manager-parameter-store/&quot;&gt;AWS Compute blog post&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://i.imgur.com/dIAyXJa.png" /><media:content medium="image" url="http://i.imgur.com/dIAyXJa.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">hello world serverless microservice</title><link href="https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.html" rel="alternate" type="text/html" title="hello world serverless microservice" /><published>2020-07-01T00:00:00-05:00</published><updated>2020-07-01T00:00:00-05:00</updated><id>https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3</id><content type="html" xml:base="https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -94,6 +683,37 @@ When assuming an IAM role (see Trusted Entity), access to a service can be grant
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+    
+    
+&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+
+&lt;div class=&quot;inner_cell&quot;&gt;
+    &lt;div class=&quot;input_area&quot;&gt;
+&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;## Testing the endpoint&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;## Parting Note&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;brief&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;walkthrough&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;essentially&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;achieves&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;same&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solution&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AWS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Serverless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Hello World&amp;#39;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tutorial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    
+
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h1 id=&quot;Alternative-Solution&quot;&gt;Alternative Solution&lt;a class=&quot;anchor-link&quot; href=&quot;#Alternative-Solution&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The &lt;a href=&quot;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html&quot;&gt;AWS Serverless Application Model&lt;/a&gt; is a framework that allows you to build and deploy serverless applications.&lt;/p&gt;
+&lt;p&gt;You may declare the lambda functions to be used and additional resources like APIs and database in a YAML template. It uses an implementation of AWS CloudFormation to define these resources provides myriad other &lt;a href=&quot;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html#benefits-of-using-sam&quot;&gt;benefits&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html&quot;&gt;AWS Hello World SAM tutorial&lt;/a&gt; covers what we outlined manually above and also shows how to run the Lambda and API route locally and remove the CloudFormation stack to clean up.&lt;/p&gt;
+&lt;p&gt;However, when dissecting software to understand a technique, it's always useful to strip away layers of abstraction.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
 &lt;hr /&gt;
@@ -106,6 +726,7 @@ When assuming an IAM role (see Trusted Entity), access to a service can be grant
 &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html&quot;&gt;AWS Lambda Execution role&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Using AWS Lambda with Amazon API Gateway &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html&quot;&gt;AWS Tutorial&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Setting up API Gateway and integrating it with Lambda proxy in Richard T. Freeman's serverless microservice course &lt;a href=&quot;https://learning.oreilly.com/videos/building-a-scalable/9781788622318/9781788622318-video4_3&quot;&gt;O'Reilly Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;AWS SAM Hello World Tutorial - &lt;a href=&quot;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html&quot;&gt;AWS Docs&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;/div&gt;
