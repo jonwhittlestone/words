@@ -4,11 +4,11 @@ title: Contact
 permalink: /contact/
 ---
 
-[Howapped](http://howapped.com) is a software consultancy from London, UK.
+[Howapped](http://howapped.com) is a software consultancy from UK run by me, <a href='https://www.linkedin.com/in/jonwhittlestone/' target='_blank'>Jon</a>.
 
 [howapped words](http://words.howapped.com) covers project updates and my learnings from the Howapped labs [^1].
 
-I help SAAS companies retain larger, more valuable subscribers.
+I'm an end-to-end product engineer and help SaaS companies retain larger, more valuable subscribers.
 
 Please contact for project or mentorship opportunities [words@howapped.com](mailto:words@howapped.com)
 
