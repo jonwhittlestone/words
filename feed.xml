@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2020-07-23T12:23:08-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Computers are fast - A cheatsheet</title><link href="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html" rel="alternate" type="text/html" title="Computers are fast - A cheatsheet" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet</id><content type="html" xml:base="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html">&lt;style&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2020-07-28T11:19:38-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">AWS Certified Solutions Architect - Exam Differences</title><link href="https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences.html" rel="alternate" type="text/html" title="AWS Certified Solutions Architect - Exam Differences" /><published>2020-07-28T00:00:00-05:00</published><updated>2020-07-28T00:00:00-05:00</updated><id>https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences</id><content type="html" xml:base="https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences.html">&lt;p&gt;AWS have released an update on their most popular and wide-ranging certification course.&lt;/p&gt;
+
+&lt;p&gt;The software architect exam at associate level SAA-C01 has been retired and SAA-C02 takes its place.&lt;/p&gt;
+
+&lt;p&gt;Commenters with experience of the two will maintain that as long as you keep to the fundamentals of the &lt;a href=&quot;https://aws.amazon.com/architecture/well-architected/?wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&amp;amp;wa-lens-whitepapers.sort-order=desc&quot;&gt;5 pillars of the well-architected framework&lt;/a&gt;, the two exams have mostly the same content.&lt;/p&gt;
+
+&lt;p&gt;It pays to be aware of the new products AWS offer. We know that being able to leverage natively provided technologies from a cloud provider will often present efficiency gains in the &lt;a href=&quot;https://en.wikipedia.org/wiki/Systems_development_life_cycle&quot;&gt;Software Development Lifecycle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the SAA-C02 exam, the new technologies we should be aware of:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;&lt;!-- What Is it--&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;!--Good to know for--&gt;&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AWS Global Accelerator&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Elastic Fabric Adapter&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Elastic Network Adapter&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AWS Parallel Cluster&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Amazon FSx&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AWS DataSync&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AWS Directory Service&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;High Performance Computing&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Aurora Serverless&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name></name></author><summary type="html">AWS have released an update on their most popular and wide-ranging certification course.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.imgur.com/UrmOp2V.png" /><media:content medium="image" url="https://i.imgur.com/UrmOp2V.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Computers are fast - A cheatsheet</title><link href="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html" rel="alternate" type="text/html" title="Computers are fast - A cheatsheet" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet</id><content type="html" xml:base="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html">&lt;style&gt;
 table {
     width:100%;
 }
