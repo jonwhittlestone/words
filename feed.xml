@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-02-07T04:15:22-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Book Notes - No Rules Rules</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html" rel="alternate" type="text/html" title="Book Notes - No Rules Rules" /><published>2021-02-07T00:00:00-06:00</published><updated>2021-02-07T00:00:00-06:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html">&lt;p&gt;As soon as I saw the title, I knew this is a book I had to read.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-02-07T04:50:37-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Book Notes - No Rules Rules</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html" rel="alternate" type="text/html" title="Book Notes - No Rules Rules" /><published>2021-02-07T00:00:00-06:00</published><updated>2021-02-07T00:00:00-06:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html">&lt;p&gt;As soon as I saw the title, I knew this is a book I had to read.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;NO RULES RULES&lt;/p&gt;
@@ -15,15 +15,59 @@ My hunch was that the storytelling would likely be engaging from such a creative
 
 &lt;p&gt;I’ve many ideas deeply entrenched in the idea coninuous improvement - I created &lt;a href=&quot;https://github.com/jonwhittlestone/kaizen-async&quot;&gt;some software&lt;/a&gt; that helps do just that. Throughout reading, this book spoke to me.&lt;/p&gt;
 
-&lt;p&gt;It’s densely-packed with concepts on effective communication of work culture that speak to both the C-Suite and individual contributors alike. You may liken it to the way a great film or play is densely packed with themes, plots and dialogue without waste.&lt;/p&gt;
+&lt;p&gt;It’s densely-packed with concepts and case-studies on effective communication and general work culture that speak to both the C-Suite and individual contributors alike. You may liken it to the way a great film or play is densely packed with themes, plots and dialogue without waste.&lt;/p&gt;
 
 &lt;p&gt;Netflix is an organisation that began life as a mail-order DVD company just before the dotcom boom of the late 90s. The book shows how the company has steadily transitioned to a global content video on demand streaming platform and production company in 20 years by explaining their attitude to human resources.&lt;/p&gt;
 
 &lt;p&gt;The book is written by Reed Hastings - Netflix CEO and Erin Meyer - an academic and &lt;a href=&quot;https://www.goodreads.com/book/show/22085568-the-culture-map&quot;&gt;author&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;freedom-and-responsibility&quot;&gt;Freedom and Responsibility&lt;/h2&gt;
+&lt;h2 id=&quot;individuals&quot;&gt;Individuals&lt;/h2&gt;
+
+&lt;p&gt;Stunning Colleages, Talent Density, brilliant jerks&lt;/p&gt;
+
+&lt;p&gt;Mediocre performance gets a polite goodbye and generous severance&lt;/p&gt;
+
+&lt;h2 id=&quot;freedom-responsibility-and-candour&quot;&gt;Freedom, Responsibility and Candour&lt;/h2&gt;
+
+&lt;p&gt;High performance + Selfless candour = Extremely high performance&lt;/p&gt;
+
+&lt;h3 id=&quot;4a1-feedback-guidelines&quot;&gt;4A+1 feedback guidelines&lt;/h3&gt;
+
+&lt;p&gt;It’s the principle of honesty and candour that presents the need for some guidelines on feedback so a productive, harmonious work environment is kept. The 4As of feedback are introudced in the second chapter. The last section of the book on ‘Going Global’ revisits the points, adding an additional point that highlights the need for international sensitivity when communicating.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Aim to Assist (giving feedback)&lt;/p&gt;
+
+    &lt;p&gt;Feedback must be given with positive intent&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Actionable (giving feedback)&lt;/p&gt;
+
+    &lt;p&gt;Feedback must focus on what the recipient can do differently&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Appreciate (receiving feedback)&lt;/p&gt;
+
+    &lt;p&gt;Our natrual inclidation is to get defensive when receiving criticism as we aim to protect our ego but will be more helpful for you to listen careful and consider with an open mind&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Accept or discard (receiving feedback)&lt;/p&gt;
+
+    &lt;p&gt;We can teach each other to accept with grace or sincerity but the provider must understand that the desicion to react is up to the recipient.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Adapt (receiving feedback)&lt;/p&gt;
+
+    &lt;p&gt;Delivery and reaction requires empathy and understanding of the culture you’re working with to get the results you need&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h2 id=&quot;connecting-the-dots&quot;&gt;Connecting the dots&lt;/h2&gt;
+
+&lt;h3 id=&quot;dot-1&quot;&gt;Dot 1&lt;/h3&gt;
+
+&lt;p&gt;Stunning Colleages / Talent density&lt;/p&gt;
 
 &lt;p&gt;My rating: 4/5&lt;/p&gt;
 
