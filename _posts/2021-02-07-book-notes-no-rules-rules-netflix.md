@@ -20,7 +20,7 @@ As soon as I heard the title, I knew this is a book I had to read.
 Just the bold title alone conveys frankness, boldness and candour to a potential reader.
 My hunch was that the storytelling would likely be engaging from such a creative company.
 
-I've many ideas deeply entrenched in the idea coninuous improvement - I created [some software](https://github.com/jonwhittlestone/kaizen-async) that helps do just that. So this book spoke to me.
+I've many ideas deeply entrenched in the idea coninuous improvement - I created [some software](https://github.com/jonwhittlestone/kaizen-async) that helps do just that. Throughout reading, this book spoke to me.
 
 My rating: 4/5
 
