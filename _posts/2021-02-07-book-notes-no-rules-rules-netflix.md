@@ -5,6 +5,7 @@ description: Notes on 'No Rules Rules, Netflix and the Culture of Reinvention' b
 categories: [book notes, work life, non-fiction]
 title: Book Notes - No Rules Rules
 image: http://www.howapped.com/assets/files/no-rules-rules-netflix.png
+hide: true
 ---
 
 As soon as I saw the title, I knew this is a book I had to read.
