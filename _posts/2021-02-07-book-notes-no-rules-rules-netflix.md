@@ -23,11 +23,7 @@ There are 10 chapters which cover the creative workplace culture of Netflix - th
 After having worked in various levels of progressive workplace culture at small and large companies, this book really connected the dots for me.
 
 Here are my notes transferred from my [Remarkable tablet](https://time.com/collection/best-inventions-2020/5911408/remarkable-2/) (which I've fallen in love with)
-
-
-## Section One - First steps to a culture 
-
-of Freedom and Responsibility 
+ 
 
 ### 1. First, build up talent density 
 
