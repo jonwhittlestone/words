@@ -37,14 +37,14 @@ of Freedom and Responsibility
 
 ### 2. Say what you really think (with positive intent) 
 
-- with candour, high performers will become outstanding performers . Frequent candid feedback exponentially magnifies the speed and effectiveness of your work force 
+- With candour, high performers will become outstanding performers . Frequent candid feedback exponentially magnifies the speed and effectiveness of your work force 
 
 - Set the stage for candour by building feedback moments into your regular meetings
 - Coach your employees to give and receive feedback effectively following the 4A guidelines (live) (Give) )
-  - Aim to Assist
-  - Actionable
+  - Aim to Assist (Giving)
+  - Actionable (Giving)
   - Appreciate (Receiving)
-  - Accept or Discard (Received
+  - Accept or Discard (Receiving)
     
 - As a leader solicit feedback regularly and respond with belonging cues when you receive
  - Get rid of jerks as you instill a culture of candour
@@ -110,7 +110,7 @@ of Freedom and Responsibility
 - If a poor decision has been made, don't blame. Ask what context you failed to communicate.
 - Is everyone highly aligned on vision and objectives ?
 - A loosely coupled organisation should resemble a tree rather than a pyramid. The boss is at the roots, holding up the trunk of senior managers who support the outer branches where decisions are made.
-- The end goal is to eliminate these practices
+- These policies, Reed argues do not work for Netflix/a creative engineering culture.
     - Vacation Policies
     - Decision- Making approvals
     - Expense Policies
