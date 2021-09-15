@@ -8,7 +8,7 @@ comments: true
 categories: [AWS Lambda, automation, python]
 image: http://i.imgur.com/dIAyXJa.png
 show_image: true
-hide: true
+hide: false
 nb_path: _notebooks/2020-07-15-scheduled-serverless-startup.ipynb
 layout: notebook
 ---
@@ -33,7 +33,7 @@ layout: notebook
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="The-Problem">The Problem<a class="anchor-link" href="#The-Problem"> </a></h1><p>As part of the early Covid-19 response, Digital Ocean donated some free credit to us to host an app for a local food delivery scheme.</p>
 <p>To make that credit go as far as possible and to minimise power consumption, we'd like to power up and down the servers according to a schedule.</p>
-<h1 id="The-Solution">The Solution<a class="anchor-link" href="#The-Solution"> </a></h1><p>Here's how to do that with AWS Lambda, with cloudfront events. We iterate on that to use the Serverless Framework.</p>
+<h1 id="The-Solution">The Solution<a class="anchor-link" href="#The-Solution"> </a></h1><p>Here's how to do that with AWS Lambda, with cloudfront events. We iterate on that to use the AWS Serverless Application Model - a way to define and deploy your infrastructure as config.</p>
 <p><strong>TLDR; Have a look at the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">companion repo.</a>. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.</strong></p>
 <p>This article covers how to automate with a Digital Ocean droplet so to follow along with the code, you can create one using the example from <a href="http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet">a previous article</a>.</p>
 <p>We will examine the cURL statements, convert those into Python. We can use AWS Lambda to execute the Python in a serverless environment. Then, the AWS lambda functions can be triggered by Cloudwatch events to a schedule so machines can be brought online only during operating hours.</p>
@@ -227,63 +227,15 @@ in-progress
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Running-the-scripts-in-AWS-Lambda">Running the scripts in AWS Lambda<a class="anchor-link" href="#Running-the-scripts-in-AWS-Lambda"> </a></h3><p>Let's translate the cURL statements into Python.</p>
+<h3 id="Running-the-scripts-in-AWS-Lambda">Running the scripts in AWS Lambda<a class="anchor-link" href="#Running-the-scripts-in-AWS-Lambda"> </a></h3><ol>
+<li>use code from lambdapi to deploy with boto3</li>
+<li>Add environment variables to lambda containing <code>DIGITAL_ACCESS_TOKEN</code>, <code>IP_ADDRESS</code></li>
+<li>hit on/off api routes from api gateway to check the lambdas have worked</li>
+</ol>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Popping on a new on/off timestamp on a firebase stored stack</span>
-
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">arrow</span>
-
-
-<span class="n">start</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;off&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2020-08-11 09:04&#39;</span><span class="p">],</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2020-08-11 09:03&#39;</span><span class="p">]}</span>
-
-<span class="c1"># get data</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://wordsdothowappeddotcom.firebaseio.com/scheduled-serverless-startup.json?print=pretty&#39;</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="c1"># replace data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;off&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-In  <span class="ansi-blue-fg">[12]</span>:
-Line <span class="ansi-blue-fg">4</span>:     <span class="ansi-blue-fg">import</span> <span class="ansi-cyan-fg ansi-underline">arrow</span>
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;arrow&#39;
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span></pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Schedule-the-scripts-with-Cloudwatch-events">Schedule the scripts with Cloudwatch events<a class="anchor-link" href="#Schedule-the-scripts-with-Cloudwatch-events"> </a></h2>
@@ -292,7 +244,7 @@ Line <span class="ansi-blue-fg">4</span>:     <span class="ansi-blue-fg">import<
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Putting-it-all-together-in-a-Serverless-Application-Framework-template">Putting it all together in a Serverless Application Framework template<a class="anchor-link" href="#Putting-it-all-together-in-a-Serverless-Application-Framework-template"> </a></h2>
+<h2 id="Putting-it-all-together-in-a-Serverless-Application-Framework-template">Putting it all together in a Serverless Application Framework template<a class="anchor-link" href="#Putting-it-all-together-in-a-Serverless-Application-Framework-template"> </a></h2><h3 id="Workflow-improvement:-Use-SAM-offline-feature-to-avoid-having-to-deploy-the-lambda/api-gateway">Workflow improvement: Use SAM offline feature to avoid having to deploy the lambda/api gateway<a class="anchor-link" href="#Workflow-improvement:-Use-SAM-offline-feature-to-avoid-having-to-deploy-the-lambda/api-gateway"> </a></h3>
 </div>
 </div>
 </div>

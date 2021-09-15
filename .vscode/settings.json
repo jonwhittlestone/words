@@ -8,5 +8,6 @@
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.pythonPath": "/home/jon/miniconda3/envs/words/bin/python3"
+    "python.pythonPath": "/home/jon/miniconda3/envs/words/bin/python3",
+    "python.formatting.provider": "black"
 }

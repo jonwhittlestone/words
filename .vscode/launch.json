@@ -41,6 +41,17 @@
       "args": [
       ],
       "django": false
+    },
+    {
+      "name": "scheduledserverless.faas.deploy",
+      "type": "python",
+      "request": "launch",
+      "program": "/home/jon/code/words/_notebooks/repos/scheduledserverless/faas/main.py",
+      "console": "integratedTerminal",
+      "args": [
+        "deploy"
+      ],
+      "django": false
     }
   ]
 }
