@@ -3,7 +3,7 @@ toc: false
 layout: post
 description: Leading a Team, Dos and Don'ts - A Google insight.
 categories: [book notes, work life, non-fiction]
-title: Engineering Management - from those that know. 
+title: Effective Engineering Management 
 image: https://i.imgur.com/syhowyL.png
 hide: false
 ---
