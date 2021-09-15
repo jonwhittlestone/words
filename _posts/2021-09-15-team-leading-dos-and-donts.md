@@ -12,7 +12,7 @@ As we know Software Development is not just about technical problem solving but 
 
 Trust, Humility and Respect are the core principles at the core of Brian Fitzpatrick's dos and don'ts. From an essay in Software Engineering at Google.
 
-First up, the anti-patterns, and then the patterns:
+Presented below, the anti-patterns, and then the patterns:
 
 __Don't__: Hire Pushovers
 
