@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-08-09T03:48:31-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Book Notes - No Rules Rules</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html" rel="alternate" type="text/html" title="Book Notes - No Rules Rules" /><published>2021-02-07T00:00:00-06:00</published><updated>2021-02-07T00:00:00-06:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html">&lt;p&gt;As soon as I saw the title, I knew this is a book I had to read.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-09-15T02:00:47-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Engineering Management. What does it take to lead a dev team?</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Engineering Management. What does it take to lead a dev team?" /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving but the human factors involved when delivering a product at scale.&lt;/p&gt;
+
+&lt;p&gt;Trust, Humility and Respect are the core principles at the core of Brian Fitzpatrick’s dos and don’ts. From an essay in Software Engineering at Google.&lt;/p&gt;
+
+&lt;p&gt;First up, the anti-patterns, and then the patterns:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Hire Pushovers&lt;/p&gt;
+
+&lt;p&gt;This means hiring people that are smarter than you and could eventually replace you.&lt;/p&gt;
+
+&lt;p&gt;When leading a team or as indivividual contributor, our general strategy should be ‘We may leave at any time, so have the project and processes in a state where they are documented and can be handed over’&lt;/p&gt;
+
+&lt;p&gt;At first, the statement above might sound negative. But this approach means you and everyone around you progress on to new projects and opportunities.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Ignore Low performers&lt;/p&gt;
+
+&lt;p&gt;If there is a team member who isn’t doing their best, if you don’t address it, the team will suffer.&lt;/p&gt;
+
+&lt;p&gt;It keeps high performers from joining and encourages existing high performers to leave.&lt;/p&gt;
+
+&lt;p&gt;Instead, help them &lt;strong&gt;up&lt;/strong&gt;, or out.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Ignore Human Issues&lt;/p&gt;
+
+&lt;p&gt;Focusing all your energies on technical problem solving can mean you’ve neglectted colleagues’ personal poblems. This sows discontent leading to a lack of productivity&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Ignore Human Issues&lt;/p&gt;
+
+&lt;p&gt;Focusing all your energies on technical problem solving can mean you’ve neglectted colleagues’ personal poblems. This sows discontent leading to a lack of productivity.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Be everyone’s Friend&lt;/p&gt;
+
+&lt;p&gt;Becoming a manager or team lead of colleague’s where you previously been peers may be uncomfortable at first.&lt;/p&gt;
+
+&lt;p&gt;Having a weekly team lunch can be an effective way to remain socially connected without making them uncomfortable.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Compromise the hiring bar.&lt;/p&gt;
+
+&lt;p&gt;This can happen when you need to hire quickly, the legendary Blitzscale! Don’t be tempted.&lt;/p&gt;
+
+&lt;p&gt;Don’t sacrifice hiring standard because the cost of hiring the appropriate person pales compared to dealing with a bad hire.&lt;/p&gt;
+
+&lt;p&gt;In the words of Steve Jobs, &lt;em&gt;A people hire other A people. B people hire C people.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Treat your team like Children&lt;/p&gt;
+
+&lt;p&gt;Trust them to be great, and they will be great.&lt;/p&gt;
+
+&lt;p&gt;Give them opportunity to be responsible for their work.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Lose the Ego&lt;/p&gt;
+
+&lt;p&gt;This means trusting your team by respecting the abilities and prior accomplishments of team members.&lt;/p&gt;
+
+&lt;p&gt;Help to set goals and reaching consensus but the details in how to reach them are best decided by the people putting the product together.&lt;/p&gt;
+
+&lt;p&gt;This provides them with a better sense of accountability, ownership and responsibility.&lt;/p&gt;
+
+&lt;p&gt;This also means accepting criticism openly and avoiding the urge to be territorial.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a zen master&lt;/p&gt;
+
+&lt;p&gt;Control your emotions and reactions because a leader is always on stage and your team is always conciously and unconcisly looking to you for cues on how to react.&lt;/p&gt;
+
+&lt;p&gt;This can mean keeping your cynicsm to yourself.&lt;/p&gt;
+
+&lt;p&gt;Asking questions is a great way to instill humility, respect and trust because it’s helping the other person solve the problem on their wn by trying to define and explore the problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a catalyst&lt;/p&gt;
+
+&lt;p&gt;Encourage democracy rather than a dictatorship by building consensus. This can either mean guiding the process from start to finish, or just giving it a gently nudge in the right direction.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Remove roadblocks&lt;/p&gt;
+
+&lt;p&gt;Help the team overcome technical or organisational hurdles to get it moving again. This often means who to contact to get your team access to needed resources.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a mentor/teacher&lt;/p&gt;
+
+&lt;p&gt;Whether you like it or not, a team leader will end up guiding a more junior team member through; code, technology or architectural concepts of the product or team culture.&lt;/p&gt;
+
+&lt;p&gt;For this you need:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Experience with your team’s processes and systems.&lt;/li&gt;
+  &lt;li&gt;The ability to explain things to someone else.&lt;/li&gt;
+  &lt;li&gt;The ability to guage how much help your mentee needs.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The last point is key because you don’t want to be overexplaining since the mentee will just tune you out.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Set clear goals&lt;/p&gt;
+
+&lt;p&gt;You need to define a concise teaam mission statement to ensure your team is aligned about the direction in which it’s heading.&lt;/p&gt;
+
+&lt;p&gt;Then …&lt;/p&gt;
+
+&lt;p&gt;Step back and give it more autonomy and periodically checking in to make sure everyone is still on the right track.&lt;/p&gt;
+
+&lt;p&gt;This drastically improves the efficiency of your team because no energy is wasted where individuals can pull the product in slightly different directions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be Honest&lt;/p&gt;
+
+&lt;p&gt;There’s the need for supreme honsesty when giving direct feedback. Avoid the compliment sandwich.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Please buy! I thoroughly recommend.&lt;/p&gt;
+
+&lt;p&gt;You may buy Software Engineering at Google from O’Reilly here&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://uk.bookshop.org/books/software-engineering-at-google-lessons-learned-from-programming-over-time/9781492082798&quot;&gt;Bookshop.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/kMpCBtx.png&quot; alt=&quot;&quot; title=&quot;Software Engineering at Google&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">As we know Software Development is not just about technical problem solving but the human factors involved when delivering a product at scale.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.imgur.com/syhowyL.png" /><media:content medium="image" url="https://i.imgur.com/syhowyL.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Book Notes - No Rules Rules</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html" rel="alternate" type="text/html" title="Book Notes - No Rules Rules" /><published>2021-02-07T00:00:00-06:00</published><updated>2021-02-07T00:00:00-06:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html">&lt;p&gt;As soon as I saw the title, I knew this is a book I had to read.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;NO RULES RULES&lt;/p&gt;
