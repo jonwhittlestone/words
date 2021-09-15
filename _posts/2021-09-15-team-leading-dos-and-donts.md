@@ -3,7 +3,7 @@ toc: false
 layout: post
 description: Leading a Team, Dos and Don'ts - A Google insight.
 categories: [book notes, work life, non-fiction]
-title: Engineering Management. What does it take to lead a dev team? 
+title: Engineering Management Requirements. 
 image: https://i.imgur.com/syhowyL.png
 hide: false
 ---
@@ -109,7 +109,24 @@ This drastically improves the efficiency of your team because no energy is waste
 
 __Do__: Be Honest
 
-There's the need for supreme honsesty when giving direct feedback. Avoid the compliment sandwich.
+There's the need for supreme honsesty when giving direct feedback. Avoid the [compliment sandwich](https://www.psychologytoday.com/us/blog/creative-leadership/201808/no-one-wants-eat-your-compliment-sandwich) since this can deflect attention from the issue that requires change or improvement.
+
+When giving critism, delivery is key to making sure the message is heard. Avoid sugarcoating.
+
+Kindness and Empath is critical.
+
+__Do__: Track Happiness
+
+To stave off discontent, here are some ideas:
+
+- At the end of a weekly one-on-one, ask "What do you need"
+
+- Make sure people get recognition for their work by tracking the mundant tasks and distributing responsobilities evenly.
+
+- To prevent burnout, track hours and exchange them for fun team activities.
+
+### Conclusion
+ Ultimately, be an enable and plan how you are going to help your team members realise their career wishes and desires. This might be with opportunities to improve themselves, be recognised for the work they do, and just to have some fun along the way!
 
 ---
 Please buy! I thoroughly recommend.
