@@ -3,7 +3,7 @@ toc: false
 layout: post
 description: Leading a Team, Dos and Don'ts - A Google insight.
 categories: [book notes, work life, non-fiction]
-title: Engineering Management Requirements. 
+title: Engineering Management - from those that know. 
 image: https://i.imgur.com/syhowyL.png
 hide: false
 ---
@@ -20,27 +20,23 @@ This means hiring people that are smarter than you and could eventually replace 
 
 When leading a team or as indivividual contributor, our general strategy should be 'We may leave at any time, so have the project and processes in a state where they are documented and can be handed over'
 
-At first, the statement above might sound negative. But this approach means you and everyone around you progress on to new projects and opportunities.
+At first, the statement above may sound negative. But this approach means you and everyone around you progress on to new projects and opportunities.
 
 __Don't__: Ignore Low performers
 
-If there is a team member who isn't doing their best, if you don't address it, the team will suffer.
+The team suffers if there is a team member who isn't doing their best if you don't address it.
 
-It keeps high performers from joining and encourages existing high performers to leave.
+Keeping a low performer in your team keeps high performers from joining and encourages existing high performers to leave.
 
-Instead, help them __up__, or out.
-
-__Don't__: Ignore Human Issues
-
-Focusing all your energies on technical problem solving can mean you've neglectted colleagues' personal poblems. This sows discontent leading to a lack of productivity
+Instead, help the strugglers __up__, or out.
 
 __Don't__: Ignore Human Issues
 
-Focusing all your energies on technical problem solving can mean you've neglectted colleagues' personal poblems. This sows discontent leading to a lack of productivity.
+Focusing all your energies on technical problem solving can mean you've neglected colleagues' personal poblems. This sows discontent leading to a lack of team productivity
 
-__Don't__: Be everyone's Friend
+__Don't__: Be everyone's friend
 
-Becoming a manager or team lead of colleague's where you previously been peers may be uncomfortable at first.
+Becoming a manager or team lead of colleagues where previously you were peers may be uncomfortable at first.
 
 Having a weekly team lunch can be an effective way to remain socially connected without making them uncomfortable.
 
@@ -52,7 +48,7 @@ Don't sacrifice hiring standard because the cost of hiring the appropriate perso
 
 In the words of Steve Jobs, _A people hire other A people. B people hire C people._
 
-__Don't__: Treat your team like Children
+__Don't__: Treat your team like children
 
 Trust them to be great, and they will be great.
 
@@ -62,19 +58,19 @@ __Do__: Lose the Ego
 
 This means trusting your team by respecting the abilities and prior accomplishments of team members.
 
-Help to set goals and reaching consensus but the details in how to reach them are best decided by the people putting the product together.
+Help to set goals and reach consensus but the details of __how__ to reach them are best decided by the people putting the product together.
 
-This provides them with a better sense of accountability, ownership and responsibility.
+This gives them a better sense of accountability, ownership and responsibility.
 
 This also means accepting criticism openly and avoiding the urge to be territorial.
 
 __Do__: Be a zen master
 
-Control your emotions and reactions because a leader is always on stage and your team is always conciously and unconcisly looking to you for cues on how to react.
+Control your emotions and reactions because a leader is always on stage and your team is always conciously and unconsciously looking to you for cues on how to react.
 
 This can mean keeping your cynicsm to yourself.
 
-Asking questions is a great way to instill humility, respect and trust because it's helping the other person solve the problem on their wn by trying to define and explore the problem.
+Asking questions is a great way to instill humility, respect and trust because it's helps the other person problem solve on their own by trying to define and explore the problem.
 
 __Do__: Be a catalyst
 
@@ -87,7 +83,7 @@ Help the team overcome technical or organisational hurdles to get it moving agai
 
 __Do__: Be a mentor/teacher
 
-Whether you like it or not, a team leader will end up guiding a more junior team member through; code, technology or architectural concepts of the product or team culture.
+Whether you like it or not, a team leader will end up guiding a more junior team member through; code, technology or architectural concept or team culture.
 
 For this you need:
 
@@ -113,7 +109,7 @@ There's the need for supreme honsesty when giving direct feedback. Avoid the [co
 
 When giving critism, delivery is key to making sure the message is heard. Avoid sugarcoating.
 
-Kindness and Empath is critical.
+Kindness and empathy is critical.
 
 __Do__: Track Happiness
 
@@ -121,17 +117,18 @@ To stave off discontent, here are some ideas:
 
 - At the end of a weekly one-on-one, ask "What do you need"
 
-- Make sure people get recognition for their work by tracking the mundant tasks and distributing responsobilities evenly.
+- Make sure people get recognition for their work by tracking the mundane tasks and distributing responsobilities evenly.
 
 - To prevent burnout, track hours and exchange them for fun team activities.
 
 ### Conclusion
- Ultimately, be an enable and plan how you are going to help your team members realise their career wishes and desires. This might be with opportunities to improve themselves, be recognised for the work they do, and just to have some fun along the way!
-
----
+ Ultimately, you need to be an enabler and plan how you are going to help your team members realise their career wishes and desires. This might be with opportunities to improve themselves or be recognised for the work they do. 
+ 
+ ---
 Please buy! I thoroughly recommend.
 
-You may buy Software Engineering at Google from O'Reilly here
+You may buy Software Engineering at Google here.
+
 - [Bookshop.org](https://uk.bookshop.org/books/software-engineering-at-google-lessons-learned-from-programming-over-time/9781492082798)
 
 ![](https://i.imgur.com/kMpCBtx.png "Software Engineering at Google")
