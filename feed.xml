@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-09-15T02:22:03-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Engineering Management Requirements.</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Engineering Management Requirements." /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving but the human factors involved when delivering a product at scale.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-09-15T03:22:21-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Engineering Management - from those that know.</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Engineering Management - from those that know." /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving but the human factors involved when delivering a product at scale.&lt;/p&gt;
 
 &lt;p&gt;Trust, Humility and Respect are the core principles at the core of Brian Fitzpatrick’s dos and don’ts. From an essay in Software Engineering at Google.&lt;/p&gt;
 
@@ -10,27 +10,23 @@
 
 &lt;p&gt;When leading a team or as indivividual contributor, our general strategy should be ‘We may leave at any time, so have the project and processes in a state where they are documented and can be handed over’&lt;/p&gt;
 
-&lt;p&gt;At first, the statement above might sound negative. But this approach means you and everyone around you progress on to new projects and opportunities.&lt;/p&gt;
+&lt;p&gt;At first, the statement above may sound negative. But this approach means you and everyone around you progress on to new projects and opportunities.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Ignore Low performers&lt;/p&gt;
 
-&lt;p&gt;If there is a team member who isn’t doing their best, if you don’t address it, the team will suffer.&lt;/p&gt;
+&lt;p&gt;The team suffers if there is a team member who isn’t doing their best if you don’t address it.&lt;/p&gt;
 
-&lt;p&gt;It keeps high performers from joining and encourages existing high performers to leave.&lt;/p&gt;
+&lt;p&gt;Keeping a low performer in your team keeps high performers from joining and encourages existing high performers to leave.&lt;/p&gt;
 
-&lt;p&gt;Instead, help them &lt;strong&gt;up&lt;/strong&gt;, or out.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Ignore Human Issues&lt;/p&gt;
-
-&lt;p&gt;Focusing all your energies on technical problem solving can mean you’ve neglectted colleagues’ personal poblems. This sows discontent leading to a lack of productivity&lt;/p&gt;
+&lt;p&gt;Instead, help the strugglers &lt;strong&gt;up&lt;/strong&gt;, or out.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Ignore Human Issues&lt;/p&gt;
 
-&lt;p&gt;Focusing all your energies on technical problem solving can mean you’ve neglectted colleagues’ personal poblems. This sows discontent leading to a lack of productivity.&lt;/p&gt;
+&lt;p&gt;Focusing all your energies on technical problem solving can mean you’ve neglected colleagues’ personal poblems. This sows discontent leading to a lack of team productivity&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Be everyone’s Friend&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Be everyone’s friend&lt;/p&gt;
 
-&lt;p&gt;Becoming a manager or team lead of colleague’s where you previously been peers may be uncomfortable at first.&lt;/p&gt;
+&lt;p&gt;Becoming a manager or team lead of colleagues where previously you were peers may be uncomfortable at first.&lt;/p&gt;
 
 &lt;p&gt;Having a weekly team lunch can be an effective way to remain socially connected without making them uncomfortable.&lt;/p&gt;
 
@@ -42,7 +38,7 @@
 
 &lt;p&gt;In the words of Steve Jobs, &lt;em&gt;A people hire other A people. B people hire C people.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Treat your team like Children&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Treat your team like children&lt;/p&gt;
 
 &lt;p&gt;Trust them to be great, and they will be great.&lt;/p&gt;
 
@@ -52,19 +48,19 @@
 
 &lt;p&gt;This means trusting your team by respecting the abilities and prior accomplishments of team members.&lt;/p&gt;
 
-&lt;p&gt;Help to set goals and reaching consensus but the details in how to reach them are best decided by the people putting the product together.&lt;/p&gt;
+&lt;p&gt;Help to set goals and reach consensus but the details of &lt;strong&gt;how&lt;/strong&gt; to reach them are best decided by the people putting the product together.&lt;/p&gt;
 
-&lt;p&gt;This provides them with a better sense of accountability, ownership and responsibility.&lt;/p&gt;
+&lt;p&gt;This gives them a better sense of accountability, ownership and responsibility.&lt;/p&gt;
 
 &lt;p&gt;This also means accepting criticism openly and avoiding the urge to be territorial.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a zen master&lt;/p&gt;
 
-&lt;p&gt;Control your emotions and reactions because a leader is always on stage and your team is always conciously and unconcisly looking to you for cues on how to react.&lt;/p&gt;
+&lt;p&gt;Control your emotions and reactions because a leader is always on stage and your team is always conciously and unconsciously looking to you for cues on how to react.&lt;/p&gt;
 
 &lt;p&gt;This can mean keeping your cynicsm to yourself.&lt;/p&gt;
 
-&lt;p&gt;Asking questions is a great way to instill humility, respect and trust because it’s helping the other person solve the problem on their wn by trying to define and explore the problem.&lt;/p&gt;
+&lt;p&gt;Asking questions is a great way to instill humility, respect and trust because it’s helps the other person problem solve on their own by trying to define and explore the problem.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a catalyst&lt;/p&gt;
 
@@ -76,7 +72,7 @@
 
 &lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a mentor/teacher&lt;/p&gt;
 
-&lt;p&gt;Whether you like it or not, a team leader will end up guiding a more junior team member through; code, technology or architectural concepts of the product or team culture.&lt;/p&gt;
+&lt;p&gt;Whether you like it or not, a team leader will end up guiding a more junior team member through; code, technology or architectural concept or team culture.&lt;/p&gt;
 
 &lt;p&gt;For this you need:&lt;/p&gt;
 
@@ -104,7 +100,7 @@
 
 &lt;p&gt;When giving critism, delivery is key to making sure the message is heard. Avoid sugarcoating.&lt;/p&gt;
 
-&lt;p&gt;Kindness and Empath is critical.&lt;/p&gt;
+&lt;p&gt;Kindness and empathy is critical.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Track Happiness&lt;/p&gt;
 
@@ -115,7 +111,7 @@
     &lt;p&gt;At the end of a weekly one-on-one, ask “What do you need”&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Make sure people get recognition for their work by tracking the mundant tasks and distributing responsobilities evenly.&lt;/p&gt;
+    &lt;p&gt;Make sure people get recognition for their work by tracking the mundane tasks and distributing responsobilities evenly.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;To prevent burnout, track hours and exchange them for fun team activities.&lt;/p&gt;
@@ -123,12 +119,13 @@
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;Ultimately, be an enable and plan how you are going to help your team members realise their career wishes and desires. This might be with opportunities to improve themselves, be recognised for the work they do, and just to have some fun along the way!&lt;/p&gt;
+&lt;p&gt;Ultimately, you need to be an enabler and plan how you are going to help your team members realise their career wishes and desires. This might be with opportunities to improve themselves or be recognised for the work they do.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;Please buy! I thoroughly recommend.&lt;/p&gt;
 
-&lt;p&gt;You may buy Software Engineering at Google from O’Reilly here&lt;/p&gt;
+&lt;p&gt;You may buy Software Engineering at Google here.&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://uk.bookshop.org/books/software-engineering-at-google-lessons-learned-from-programming-over-time/9781492082798&quot;&gt;Bookshop.org&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
