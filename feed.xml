@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-12-29T02:49:54-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">Effective Engineering Management</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Effective Engineering Management" /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-12-30T00:17:46-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00-06:00</published><updated>2021-12-30T00:00:00-06:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html">&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AKwcpBi.jpg&quot; alt=&quot;&quot; title=&quot;2021: This Year I Learned&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;professional&quot;&gt;Professional&lt;/h2&gt;
+
+&lt;h3 id=&quot;always-be-quitting&quot;&gt;Always be Quitting&lt;/h3&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h3 id=&quot;using-documentation-for-design-proposals&quot;&gt;Using Documentation for design proposals&lt;/h3&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h3 id=&quot;more-robust-software-development-using-typing-and-the-compilation-step&quot;&gt;More robust software development using typing and the compilation step&lt;/h3&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h3 id=&quot;accelerated-learning-using-a-variety-of-senses&quot;&gt;Accelerated learning using a variety of senses&lt;/h3&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h3 id=&quot;do-not-rely-on-jira-alone-for-communication&quot;&gt;Do not rely on Jira alone for communication&lt;/h3&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h3 id=&quot;tools-fastapi-pydantic-react-context-mongo-aggregation-framework&quot;&gt;Tools: FastAPI, Pydantic, React Context, Mongo Aggregation Framework&lt;/h3&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h2 id=&quot;personal&quot;&gt;Personal&lt;/h2&gt;
+
+&lt;h2 id=&quot;lesser-minds-the-importance-of-engaging-with-strangers&quot;&gt;Lesser Minds, the importance of engaging with strangers&lt;/h2&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h2 id=&quot;standing-desks-work-well-for-me&quot;&gt;Standing desks work well for me&lt;/h2&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h2 id=&quot;parenting-your-childhood-experiences-and-behaviours-carried-over-for-you-to-repeat-as-a-parent&quot;&gt;Parenting: Your childhood experiences and behaviours carried over for you to repeat as a parent&lt;/h2&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h2 id=&quot;the-role-of-listening-in-healthy-relationships&quot;&gt;The role of listening in healthy relationships&lt;/h2&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h2 id=&quot;be-a-strict-gatekeeper-for-the-media-you-consume&quot;&gt;Be a strict gatekeeper for the media you consume.&lt;/h2&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;
+
+&lt;h2 id=&quot;parenting-importance-of-apology&quot;&gt;Parenting: Importance of apology&lt;/h2&gt;
+
+&lt;p&gt;Lorem Ipsum ..&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.imgur.com/AKwcpBi.jpg" /><media:content medium="image" url="https://i.imgur.com/AKwcpBi.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Effective Engineering Management</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Effective Engineering Management" /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.&lt;/p&gt;
 
 &lt;p&gt;From an essay in &lt;em&gt;Software Engineering at Google&lt;/em&gt;, Brian Fitzpatrick discusses engineering management patterns and anti-patterns. At it’s core are the values of Trust, Humility and Respect.&lt;/p&gt;
 
