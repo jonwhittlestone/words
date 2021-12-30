@@ -38,26 +38,26 @@ Lorem Ipsum ..
 
 ## Personal
 
-## Lesser Minds, the importance of engaging with strangers
+### Lesser Minds, the importance of engaging with strangers
 
 Lorem Ipsum ..
 
-## Standing desks work well for me
+### Standing desks work well for me
 
 Lorem Ipsum ..
 
-## Parenting: Your childhood experiences and behaviours carried over for you to repeat as a parent
+### Parenting: Your childhood experiences and behaviours carried over for you to repeat as a parent
 
 Lorem Ipsum ..
 
-## The role of listening in healthy relationships
+### The role of listening in healthy relationships
 
 Lorem Ipsum ..
 
-## Be a strict gatekeeper for the media you consume.
+### Be a strict gatekeeper for the media you consume.
 
 Lorem Ipsum ..
 
-## Parenting: Importance of apology
+### Parenting: Importance of apology
 
 Lorem Ipsum ..
