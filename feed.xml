@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-01-01T01:20:13-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00-06:00</published><updated>2021-12-30T00:00:00-06:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html">&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AKwcpBi.jpg&quot; alt=&quot;&quot; title=&quot;2021: This Year I Learned&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-01-01T01:35:35-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00-06:00</published><updated>2021-12-30T00:00:00-06:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html">&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AKwcpBi.jpg&quot; alt=&quot;&quot; title=&quot;2021: This Year I Learned&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;professional&quot;&gt;Professional&lt;/h2&gt;
 
@@ -7,6 +7,8 @@
 &lt;p&gt;Thanks to Julio Merino for the phrase and his excellent &lt;a href=&quot;https://jmmv.dev/2021/04/always-be-quitting.html&quot;&gt;article&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The phrase describes how we should approach a software project, as participants, owners and stewards. We should be in a permanent state of being able to handover the project.&lt;/p&gt;
+
+&lt;p&gt;It does not mean, abdicating responsbility.&lt;/p&gt;
 
 &lt;p&gt;It means encouraging transparency by promoting documentation as you develop. So that at any one time, A project and user can be onboarded or the project can be demoed. As well as the software itself, this also includes documenting your long-term plans for the project.&lt;/p&gt;
 
@@ -19,14 +21,14 @@
 &lt;ul&gt;
   &lt;li&gt;Julio Merino - Always Be Quitting
     &lt;ul&gt;
-      &lt;li&gt;https://jmmv.dev/2021/04/always-be-quitting.html&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://jmmv.dev/2021/04/always-be-quitting.html&quot;&gt;https://jmmv.dev/2021/04/always-be-quitting.html&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;using-a-design-document-to-explain-and-persuade&quot;&gt;Using a design document to explain and persuade.&lt;/h3&gt;
 
-&lt;p&gt;This year I’ve found that using a platform like Confluence to create a design document has helped to explain and persuade an approach or design strategy.&lt;/p&gt;
+&lt;p&gt;This year I’ve found using a platform like Confluence to create a design document has helped to explain and persuade an approach or design strategy.&lt;/p&gt;
 
 &lt;p&gt;This is especially true when time pressures have meant face-to-face, synchronous communications have been harder to come by.&lt;/p&gt;
 
@@ -41,7 +43,7 @@
 &lt;ul&gt;
   &lt;li&gt;Chapter 10 - Design Docs - Sofware Engineering at Google
     &lt;ul&gt;
-      &lt;li&gt;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs&quot;&gt;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -50,13 +52,13 @@
 
 &lt;p&gt;In 2021 I dabbled with Rust. It’s my first dive into high-level, compiled languages since my days of C++ and Java at the start of my career.&lt;/p&gt;
 
-&lt;p&gt;It’s worth saying, the tooling around Rust development is first-class and it showed how compiler is able to present the developer with errors at an early stage so that you fail fast.&lt;/p&gt;
+&lt;p&gt;It’s worth saying, the tooling around Rust development is first-class and it showed how the compiler is able to present the developer with errors at an early stage so that you fail fast.&lt;/p&gt;
 
 &lt;p&gt;In a work project, we also used the Typescript template with Create-React-App.&lt;/p&gt;
 
 &lt;p&gt;Using both of these opened my eyes to how the compilation step and static code analysis can help the developer find bugs, antipatterns and other issues at the coding stage of the Software Development Lifecycle without running the program.&lt;/p&gt;
 
-&lt;p&gt;Subsequently this led me to use &lt;code class=&quot;highlighter-rouge&quot;&gt;mypy&lt;/code&gt; and Python’s ‘opt-in’ typing mechanism more thoroughly.&lt;/p&gt;
+&lt;p&gt;Subsequently, in my daily Python-land, this led me to use &lt;code class=&quot;highlighter-rouge&quot;&gt;mypy&lt;/code&gt; and Python’s ‘opt-in’ typing mechanism more thoroughly.&lt;/p&gt;
 
 &lt;h4 id=&quot;resources-2&quot;&gt;Resources&lt;/h4&gt;
 
@@ -65,27 +67,27 @@
     &lt;p&gt;Rust Book&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&quot;&gt;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Rustlings&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;https://github.com/rust-lang/rustlings&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rust-lang/rustlings&quot;&gt;https://github.com/rust-lang/rustlings&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;React Typescript cheatsheet&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rust-lang/rustlings&quot;&gt;https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Full-Stack React, Typescript and Node&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/&quot;&gt;https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -109,15 +111,14 @@
     &lt;p&gt;Rust Book&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&quot;&gt;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Rustlings&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;https://github.com/rust-lang/rustlings
-i&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rust-lang/rustlings&quot;&gt;https://github.com/rust-lang/rustlings&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -126,7 +127,7 @@ i&lt;/li&gt;
 
 &lt;p&gt;In 2021 I’ve been involved in consulting for a single software team where we’ve delivered on a couple of data-driven software projects.&lt;/p&gt;
 
-&lt;p&gt;I consider this team highly productive and efficient in meeting goals. One of its strengths has been how we communicate with each other. That is, to use Jira for ticketing, as a documentation tool, rather than a communication tool.&lt;/p&gt;
+&lt;p&gt;I consider this team highly productive and efficient in meeting its bi-weekly sprint goals. One of its strengths has been how we communicate. That is, to use Jira for ticketing, as a documentation tool, rather than a communication tool.&lt;/p&gt;
 
 &lt;p&gt;It’s quite easy to fall into the trap of making Jira comments, tagging other team members and then relying on this for inter-team communication.&lt;/p&gt;
 
@@ -138,7 +139,7 @@ i&lt;/li&gt;
 
 &lt;p&gt;In Python, 2021 I’ve gotten to grips with FastAPI and Pydantic which has greatly helped with rapid application development.&lt;/p&gt;
 
-&lt;p&gt;FastAPI is an async micro web framework that works beautifully with Pydantic to works with the OpenAPI protocol to product beauiful API documentation out of the box. This is exactly what our team needed.&lt;/p&gt;
+&lt;p&gt;FastAPI is an async micro web framework that works beautifully with Pydantic and works with the OpenAPI protocol to produce beauiful API documentation out of the box. This is exactly what our team needed in order to move quickly.&lt;/p&gt;
 
 &lt;!-- In frontend land, we've reafactored --&gt;
 
