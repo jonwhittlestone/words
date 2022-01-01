@@ -18,6 +18,8 @@ Thanks to Julio Merino for the phrase and his excellent [article](https://jmmv.d
 
 The phrase describes how we should approach a software project, as participants, owners and stewards. We should be in a permanent state of being able to handover the project.
 
+It does not mean, abdicating responsbility.
+
 It means encouraging transparency by promoting documentation as you develop. So that at any one time, A project and user can be onboarded or the project can be demoed. As well as the software itself, this also includes documenting your long-term plans for the project.
 
 It means, eliminating, what Google refer to as The Bus Factor. The act of sharing knowledge so no one individual is a silo or bottleneck. This is covered extensively in [O'Reilly's excellent book, Software Engineering at Google](https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/).
@@ -27,11 +29,11 @@ It means, looking to move on from a project as a positive, rather than a negativ
 #### Resources
 
 - Julio Merino - Always Be Quitting
-  - https://jmmv.dev/2021/04/always-be-quitting.html
+  - [https://jmmv.dev/2021/04/always-be-quitting.html](https://jmmv.dev/2021/04/always-be-quitting.html)
 
 ### Using a design document to explain and persuade.
 
-This year I've found that using a platform like Confluence to create a design document has helped to explain and persuade an approach or design strategy.
+This year I've found using a platform like Confluence to create a design document has helped to explain and persuade an approach or design strategy.
 
 This is especially true when time pressures have meant face-to-face, synchronous communications have been harder to come by.
 
@@ -44,36 +46,36 @@ Let your audience understand the various Bronze, Silver and Gold approaches to s
 #### Resources
 
 - Chapter 10 - Design Docs - Sofware Engineering at Google
-  - https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs
+  - [https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs](https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs)
 
 ### Development using Static Code Analysis for quicker feedback loops
 
 In 2021 I dabbled with Rust. It's my first dive into high-level, compiled languages since my days of C++ and Java at the start of my career.
 
-It's worth saying, the tooling around Rust development is first-class and it showed how compiler is able to present the developer with errors at an early stage so that you fail fast.
+It's worth saying, the tooling around Rust development is first-class and it showed how the compiler is able to present the developer with errors at an early stage so that you fail fast.
 
 In a work project, we also used the Typescript template with Create-React-App.
 
 Using both of these opened my eyes to how the compilation step and static code analysis can help the developer find bugs, antipatterns and other issues at the coding stage of the Software Development Lifecycle without running the program.
 
-Subsequently this led me to use `mypy` and Python's 'opt-in' typing mechanism more thoroughly.
+Subsequently, in my daily Python-land, this led me to use `mypy` and Python's 'opt-in' typing mechanism more thoroughly.
 
 #### Resources
 
 - Rust Book
 
-  - https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/
+  - [https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/](https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/)
 
 - Rustlings
 
-  - https://github.com/rust-lang/rustlings
+  - [https://github.com/rust-lang/rustlings](https://github.com/rust-lang/rustlings)
 
 - React Typescript cheatsheet
 
-  - https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/
+  - [https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/](https://github.com/rust-lang/rustlings)
 
 - Full-Stack React, Typescript and Node
-  - https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/
+  - [https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/](https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/)
 
 ### Efficient learning using a variety of senses
 
@@ -91,18 +93,17 @@ By not only reading, but interactively coding with what I'd learnt from the rust
 
 - Rust Book
 
-  - https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/
+  - [https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/](https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/)
 
 - Rustlings
 
-  - https://github.com/rust-lang/rustlings
-    i
+  - [https://github.com/rust-lang/rustlings](https://github.com/rust-lang/rustlings)
 
 ### Post-Pandemic remote teamwork: Do not rely on Jira alone for communication
 
 In 2021 I've been involved in consulting for a single software team where we've delivered on a couple of data-driven software projects.
 
-I consider this team highly productive and efficient in meeting goals. One of its strengths has been how we communicate with each other. That is, to use Jira for ticketing, as a documentation tool, rather than a communication tool.
+I consider this team highly productive and efficient in meeting its bi-weekly sprint goals. One of its strengths has been how we communicate. That is, to use Jira for ticketing, as a documentation tool, rather than a communication tool.
 
 It's quite easy to fall into the trap of making Jira comments, tagging other team members and then relying on this for inter-team communication.
 
@@ -114,7 +115,7 @@ The sheer barrage of notifications (Jira or other platform) will mean your craft
 
 In Python, 2021 I've gotten to grips with FastAPI and Pydantic which has greatly helped with rapid application development.
 
-FastAPI is an async micro web framework that works beautifully with Pydantic to works with the OpenAPI protocol to product beauiful API documentation out of the box. This is exactly what our team needed.
+FastAPI is an async micro web framework that works beautifully with Pydantic and works with the OpenAPI protocol to produce beauiful API documentation out of the box. This is exactly what our team needed in order to move quickly.
 
 <!-- In frontend land, we've reafactored -->
 
