@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      5 min read
     
 </span></p>
 
@@ -112,8 +112,29 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#professional">Professional</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#always-be-quitting">Always be Quitting</a></li>
-<li class="toc-entry toc-h3"><a href="#using-a-design-document-to-explain-and-persuade">Using a design document to explain and persuade.</a></li>
+<li class="toc-entry toc-h3"><a href="#always-be-quitting">Always be Quitting</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#using-a-design-document-to-explain-and-persuade">Using a design document to explain and persuade.</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#resources-1">Resources</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#development-using-static-code-analysis-for-quicker-feedback-loops">Development using Static Code Analysis for quicker feedback loops</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#resources-2">Resources</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#efficient-learning-using-a-variety-of-senses">Efficient learning using a variety of senses</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#resources-3">Resources</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#post-pandemic-remote-teamwork-do-not-rely-on-jira-alone-for-communication">Post-Pandemic remote teamwork: Do not rely on Jira alone for communication</a></li>
+<li class="toc-entry toc-h3"><a href="#tools-and-libraries-fastapi-pydantic-react-context-api-mongo-aggregation-framework">Tools and Libraries: FastAPI, Pydantic, React Context API, Mongo Aggregation Framework</a></li>
+<li class="toc-entry toc-h3"><a href="#2022-goals">2022 Goals</a></li>
 </ul>
 </li>
 </ul><p><img src="https://i.imgur.com/AKwcpBi.jpg" alt="" title="2021: This Year I Learned"></p>
@@ -130,9 +151,20 @@ window.onload = wrap_img;
 
 <p>It means encouraging transparency by promoting documentation as you develop. So that at any one time, A project and user can be onboarded or the project can be demoed. As well as the software itself, this also includes documenting your long-term plans for the project.</p>
 
-<p>It means, eliminating, what Google refer to as The Bus Factor. The act of sharing knowledge so no one individual is a knowledge silo. This is covered extensively in <a href="https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/">O’Reilly’s excellent book, Software Engineering at Google</a>.</p>
+<p>It means, eliminating, what Google refer to as The Bus Factor. The act of sharing knowledge so no one individual is a silo or bottleneck. This is covered extensively in <a href="https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/">O’Reilly’s excellent book, Software Engineering at Google</a>.</p>
 
 <p>It means, looking to move on from a project as a positive, rather than a negative move. This can mean sharing your knowledge by training others around you and to identify and train your replacement. When the time is right, this leaves you to focus your efforts on kickstarting new projects.</p>
+
+<h4 id="resources">
+<a class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h4>
+
+<ul>
+  <li>Julio Merino - Always Be Quitting
+    <ul>
+      <li>https://jmmv.dev/2021/04/always-be-quitting.html</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="using-a-design-document-to-explain-and-persuade">
 <a class="anchor" href="#using-a-design-document-to-explain-and-persuade" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using a design document to explain and persuade.</h3>
@@ -143,27 +175,124 @@ window.onload = wrap_img;
 
 <p>2021 has been a very active year in the hiring market. A shift to permanent work-from-home has contributed to <a href="https://hbr.org/2021/09/who-is-driving-the-great-resignation">The Great Resignation</a>.</p>
 
-<p>On my own team, we saw quite a radical shift in personnel and time for meetings and proposals has often been cut short. For a more asynchronous working approach, it’s useful to make a write up with the problem statement and the various approaches available.</p>
+<p>On my own team, we saw quite a radical shift in headcount and time for meetings and proposals has often been cut short as resources are stretched. For a more asynchronous working approach, it’s useful to make a write up with the problem statement and the various approaches available.</p>
 
-<p>By letting your audience understand the various Bronze, Silver and Gold approaches to solving a problem, a team can make a considered judgement in a way that’s been documented for posterity. Having commenting on confluence allows for further discussion, rather than it taking place on a call, or buried in a ticket.</p>
+<p>Let your audience understand the various Bronze, Silver and Gold approaches to solving a problem, with its tradeoffs and costs. Subsequently, a team can make a considered judgement in a way that’s been documented for posterity. Further discussion takes place in the page comments rather than taking place on a call, or buried in a ticket.</p>
+
+<h4 id="resources-1">
+<a class="anchor" href="#resources-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h4>
+
+<ul>
+  <li>Chapter 10 - Design Docs - Sofware Engineering at Google
+    <ul>
+      <li>https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="development-using-static-code-analysis-for-quicker-feedback-loops">
+<a class="anchor" href="#development-using-static-code-analysis-for-quicker-feedback-loops" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development using Static Code Analysis for quicker feedback loops</h3>
+
+<p>In 2021 I dabbled with Rust. It’s my first dive into high-level, compiled languages since my days of C++ and Java at the start of my career.</p>
+
+<p>It’s worth saying, the tooling around Rust development is first-class and it showed how compiler is able to present the developer with errors at an early stage so that you fail fast.</p>
+
+<p>In a work project, we also used the Typescript template with Create-React-App.</p>
+
+<p>Using both of these opened my eyes to how the compilation step and static code analysis can help the developer find bugs, antipatterns and other issues at the coding stage of the Software Development Lifecycle without running the program.</p>
+
+<p>Subsequently this led me to use <code class="highlighter-rouge">mypy</code> and Python’s ‘opt-in’ typing mechanism more thoroughly.</p>
+
+<h4 id="resources-2">
+<a class="anchor" href="#resources-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h4>
+
+<ul>
+  <li>
+    <p>Rust Book</p>
+
+    <ul>
+      <li>https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/</li>
+    </ul>
+  </li>
+  <li>
+    <p>Rustlings</p>
+
+    <ul>
+      <li>https://github.com/rust-lang/rustlings</li>
+    </ul>
+  </li>
+  <li>
+    <p>React Typescript cheatsheet</p>
+
+    <ul>
+      <li>https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/</li>
+    </ul>
+  </li>
+  <li>
+    <p>Full-Stack React, Typescript and Node</p>
+    <ul>
+      <li>https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="efficient-learning-using-a-variety-of-senses">
+<a class="anchor" href="#efficient-learning-using-a-variety-of-senses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Efficient learning using a variety of senses</h3>
+
+<p>As mentioned above, I was curious about Rust.</p>
+
+<p>From my learnings, it appears that Rust is a high level language that repeatedly appears as a winner in the <a href="https://insights.stackoverflow.com/survey/2021#most-loved-dreaded-and-wanted-language-love-dread">Stack Overflow Developer survey</a> as the most-loved language. I needed to see what the fuss was all about.</p>
+
+<p>I was curious to see how a high-level systems language compares to Python in terms in memory footprint and performance in general.</p>
+
+<p>Instead of just linearly reading the official Rust book and doing exercies, I used the excellent <a href="https://github.com/rust-lang/rustlings">Rustlings</a> repository which has the user authoring actual rust code samples, correcting the logic and syntax to pass a unit test, and then running the the test suite to ensure it passes.</p>
+
+<p>By not only reading, but interactively coding with what I’d learnt from the rust book, I was putting knowledge acquired to the test. By using different learning methods, with different media, this helps the brain with retention.</p>
+
+<h4 id="resources-3">
+<a class="anchor" href="#resources-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h4>
+
+<ul>
+  <li>
+    <p>Rust Book</p>
+
+    <ul>
+      <li>https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/</li>
+    </ul>
+  </li>
+  <li>
+    <p>Rustlings</p>
+
+    <ul>
+      <li>https://github.com/rust-lang/rustlings
+i</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="post-pandemic-remote-teamwork-do-not-rely-on-jira-alone-for-communication">
+<a class="anchor" href="#post-pandemic-remote-teamwork-do-not-rely-on-jira-alone-for-communication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Post-Pandemic remote teamwork: Do not rely on Jira alone for communication</h3>
+
+<p>In 2021 I’ve been involved in consulting for a single software team where we’ve delivered on a couple of data-driven software projects.</p>
+
+<p>I consider this team highly productive and efficient in meeting goals. One of its strengths has been how we communicate with each other. That is, to use Jira for ticketing, as a documentation tool, rather than a communication tool.</p>
+
+<p>It’s quite easy to fall into the trap of making Jira comments, tagging other team members and then relying on this for inter-team communication.</p>
+
+<p>In a remote-first working world, where an asynchronous communication style takes priority, we cannot rely solely that intended recipients will have digested the Jira notifications. Communications should be reinforced with a quick ping on instant message or voice call.</p>
+
+<p>The sheer barrage of notifications (Jira or other platform) will mean your crafted comment or code review note may get buried in the noise. Use a more immediate communication method if applicable.</p>
+
+<h3 id="tools-and-libraries-fastapi-pydantic-react-context-api-mongo-aggregation-framework">
+<a class="anchor" href="#tools-and-libraries-fastapi-pydantic-react-context-api-mongo-aggregation-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tools and Libraries: FastAPI, Pydantic, React Context API, Mongo Aggregation Framework</h3>
+
+<p>In Python, 2021 I’ve gotten to grips with FastAPI and Pydantic which has greatly helped with rapid application development.</p>
+
+<p>FastAPI is an async micro web framework that works beautifully with Pydantic to works with the OpenAPI protocol to product beauiful API documentation out of the box. This is exactly what our team needed.</p>
+
+<!-- In frontend land, we've reafactored -->
 
 <!--
-### More robust software development using typing and the compilation step
-
-Lorem Ipsum ..
-
-### Accelerated learning using a variety of senses
-
-Lorem Ipsum ..
-
-### Do not rely on Jira alone for communication
-
-Lorem Ipsum ..
-
-### Tools: FastAPI, Pydantic, React Context, Mongo Aggregation Framework
-
-Lorem Ipsum ..
-
 ## Personal
 
 ### Lesser Minds, the importance of engaging with strangers
@@ -192,6 +321,14 @@ Lorem Ipsum ..
 
 -->
 
+<h3 id="2022-goals">
+<a class="anchor" href="#2022-goals" aria-hidden="true"><span class="octicon octicon-link"></span></a>2022 Goals</h3>
+
+<ul>
+  <li>Write a Rust crate</li>
+  <li>Run <a href="http://www.mypy-lang.org/"><code class="highlighter-rouge">mypy</code></a> constantly during development to flag typing errors in Python code as they appear, rather than solely as a <a href="https://pre-commit.com/"><code class="highlighter-rouge">pre-commit</code></a> hook</li>
+</ul>
+
   </div><a class="u-url" href="/year-in-review/2021/12/30/learnings-from-the-year-2021.html" hidden></a>
 </article>
       </div>
@@ -215,7 +352,7 @@ Lorem Ipsum ..
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/jonwhittlestone" title="jonwhittlestone"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/jonwhittlestone" target="_blank" title="jonwhittlestone"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
 </div>
 
   </div>

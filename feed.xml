@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2021-12-30T01:02:05-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00-06:00</published><updated>2021-12-30T00:00:00-06:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html">&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AKwcpBi.jpg&quot; alt=&quot;&quot; title=&quot;2021: This Year I Learned&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-01-01T01:20:13-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00-06:00</published><updated>2021-12-30T00:00:00-06:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html">&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AKwcpBi.jpg&quot; alt=&quot;&quot; title=&quot;2021: This Year I Learned&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;professional&quot;&gt;Professional&lt;/h2&gt;
 
@@ -10,9 +10,19 @@
 
 &lt;p&gt;It means encouraging transparency by promoting documentation as you develop. So that at any one time, A project and user can be onboarded or the project can be demoed. As well as the software itself, this also includes documenting your long-term plans for the project.&lt;/p&gt;
 
-&lt;p&gt;It means, eliminating, what Google refer to as The Bus Factor. The act of sharing knowledge so no one individual is a knowledge silo. This is covered extensively in &lt;a href=&quot;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/&quot;&gt;O’Reilly’s excellent book, Software Engineering at Google&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It means, eliminating, what Google refer to as The Bus Factor. The act of sharing knowledge so no one individual is a silo or bottleneck. This is covered extensively in &lt;a href=&quot;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/&quot;&gt;O’Reilly’s excellent book, Software Engineering at Google&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;It means, looking to move on from a project as a positive, rather than a negative move. This can mean sharing your knowledge by training others around you and to identify and train your replacement. When the time is right, this leaves you to focus your efforts on kickstarting new projects.&lt;/p&gt;
+
+&lt;h4 id=&quot;resources&quot;&gt;Resources&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Julio Merino - Always Be Quitting
+    &lt;ul&gt;
+      &lt;li&gt;https://jmmv.dev/2021/04/always-be-quitting.html&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;using-a-design-document-to-explain-and-persuade&quot;&gt;Using a design document to explain and persuade.&lt;/h3&gt;
 
@@ -22,27 +32,117 @@
 
 &lt;p&gt;2021 has been a very active year in the hiring market. A shift to permanent work-from-home has contributed to &lt;a href=&quot;https://hbr.org/2021/09/who-is-driving-the-great-resignation&quot;&gt;The Great Resignation&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;On my own team, we saw quite a radical shift in personnel and time for meetings and proposals has often been cut short. For a more asynchronous working approach, it’s useful to make a write up with the problem statement and the various approaches available.&lt;/p&gt;
+&lt;p&gt;On my own team, we saw quite a radical shift in headcount and time for meetings and proposals has often been cut short as resources are stretched. For a more asynchronous working approach, it’s useful to make a write up with the problem statement and the various approaches available.&lt;/p&gt;
 
-&lt;p&gt;By letting your audience understand the various Bronze, Silver and Gold approaches to solving a problem, a team can make a considered judgement in a way that’s been documented for posterity. Having commenting on confluence allows for further discussion, rather than it taking place on a call, or buried in a ticket.&lt;/p&gt;
+&lt;p&gt;Let your audience understand the various Bronze, Silver and Gold approaches to solving a problem, with its tradeoffs and costs. Subsequently, a team can make a considered judgement in a way that’s been documented for posterity. Further discussion takes place in the page comments rather than taking place on a call, or buried in a ticket.&lt;/p&gt;
+
+&lt;h4 id=&quot;resources-1&quot;&gt;Resources&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Chapter 10 - Design Docs - Sofware Engineering at Google
+    &lt;ul&gt;
+      &lt;li&gt;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;development-using-static-code-analysis-for-quicker-feedback-loops&quot;&gt;Development using Static Code Analysis for quicker feedback loops&lt;/h3&gt;
+
+&lt;p&gt;In 2021 I dabbled with Rust. It’s my first dive into high-level, compiled languages since my days of C++ and Java at the start of my career.&lt;/p&gt;
+
+&lt;p&gt;It’s worth saying, the tooling around Rust development is first-class and it showed how compiler is able to present the developer with errors at an early stage so that you fail fast.&lt;/p&gt;
+
+&lt;p&gt;In a work project, we also used the Typescript template with Create-React-App.&lt;/p&gt;
+
+&lt;p&gt;Using both of these opened my eyes to how the compilation step and static code analysis can help the developer find bugs, antipatterns and other issues at the coding stage of the Software Development Lifecycle without running the program.&lt;/p&gt;
+
+&lt;p&gt;Subsequently this led me to use &lt;code class=&quot;highlighter-rouge&quot;&gt;mypy&lt;/code&gt; and Python’s ‘opt-in’ typing mechanism more thoroughly.&lt;/p&gt;
+
+&lt;h4 id=&quot;resources-2&quot;&gt;Resources&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rust Book&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rustlings&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;https://github.com/rust-lang/rustlings&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;React Typescript cheatsheet&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Full-Stack React, Typescript and Node&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;efficient-learning-using-a-variety-of-senses&quot;&gt;Efficient learning using a variety of senses&lt;/h3&gt;
+
+&lt;p&gt;As mentioned above, I was curious about Rust.&lt;/p&gt;
+
+&lt;p&gt;From my learnings, it appears that Rust is a high level language that repeatedly appears as a winner in the &lt;a href=&quot;https://insights.stackoverflow.com/survey/2021#most-loved-dreaded-and-wanted-language-love-dread&quot;&gt;Stack Overflow Developer survey&lt;/a&gt; as the most-loved language. I needed to see what the fuss was all about.&lt;/p&gt;
+
+&lt;p&gt;I was curious to see how a high-level systems language compares to Python in terms in memory footprint and performance in general.&lt;/p&gt;
+
+&lt;p&gt;Instead of just linearly reading the official Rust book and doing exercies, I used the excellent &lt;a href=&quot;https://github.com/rust-lang/rustlings&quot;&gt;Rustlings&lt;/a&gt; repository which has the user authoring actual rust code samples, correcting the logic and syntax to pass a unit test, and then running the the test suite to ensure it passes.&lt;/p&gt;
+
+&lt;p&gt;By not only reading, but interactively coding with what I’d learnt from the rust book, I was putting knowledge acquired to the test. By using different learning methods, with different media, this helps the brain with retention.&lt;/p&gt;
+
+&lt;h4 id=&quot;resources-3&quot;&gt;Resources&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rust Book&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rustlings&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;https://github.com/rust-lang/rustlings
+i&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;post-pandemic-remote-teamwork-do-not-rely-on-jira-alone-for-communication&quot;&gt;Post-Pandemic remote teamwork: Do not rely on Jira alone for communication&lt;/h3&gt;
+
+&lt;p&gt;In 2021 I’ve been involved in consulting for a single software team where we’ve delivered on a couple of data-driven software projects.&lt;/p&gt;
+
+&lt;p&gt;I consider this team highly productive and efficient in meeting goals. One of its strengths has been how we communicate with each other. That is, to use Jira for ticketing, as a documentation tool, rather than a communication tool.&lt;/p&gt;
+
+&lt;p&gt;It’s quite easy to fall into the trap of making Jira comments, tagging other team members and then relying on this for inter-team communication.&lt;/p&gt;
+
+&lt;p&gt;In a remote-first working world, where an asynchronous communication style takes priority, we cannot rely solely that intended recipients will have digested the Jira notifications. Communications should be reinforced with a quick ping on instant message or voice call.&lt;/p&gt;
+
+&lt;p&gt;The sheer barrage of notifications (Jira or other platform) will mean your crafted comment or code review note may get buried in the noise. Use a more immediate communication method if applicable.&lt;/p&gt;
+
+&lt;h3 id=&quot;tools-and-libraries-fastapi-pydantic-react-context-api-mongo-aggregation-framework&quot;&gt;Tools and Libraries: FastAPI, Pydantic, React Context API, Mongo Aggregation Framework&lt;/h3&gt;
+
+&lt;p&gt;In Python, 2021 I’ve gotten to grips with FastAPI and Pydantic which has greatly helped with rapid application development.&lt;/p&gt;
+
+&lt;p&gt;FastAPI is an async micro web framework that works beautifully with Pydantic to works with the OpenAPI protocol to product beauiful API documentation out of the box. This is exactly what our team needed.&lt;/p&gt;
+
+&lt;!-- In frontend land, we've reafactored --&gt;
 
 &lt;!--
-### More robust software development using typing and the compilation step
-
-Lorem Ipsum ..
-
-### Accelerated learning using a variety of senses
-
-Lorem Ipsum ..
-
-### Do not rely on Jira alone for communication
-
-Lorem Ipsum ..
-
-### Tools: FastAPI, Pydantic, React Context, Mongo Aggregation Framework
-
-Lorem Ipsum ..
-
 ## Personal
 
 ### Lesser Minds, the importance of engaging with strangers
@@ -69,7 +169,14 @@ Lorem Ipsum ..
 
 Lorem Ipsum ..
 
---&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.imgur.com/AKwcpBi.jpg" /><media:content medium="image" url="https://i.imgur.com/AKwcpBi.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Effective Engineering Management</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Effective Engineering Management" /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.&lt;/p&gt;
+--&gt;
+
+&lt;h3 id=&quot;2022-goals&quot;&gt;2022 Goals&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Write a Rust crate&lt;/li&gt;
+  &lt;li&gt;Run &lt;a href=&quot;http://www.mypy-lang.org/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mypy&lt;/code&gt;&lt;/a&gt; constantly during development to flag typing errors in Python code as they appear, rather than solely as a &lt;a href=&quot;https://pre-commit.com/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pre-commit&lt;/code&gt;&lt;/a&gt; hook&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.imgur.com/AKwcpBi.jpg" /><media:content medium="image" url="https://i.imgur.com/AKwcpBi.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Effective Engineering Management</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Effective Engineering Management" /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.&lt;/p&gt;
 
 &lt;p&gt;From an essay in &lt;em&gt;Software Engineering at Google&lt;/em&gt;, Brian Fitzpatrick discusses engineering management patterns and anti-patterns. At it’s core are the values of Trust, Humility and Respect.&lt;/p&gt;
 
