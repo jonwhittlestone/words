@@ -10,6 +10,10 @@ hide: false
 
 ![](https://i.imgur.com/AKwcpBi.jpg "2021: This Year I Learned")
 
+Here's a roundup of my professional learnings from the year.
+
+The sections for 2022 goals are limited in scope on account of recently giving birth to our second child :)
+
 ## Professional
 
 ### Always be Quitting
@@ -119,13 +123,18 @@ FastAPI is an async micro web framework that works beautifully with Pydantic and
 
 <!-- In frontend land, we've reafactored -->
 
-<!--
+### 2022 Professional Goals
+
+- Write a Rust crate
+- Run [`mypy`](http://www.mypy-lang.org/) constantly during development to flag typing errors in Python code as they appear, rather than solely as a [`pre-commit`](https://pre-commit.com/) hook
+
 ## Personal
 
 ### Lesser Minds, the importance of engaging with strangers
 
-Lorem Ipsum ..
+In 2021 I read a very memorable book, [The Power Of Strangers](https://www.goodreads.com/book/show/58377159-the-power-of-strangers?ac=1&from_search=true&qid=RGzexHIQnx&rank=1)
 
+<!--
 ### Standing desks work well for me
 
 Lorem Ipsum ..
@@ -147,8 +156,3 @@ Lorem Ipsum ..
 Lorem Ipsum ..
 
 -->
-
-### 2022 Goals
-
-- Write a Rust crate
-- Run [`mypy`](http://www.mypy-lang.org/) constantly during development to flag typing errors in Python code as they appear, rather than solely as a [`pre-commit`](https://pre-commit.com/) hook
