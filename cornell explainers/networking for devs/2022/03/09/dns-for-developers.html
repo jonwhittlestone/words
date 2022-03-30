@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>DNS for Developers | howapped words</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="DNS for Developers" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="2021 Edition" />
+<meta property="og:description" content="2021 Edition" />
+<link rel="canonical" href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" />
+<meta property="og:url" content="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" />
+<meta property="og:site_name" content="howapped words" />
+<meta property="og:image" content="https://i.imgur.com/umsJdKF.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-09T00:00:00-06:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html"},"description":"2021 Edition","@type":"BlogPosting","url":"https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html","headline":"DNS for Developers","dateModified":"2022-03-09T00:00:00-06:00","datePublished":"2022-03-09T00:00:00-06:00","image":"https://i.imgur.com/umsJdKF.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>DNS for Developers | howapped words</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="DNS for Developers" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="2021 Edition" />
+<meta property="og:description" content="2021 Edition" />
+<link rel="canonical" href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" />
+<meta property="og:url" content="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" />
+<meta property="og:site_name" content="howapped words" />
+<meta property="og:image" content="https://i.imgur.com/umsJdKF.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-09T00:00:00-06:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html"},"description":"2021 Edition","@type":"BlogPosting","url":"https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html","headline":"DNS for Developers","dateModified":"2022-03-09T00:00:00-06:00","datePublished":"2022-03-09T00:00:00-06:00","image":"https://i.imgur.com/umsJdKF.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">howapped words</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/contact/">Contact</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">DNS for Developers</h1><p class="page-description">2021 Edition</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-09T00:00:00-06:00" itemprop="datePublished">
+        Mar 9, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="//categories/#Cornell Explainers">Cornell Explainers</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="//categories/#Networking for Devs">Networking for Devs</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#networking-for-devs---dns-faq">Networking for Devs - DNS FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#cornell-method-notes">Cornell Method notes</a></li>
+</ul>
+</li>
+</ul><h1 id="networking-for-devs---dns-faq">
+<a class="anchor" href="#networking-for-devs---dns-faq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Networking for Devs - DNS FAQ</h1>
+
+<p><img src="https://i.imgur.com/umsJdKF.png" alt="" title="2021: The Domain Name System"></p>
+
+<p>As a senior developer, it’s clear some other technical staff lack a working knowledge of the Domain Name System.</p>
+
+<p>Here’s an explainer, using the <a href="https://en.wikipedia.org/wiki/Cornell_Notes">Cornell method</a> - my favourite way to work through a subject quickly.</p>
+
+<h2 id="cornell-method-notes">
+<a class="anchor" href="#cornell-method-notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cornell Method notes</h2>
+
+<table>
+<tr>
+<th> Q </th>
+<th> A </th>
+</tr>
+<tr>
+<td>
+What is DNS and a DNS query?
+</td>
+<td>
+
+Domain Name System is used to map human-friendly service names ('hosts') to the resource's numerical addresses (IP addresses)
+
+A DNS query and how it is resolved is the process of translating the human-friendly computer host names into IP addresses. DNS 'resolution' and 'translation' are the same thing.
+
+</td>
+</tr>
+<tr>
+  <td>How does a DNS query get resolved?</td>
+  <td>
+  When a user enters https://blog.howapped.com, the browser initiates a DNS resolver which sequences the query that ultimately leads to a translation.
+    
+  The recursive resolver function looks in cache
+
+1. If not in cache, it goes to the first of the authoritative nameservers. This is hardcoded in the OS. For example `8.8.8.8`
+2. If translation not found, continue querying
+3. Resolver -- queries --&gt; internal cache
+4. Resolver -- queries --&gt; root nameserver
+5. Resolver -- queries --&gt; `.com` nameserver
+
+  </td>
+</tr>
+
+<tr>
+  <td>What is the root nameserver?</td>
+  <td>
+  When a client begins to resolve a DNS query, the remote resolution process starts with a request to a root nameserver. It will respond with a referral to further authoritative servers.
+
+A root nameserver is a type of authoritative nameserver.
+
+Another type of authoritative nameserver is a **TLD nameserver**.
+
+For example, the request to translate `www.wikipedia.org` will receive a response containing addresses of `.org` authoritative TLD server servers.
+Ao
+
+  </td>
+</tr>
+
+<tr>
+  <td>How can performance be increased?</td>
+  <td>
+  The are DNS caching servers which store resolved mappings for a specified period. This reduces DNS traffic across the internet.
+  How long cache entries are stored is according to the TTL value for the DNS record in question.
+  </td>
+</tr>
+
+<tr>
+  <td>What are the various DNS records for?</td>
+  <td>
+  Besives translating names to IP addresses, DNS can instruct mail agents which is the best mail server to deliver email.
+
+An MX record provides a mapping between a domain a mail exchanges.
+
+  </td>
+</tr>
+<!-- -->
+
+<tr>
+  <td>Question?</td>
+  <td>
+  Answer
+  </td>
+</tr>
+</table>
+
+  </div><a class="u-url" href="/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Learnings and updates from the Howapped labs.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/jonwhittlestone" target="_blank" title="jonwhittlestone"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

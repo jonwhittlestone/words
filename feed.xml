@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-01-01T01:35:35-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00-06:00</published><updated>2021-12-30T00:00:00-06:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html">&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AKwcpBi.jpg&quot; alt=&quot;&quot; title=&quot;2021: This Year I Learned&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-03-30T05:28:39-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">DNS for Developers</title><link href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" rel="alternate" type="text/html" title="DNS for Developers" /><published>2022-03-09T00:00:00-06:00</published><updated>2022-03-09T00:00:00-06:00</updated><id>https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers</id><content type="html" xml:base="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html">&lt;h1 id=&quot;networking-for-devs---dns-faq&quot;&gt;Networking for Devs - DNS FAQ&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/umsJdKF.png&quot; alt=&quot;&quot; title=&quot;2021: The Domain Name System&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As a senior developer, it’s clear some other technical staff lack a working knowledge of the Domain Name System.&lt;/p&gt;
+
+&lt;p&gt;Here’s an explainer, using the &lt;a href=&quot;https://en.wikipedia.org/wiki/Cornell_Notes&quot;&gt;Cornell method&lt;/a&gt; - my favourite way to work through a subject quickly.&lt;/p&gt;
+
+&lt;h2 id=&quot;cornell-method-notes&quot;&gt;Cornell Method notes&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt; Q &lt;/th&gt;
+&lt;th&gt; A &lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+What is DNS and a DNS query?
+&lt;/td&gt;
+&lt;td&gt;
+
+Domain Name System is used to map human-friendly service names ('hosts') to the resource's numerical addresses (IP addresses)
+
+A DNS query and how it is resolved is the process of translating the human-friendly computer host names into IP addresses. DNS 'resolution' and 'translation' are the same thing.
+
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;How does a DNS query get resolved?&lt;/td&gt;
+  &lt;td&gt;
+  When a user enters https://blog.howapped.com, the browser initiates a DNS resolver which sequences the query that ultimately leads to a translation.
+    
+  The recursive resolver function looks in cache
+
+1. If not in cache, it goes to the first of the authoritative nameservers. This is hardcoded in the OS. For example `8.8.8.8`
+2. If translation not found, continue querying
+3. Resolver -- queries --&amp;gt; internal cache
+4. Resolver -- queries --&amp;gt; root nameserver
+5. Resolver -- queries --&amp;gt; `.com` nameserver
+
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td&gt;What is the root nameserver?&lt;/td&gt;
+  &lt;td&gt;
+  When a client begins to resolve a DNS query, the remote resolution process starts with a request to a root nameserver. It will respond with a referral to further authoritative servers.
+
+A root nameserver is a type of authoritative nameserver.
+
+Another type of authoritative nameserver is a **TLD nameserver**.
+
+For example, the request to translate `www.wikipedia.org` will receive a response containing addresses of `.org` authoritative TLD server servers.
+Ao
+
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td&gt;How can performance be increased?&lt;/td&gt;
+  &lt;td&gt;
+  The are DNS caching servers which store resolved mappings for a specified period. This reduces DNS traffic across the internet.
+  How long cache entries are stored is according to the TTL value for the DNS record in question.
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td&gt;What are the various DNS records for?&lt;/td&gt;
+  &lt;td&gt;
+  Besives translating names to IP addresses, DNS can instruct mail agents which is the best mail server to deliver email.
+
+An MX record provides a mapping between a domain a mail exchanges.
+
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;!-- --&gt;
+
+&lt;tr&gt;
+  &lt;td&gt;Question?&lt;/td&gt;
+  &lt;td&gt;
+  Answer
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</content><author><name></name></author><summary type="html">Networking for Devs - DNS FAQ</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.imgur.com/umsJdKF.png" /><media:content medium="image" url="https://i.imgur.com/umsJdKF.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00-06:00</published><updated>2021-12-30T00:00:00-06:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html">&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AKwcpBi.jpg&quot; alt=&quot;&quot; title=&quot;2021: This Year I Learned&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s a roundup of my professional learnings from the year.&lt;/p&gt;
+
+&lt;p&gt;The sections for 2022 goals are limited in scope on account of recently giving birth to our second child :)&lt;/p&gt;
 
 &lt;h2 id=&quot;professional&quot;&gt;Professional&lt;/h2&gt;
 
@@ -143,13 +230,20 @@
 
 &lt;!-- In frontend land, we've reafactored --&gt;
 
+&lt;h3 id=&quot;2022-professional-goals&quot;&gt;2022 Professional Goals&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Write a Rust crate&lt;/li&gt;
+  &lt;li&gt;Run &lt;a href=&quot;http://www.mypy-lang.org/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mypy&lt;/code&gt;&lt;/a&gt; constantly during development to flag typing errors in Python code as they appear, rather than solely as a &lt;a href=&quot;https://pre-commit.com/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pre-commit&lt;/code&gt;&lt;/a&gt; hook&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;personal&quot;&gt;Personal&lt;/h2&gt;
+
+&lt;h3 id=&quot;lesser-minds-the-importance-of-engaging-with-strangers&quot;&gt;Lesser Minds, the importance of engaging with strangers&lt;/h3&gt;
+
+&lt;p&gt;In 2021 I read a very memorable book, &lt;a href=&quot;https://www.goodreads.com/book/show/58377159-the-power-of-strangers?ac=1&amp;amp;from_search=true&amp;amp;qid=RGzexHIQnx&amp;amp;rank=1&quot;&gt;The Power Of Strangers&lt;/a&gt;&lt;/p&gt;
+
 &lt;!--
-## Personal
-
-### Lesser Minds, the importance of engaging with strangers
-
-Lorem Ipsum ..
-
 ### Standing desks work well for me
 
 Lorem Ipsum ..
@@ -170,14 +264,7 @@ Lorem Ipsum ..
 
 Lorem Ipsum ..
 
---&gt;
-
-&lt;h3 id=&quot;2022-goals&quot;&gt;2022 Goals&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Write a Rust crate&lt;/li&gt;
-  &lt;li&gt;Run &lt;a href=&quot;http://www.mypy-lang.org/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mypy&lt;/code&gt;&lt;/a&gt; constantly during development to flag typing errors in Python code as they appear, rather than solely as a &lt;a href=&quot;https://pre-commit.com/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pre-commit&lt;/code&gt;&lt;/a&gt; hook&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.imgur.com/AKwcpBi.jpg" /><media:content medium="image" url="https://i.imgur.com/AKwcpBi.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Effective Engineering Management</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Effective Engineering Management" /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.&lt;/p&gt;
+--&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.imgur.com/AKwcpBi.jpg" /><media:content medium="image" url="https://i.imgur.com/AKwcpBi.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Effective Engineering Management</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Effective Engineering Management" /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.&lt;/p&gt;
 
 &lt;p&gt;From an essay in &lt;em&gt;Software Engineering at Google&lt;/em&gt;, Brian Fitzpatrick discusses engineering management patterns and anti-patterns. At it’s core are the values of Trust, Humility and Respect.&lt;/p&gt;
 
@@ -1595,231 +1682,4 @@ in-progress
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/chart-preview.png" /><media:content medium="image" url="https://words.howapped.com/images/chart-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Automatically restart docker containers after reboot</title><link href="https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html" rel="alternate" type="text/html" title="Automatically restart docker containers after reboot" /><published>2020-06-01T00:00:00-05:00</published><updated>2020-06-01T00:00:00-05:00</updated><id>https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service</id><content type="html" xml:base="https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html">&lt;!--
-#################################################
-### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
-#################################################
-# file to edit: _notebooks/2020-06-01-automatically-restart-docker-after-reboot-with-service.ipynb
---&gt;
-
-&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
-        
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-
-&lt;/div&gt;
-    
-
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;The-Problem&quot;&gt;The Problem&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Problem&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;As part of Covid-19 relief, DigitalOcean donated some free credit for me to work on a local food delivery scheme.&lt;/p&gt;
-&lt;p&gt;I need to get most value for money by making that credit go as far as possible. It would also be nice to minimise power consumption.&lt;/p&gt;
-&lt;h1 id=&quot;The-Solution&quot;&gt;The Solution&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Solution&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The server should be powered-down outside of operating hours and turned back on before start of business. This can be done using the cloud provider's control panel.&lt;/p&gt;
-&lt;p&gt;To avoid manual work starting the web app, a service is needed to bring the containers back online when the droplet is swtiched on.&lt;/p&gt;
-&lt;p&gt;Covered in this article is the process for using the DigitalOcean API to create a droplet with the requisite &lt;code&gt;user_data&lt;/code&gt; for creating the &lt;code&gt;systemd&lt;/code&gt; service to start containers at boot time.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TLDR; Have a look at the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;companion repo.&lt;/a&gt;. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Not covered in this article is the process to automate the power down and up to a schedule. This is covered in a subsequent article.&lt;/p&gt;
-&lt;h2 id=&quot;Prerequisites&quot;&gt;Prerequisites&lt;a class=&quot;anchor-link&quot; href=&quot;#Prerequisites&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;A Digital Ocean account (free trial available)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/docs/apis-clis/api/&quot;&gt;Generate an access token&lt;/a&gt; for accessing the DigitalOcean API&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Add the token to your environment&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ export DIGITAL_OCEAN_ACCESS_TOKEN=XXXXXXXX&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;jq&lt;/code&gt; installed to format JSON responses&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://stedolan.github.io/jq/download/&quot;&gt;Download JQ&lt;/a&gt; for your OS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Create-a-DigitalOcean-droplet-(optional)&quot;&gt;Create a DigitalOcean droplet (optional)&lt;a class=&quot;anchor-link&quot; href=&quot;#Create-a-DigitalOcean-droplet-(optional)&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you already have a web server, with an app, move to section, &lt;a href=&quot;#Create-a-systemd-service&quot;&gt;'Create a systemd service.'&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;If you do not already have a web server, launch a Droplet with requisite SSH access.&lt;/p&gt;
-&lt;h3 id=&quot;cURL-to-create-the-droplet&quot;&gt;cURL to create the droplet&lt;a class=&quot;anchor-link&quot; href=&quot;#cURL-to-create-the-droplet&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This cURL statement creates an Ubuntu 18.04 server in London. The &lt;code&gt;user_data&lt;/code&gt; key in the payload is used for defining various statements to execute once the server is created. In this case we are cloning the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;repo&lt;/a&gt; containing the dockerized app, starting it, and creating the systemd service to restart the app when the server boots up.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    $ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    -d '{&quot;name&quot;:&quot;scheduled-serverless&quot;,&quot;region&quot;:&quot;lon1&quot;,&quot;size&quot;:&quot;s-2vcpu-4gb&quot;,&quot;image&quot;:&quot;docker-18-04&quot;, &quot;user_data&quot;:
-    &quot;#!/bin/bash
-    apt-get update
-    apt-get upgrade -y
-    git clone https://github.com/jonwhittlestone/scheduled-serverless-startup.git /root/scheduled-serverless-startup
-    sh /root/scheduled-serverless-startup/start-containers.sh
-    sh /root/scheduled-serverless-startup/create-service.sh&quot;}' \
-    &quot;https://api.digitalocean.com/v2/droplets&quot; 
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;SSH-into-your-new-droplet&quot;&gt;SSH into your new droplet&lt;a class=&quot;anchor-link&quot; href=&quot;#SSH-into-your-new-droplet&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;You will be emailed your root password. 
-After you SSH in using the provided password, you will be asked to change it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://words.howapped.com/images/copied_from_nb/email.png&quot; alt=&quot;email.png&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Test-the-web-app-is-running&quot;&gt;Test the web app is running&lt;a class=&quot;anchor-link&quot; href=&quot;#Test-the-web-app-is-running&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The app is running with Docker on port 80, so it's simply a case of:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;root@scheduled-serverless:~# curl localhost
-
-A Howapped Project.
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;Test-the-service-is-running&quot;&gt;Test the service is running&lt;a class=&quot;anchor-link&quot; href=&quot;#Test-the-service-is-running&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Restart your server with&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;root@scheduled-serverless:~# sudo reboot
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And then ssh and repeat the cURL statement to the web service&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(base) ➜  ~ ssh root@167.172.56.239 curl localhost
-root@167.172.56.239's password: 
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                             Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-A Howapped Project.
-
-100    22  100    22    0     0   1294      0 --:--:-- --:--:-- --:--:--  1294&lt;/code&gt;&lt;/pre&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Create-a-systemd-service&quot;&gt;Create a systemd service&lt;a class=&quot;anchor-link&quot; href=&quot;#Create-a-systemd-service&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ubuntu's init system is called &lt;code&gt;systemd&lt;/code&gt; and various flavours of Linux may have differing init systems.&lt;/p&gt;
-&lt;h3 id=&quot;Scripting-the-starting-of-the-web-app&quot;&gt;Scripting the starting of the web app&lt;a class=&quot;anchor-link&quot; href=&quot;#Scripting-the-starting-of-the-web-app&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We need to define what should be automated which is starting the containers.&lt;/p&gt;
-&lt;p&gt;In this case, I have an example dockerized app defined in the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;companion repo&lt;/a&gt;, so let's clone that.&lt;/p&gt;
-&lt;p&gt;If this directory is present (because it has been previously cloned), then just pull the latest changes.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-
-if [ -d &quot;/root/scheduled-serverless-startup&quot; ] 
-then
-    git pull origin master
-else
-    cd /root/scheduled-serverless-startup
-     git clone https://github.com/jonwhittlestone/scheduled-serverless-startup.git /root/scheduled-serverless-startup
-fi
-cd /root/scheduled-serverless-startup/app
-docker-compose up -d&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Lastly, we start containers with &lt;code&gt;docker-compose&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Using-systemctl-to-enable-the-service&quot;&gt;Using &lt;code&gt;systemctl&lt;/code&gt; to enable the service&lt;a class=&quot;anchor-link&quot; href=&quot;#Using-systemctl-to-enable-the-service&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Using the interface &lt;code&gt;systemctl&lt;/code&gt; we can manage the init system. Each service is called a unit file. This means loading a service, &lt;a href=&quot;https://www.linode.com/docs/quick-answers/linux-essentials/introduction-to-systemctl/#enabling-a-service-at-boot&quot;&gt;enabling at boot&lt;/a&gt; and restarting.&lt;/p&gt;
-&lt;p&gt;On an Ubuntu system, you may inspect the running services:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ systemctl status | head
-● madebyjon
-    State: running
-     Jobs: 0 queued
-   Failed: 0 units
-    Since: Mon 2020-06-08 05:56:42 BST; 1 day 2h ago
-   CGroup: /
-           ├─3770 bpfilter_umh
-           ├─user.slice
-           │ └─user-1000.slice
-           │   ├─user@1000.service&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The following &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup/blob/master/create-service.sh&quot;&gt;shell script&lt;/a&gt; creates the unit file, enables it at boot and starts the service.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-touch /etc/systemd/system/howapped.service
-cat &amp;gt; /etc/systemd/system/howapped.service&amp;lt;&amp;lt;-EOF
-    [Unit]
-    Description=HowappedProjectStartOnBoot
-    After=network.target
-    [Service]
-    Type=simple
-    User=root
-    WorkingDirectory=/root/scheduled-serverless-startup
-    ExecStart=/bin/sh /root/scheduled-serverless-startup/start-containers.sh
-    Restart=on-abort
-    [Install]
-    WantedBy=multi-user.target
-EOF
-systemctl daemon-reload
-systemctl enable howapped.service
-systemctl restart howapped.service&lt;/code&gt;&lt;/pre&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Enable-the-systemd-service&quot;&gt;Enable the systemd service&lt;a class=&quot;anchor-link&quot; href=&quot;#Enable-the-systemd-service&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The below excerpt verifies we have the working directory created.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;root@scheduled-serverless:~/scheduled-serverless-startup# ls
-README.md    app                create-service.sh
-Vagrantfile  cloud-config.yaml  start-containers.sh
-root@scheduled-serverless:~/scheduled-serverless-startup# pwd
-/root/scheduled-serverless-startup&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And this runs the shell script to create the unit file and enable it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;root@scheduled-serverless:~/scheduled-serverless-startup# sh create-service.sh 
-Created symlink /etc/systemd/system/multi-user.target.wants/howapped.service → /etc/systemd/system/howapped.service.&lt;/code&gt;&lt;/pre&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Test-it&quot;&gt;Test it&lt;a class=&quot;anchor-link&quot; href=&quot;#Test-it&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We will use the CURL statement to find the ID of our droplet, so that we can then use a CURL statement to power down the machine.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl \
-        -H 'Content-Type: application/json' \
-        -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    &quot;https://api.digitalocean.com/v2/droplets?name=scheduled-serverless&quot; | jq '.droplets[] | {id:.id, name:.name, status: .status}'
-
-{
-  &quot;id&quot;: 195393249,
-  &quot;name&quot;: &quot;scheduled-serverless&quot;,
-  &quot;status&quot;: &quot;on&quot;
-}
-
-
-# power it down
-$ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    -d '{&quot;type&quot;:&quot;power_off&quot;}' \
-    &quot;https://api.digitalocean.com/v2/droplets/195393249/actions&quot; | jq '.[] | {id:.id, status:.status, type:.type}'&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We power it back up:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    -d '{&quot;type&quot;:&quot;power_on&quot;}' \
-    &quot;https://api.digitalocean.com/v2/droplets/195393249/actions&quot; | jq '.[] | {id:.id, status:.status, type:.type}'
-
-{
-  &quot;id&quot;: 953153688,
-  &quot;status&quot;: &quot;in-progress&quot;,
-  &quot;type&quot;: &quot;power_on&quot;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And verify our app is running.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh root@104.248.174.117 curl localhost
-root@104.248.174.117's password: 
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-A Howapped Project.&lt;/code&gt;&lt;/pre&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Clean-up&quot;&gt;Clean up&lt;a class=&quot;anchor-link&quot; href=&quot;#Clean-up&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you were following along by creating a DigitalOcean droplet, you may wish to power down or destroy the machine if not in use.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://words.howapped.com/images/copied_from_nb/destroy.png&quot; alt=&quot;destroy.png&quot; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Resources&quot;&gt;Resources&lt;a class=&quot;anchor-link&quot; href=&quot;#Resources&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.linode.com/docs/quick-answers/linux-essentials/introduction-to-systemctl/&quot;&gt;Linode - Introduction to Systemctl&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/on.png" /><media:content medium="image" url="https://words.howapped.com/images/on.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/chart-preview.png" /><media:content medium="image" url="https://words.howapped.com/images/chart-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
