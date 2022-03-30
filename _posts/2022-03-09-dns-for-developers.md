@@ -8,6 +8,11 @@ image: https://i.imgur.com/umsJdKF.png
 hide: false
 ---
 
+<style>
+table {font-size:inherit; white-space:inherit}
+table td, table th {width:100%}
+</style>
+
 # Networking for Devs - DNS FAQ
 
 ![](https://i.imgur.com/umsJdKF.png "The Domain Name System")
