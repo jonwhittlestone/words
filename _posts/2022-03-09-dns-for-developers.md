@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: 2021 Edition
+description: Networking for Devs
 categories: ["Cornell Explainers", "Networking for Devs"]
 title: DNS for Developers
 image: https://i.imgur.com/umsJdKF.png
