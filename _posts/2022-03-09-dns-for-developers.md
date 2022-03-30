@@ -10,7 +10,7 @@ hide: false
 
 # Networking for Devs - DNS FAQ
 
-![](https://i.imgur.com/umsJdKF.png "2021: The Domain Name System")
+![](https://i.imgur.com/umsJdKF.png "The Domain Name System")
 
 As a senior developer, it's clear some other technical staff lack a working knowledge of the Domain Name System.
 
