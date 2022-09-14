@@ -160,61 +160,49 @@ window.onload = wrap_img;
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⎼ ⎼ ⎼&gt;
 </code></pre></div></div>
 
-<p>```
-||     🧔       ||      ||        💻         ||       ||         💻        ||
-=============================================================================</p>
-<ol>
-  <li>SPA (F/E)      ⎼⎼⎼⎼&gt;   Resource Server (API)              Auth Server (Okta)
-    <ul>
-      <li>XHR request in JS to /api/login</li>
-      <li>API gets secrets for authorize url (eg client_id)</li>
-      <li>API returns login_url containing authorize url for Okta Response payload</li>
-    </ul>
-  </li>
-  <li>SPA (F/E)      &lt;⎼ ⎼ ⎼   Resource Server (API)              Auth Server (Okta)
-    <ul>
-      <li>API returns json object with login url</li>
-      <li>{“login_url”: https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;response_type=code&amp;scope=openid profile email&amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback}</li>
-    </ul>
-  </li>
-  <li>SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&gt;   Auth Server (Okta)
-    <ul>
-      <li>Frontend pushes user to the login_url</li>
-    </ul>
-  </li>
-  <li>SPA (F/E)      &lt;⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼   Auth Server (Okta)
-    <ul>
-      <li>The user will receive Okta challenge login page</li>
-    </ul>
-  </li>
-  <li>SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&gt;   Auth Server (Okta)
-    <ul>
-      <li>User submits credentials and/or 2FA</li>
-    </ul>
-  </li>
-  <li>SPA (F/E)      &lt;⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼   Auth Server (Okta)
-    <ul>
-      <li>If credentials are good the callback on the F/E can proceed</li>
-      <li>The authorisation code is granted. (“code grant”)</li>
-      <li>GET https://{CLIENT_URL}/callback?code={UNIQUE_CODE}</li>
-    </ul>
-  </li>
-  <li>SPA (F/E)      ⎼⎼⎼⎼&gt;   Resource Server (API)              Auth Server (Okta)
-    <ul>
-      <li>XHR request in JS to /api/callback?code={UNIQUE_CODE}</li>
-    </ul>
-  </li>
-  <li>SPA (F/E)              Resource Server (API)     ⎼⎼⎼⎼&gt;    Auth Server (Okta)
-    <ul>
-      <li>The code grant is then used to retrieve an access token from Okta</li>
-      <li>The API has the client secret. We have kept it secure and not exposed in in frontend.</li>
-      <li>POST https://{OKTA_DOMAIN}/token?code={UNIQUE_CODE}&amp;{CLIENT_ID}&amp;client_secret={CLIENT_SECRET}</li>
-    </ul>
-  </li>
-  <li>SPA (F/E)              Resource Server (API)     &lt;⎼ ⎼ ⎼   Auth Server (Okta)
-    <ul>
-      <li>Okta replies to our API with the access token</li>
-      <li>status=200, data={ACCESS_TOKEN}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>||     🧔       ||      ||        💻         ||       ||         💻        ||
+=============================================================================
+1. SPA (F/E)      ⎼⎼⎼⎼&gt;   Resource Server (API)              Auth Server (Okta)
+  - XHR request in JS to /api/login
+  - API gets secrets for authorize url (eg client_id)
+  - API returns login_url containing authorize url for Okta Response payload
+
+
+2. SPA (F/E)      &lt;⎼ ⎼ ⎼   Resource Server (API)              Auth Server (Okta)
+  - API returns json object with login url
+  - {"login_url": https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;response_type=code&amp;scope=openid profile email&amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback}
+
+
+3. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&gt;   Auth Server (Okta)
+  - Frontend pushes user to the login_url
+
+
+4. SPA (F/E)      &lt;⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼   Auth Server (Okta)
+  - The user will receive Okta challenge login page
+
+
+5. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&gt;   Auth Server (Okta)
+  - User submits credentials and/or 2FA
+
+
+6. SPA (F/E)      &lt;⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼   Auth Server (Okta)
+  - If credentials are good the callback on the F/E can proceed
+  - The authorisation code is granted. ("code grant")
+  - GET https://{CLIENT_URL}/callback?code={UNIQUE_CODE}
+
+
+7. SPA (F/E)      ⎼⎼⎼⎼&gt;   Resource Server (API)              Auth Server (Okta)
+  - XHR request in JS to /api/callback?code={UNIQUE_CODE}
+
+
+8. SPA (F/E)              Resource Server (API)     ⎼⎼⎼⎼&gt;    Auth Server (Okta)
+  - The code grant is then used to retrieve an access token from Okta
+  - The API has the client secret. We have kept it secure and not exposed in in frontend.
+  - POST https://{OKTA_DOMAIN}/token?code={UNIQUE_CODE}&amp;{CLIENT_ID}&amp;client_secret={CLIENT_SECRET}
+
+9. SPA (F/E)              Resource Server (API)     &lt;⎼ ⎼ ⎼   Auth Server (Okta)
+  - Okta replies to our API with the access token
+  - status=200, data={ACCESS_TOKEN}
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │ Optional - user info                                                                   │
 │                                                                                        |
@@ -225,22 +213,19 @@ window.onload = wrap_img;
 │  SPA (F/E)                Resource Server (API) ◄─ - - - -   Auth Server (Okta)        │
 │  - status=200, data={USER_INFO}                                                        │
 │                                                                                        │
-└────────────────────────────────────────────────────────────────────────────────────────┘</li>
-    </ul>
-  </li>
-</ol>
+└────────────────────────────────────────────────────────────────────────────────────────┘
 
-<p>10  SPA (F/E)   &lt;⎼ ⎼ ⎼       Resource Server (API)             Auth Server (Okta)</p>
-<ul>
-  <li>Generate a JWT on our API and send back to frontend to avoid exposing the Okta token</li>
-  <li>status=200, data={JWT_TOKEN}</li>
-</ul>
+10  SPA (F/E)   &lt;⎼ ⎼ ⎼       Resource Server (API)             Auth Server (Okta)
+  - Generate a JWT on our API and send back to frontend to avoid exposing the Okta token
+  - status=200, data={JWT_TOKEN}
 
-<p>┌──────────────────────────────────────────────────────────────────────────────┐
+
+ ┌──────────────────────────────────────────────────────────────────────────────┐
  │                                                                              │
  │                        🎆 State = User Authenticated 🎆                      │
  │                                                                              │
- └──────────────────────────────────────────────────────────────────────────────┘</p>
+ └──────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div></div>
 
   </div><a class="u-url" href="/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html" hidden></a>
 </article>

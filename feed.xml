@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-09-14T04:31:28-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">An ASCII Art Guide to OAuth and OpenID Connect (with added SPA)</title><link href="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html" rel="alternate" type="text/html" title="An ASCII Art Guide to OAuth and OpenID Connect (with added SPA)" /><published>2022-09-14T00:00:00-05:00</published><updated>2022-09-14T00:00:00-05:00</updated><id>https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta</id><content type="html" xml:base="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html">&lt;p&gt;The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-09-14T04:37:07-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">An ASCII Art Guide to OAuth and OpenID Connect (with added SPA)</title><link href="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html" rel="alternate" type="text/html" title="An ASCII Art Guide to OAuth and OpenID Connect (with added SPA)" /><published>2022-09-14T00:00:00-05:00</published><updated>2022-09-14T00:00:00-05:00</updated><id>https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta</id><content type="html" xml:base="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html">&lt;p&gt;The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.&lt;/p&gt;
 
 &lt;h3 id=&quot;simple-oidc-flow-between-resource-server-and-auth-server&quot;&gt;Simple OIDC Flow between Resource Server and Auth Server&lt;/h3&gt;
 
@@ -38,61 +38,49 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;⎼ ⎼ ⎼&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;```
-||     🧔       ||      ||        💻         ||       ||         💻        ||
-=============================================================================&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;SPA (F/E)      ⎼⎼⎼⎼&amp;gt;   Resource Server (API)              Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;XHR request in JS to /api/login&lt;/li&gt;
-      &lt;li&gt;API gets secrets for authorize url (eg client_id)&lt;/li&gt;
-      &lt;li&gt;API returns login_url containing authorize url for Okta Response payload&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;SPA (F/E)      &amp;lt;⎼ ⎼ ⎼   Resource Server (API)              Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;API returns json object with login url&lt;/li&gt;
-      &lt;li&gt;{“login_url”: https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;amp;response_type=code&amp;amp;scope=openid profile email&amp;amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback}&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&amp;gt;   Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;Frontend pushes user to the login_url&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;SPA (F/E)      &amp;lt;⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼   Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;The user will receive Okta challenge login page&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&amp;gt;   Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;User submits credentials and/or 2FA&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;SPA (F/E)      &amp;lt;⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼   Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;If credentials are good the callback on the F/E can proceed&lt;/li&gt;
-      &lt;li&gt;The authorisation code is granted. (“code grant”)&lt;/li&gt;
-      &lt;li&gt;GET https://{CLIENT_URL}/callback?code={UNIQUE_CODE}&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;SPA (F/E)      ⎼⎼⎼⎼&amp;gt;   Resource Server (API)              Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;XHR request in JS to /api/callback?code={UNIQUE_CODE}&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;SPA (F/E)              Resource Server (API)     ⎼⎼⎼⎼&amp;gt;    Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;The code grant is then used to retrieve an access token from Okta&lt;/li&gt;
-      &lt;li&gt;The API has the client secret. We have kept it secure and not exposed in in frontend.&lt;/li&gt;
-      &lt;li&gt;POST https://{OKTA_DOMAIN}/token?code={UNIQUE_CODE}&amp;amp;{CLIENT_ID}&amp;amp;client_secret={CLIENT_SECRET}&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;SPA (F/E)              Resource Server (API)     &amp;lt;⎼ ⎼ ⎼   Auth Server (Okta)
-    &lt;ul&gt;
-      &lt;li&gt;Okta replies to our API with the access token&lt;/li&gt;
-      &lt;li&gt;status=200, data={ACCESS_TOKEN}
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;||     🧔       ||      ||        💻         ||       ||         💻        ||
+=============================================================================
+1. SPA (F/E)      ⎼⎼⎼⎼&amp;gt;   Resource Server (API)              Auth Server (Okta)
+  - XHR request in JS to /api/login
+  - API gets secrets for authorize url (eg client_id)
+  - API returns login_url containing authorize url for Okta Response payload
+
+
+2. SPA (F/E)      &amp;lt;⎼ ⎼ ⎼   Resource Server (API)              Auth Server (Okta)
+  - API returns json object with login url
+  - {&quot;login_url&quot;: https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;amp;response_type=code&amp;amp;scope=openid profile email&amp;amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback}
+
+
+3. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&amp;gt;   Auth Server (Okta)
+  - Frontend pushes user to the login_url
+
+
+4. SPA (F/E)      &amp;lt;⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼   Auth Server (Okta)
+  - The user will receive Okta challenge login page
+
+
+5. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&amp;gt;   Auth Server (Okta)
+  - User submits credentials and/or 2FA
+
+
+6. SPA (F/E)      &amp;lt;⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼   Auth Server (Okta)
+  - If credentials are good the callback on the F/E can proceed
+  - The authorisation code is granted. (&quot;code grant&quot;)
+  - GET https://{CLIENT_URL}/callback?code={UNIQUE_CODE}
+
+
+7. SPA (F/E)      ⎼⎼⎼⎼&amp;gt;   Resource Server (API)              Auth Server (Okta)
+  - XHR request in JS to /api/callback?code={UNIQUE_CODE}
+
+
+8. SPA (F/E)              Resource Server (API)     ⎼⎼⎼⎼&amp;gt;    Auth Server (Okta)
+  - The code grant is then used to retrieve an access token from Okta
+  - The API has the client secret. We have kept it secure and not exposed in in frontend.
+  - POST https://{OKTA_DOMAIN}/token?code={UNIQUE_CODE}&amp;amp;{CLIENT_ID}&amp;amp;client_secret={CLIENT_SECRET}
+
+9. SPA (F/E)              Resource Server (API)     &amp;lt;⎼ ⎼ ⎼   Auth Server (Okta)
+  - Okta replies to our API with the access token
+  - status=200, data={ACCESS_TOKEN}
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │ Optional - user info                                                                   │
 │                                                                                        |
@@ -103,22 +91,19 @@
 │  SPA (F/E)                Resource Server (API) ◄─ - - - -   Auth Server (Okta)        │
 │  - status=200, data={USER_INFO}                                                        │
 │                                                                                        │
-└────────────────────────────────────────────────────────────────────────────────────────┘&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+└────────────────────────────────────────────────────────────────────────────────────────┘
 
-&lt;p&gt;10  SPA (F/E)   &amp;lt;⎼ ⎼ ⎼       Resource Server (API)             Auth Server (Okta)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Generate a JWT on our API and send back to frontend to avoid exposing the Okta token&lt;/li&gt;
-  &lt;li&gt;status=200, data={JWT_TOKEN}&lt;/li&gt;
-&lt;/ul&gt;
+10  SPA (F/E)   &amp;lt;⎼ ⎼ ⎼       Resource Server (API)             Auth Server (Okta)
+  - Generate a JWT on our API and send back to frontend to avoid exposing the Okta token
+  - status=200, data={JWT_TOKEN}
 
-&lt;p&gt;┌──────────────────────────────────────────────────────────────────────────────┐
+
+ ┌──────────────────────────────────────────────────────────────────────────────┐
  │                                                                              │
  │                        🎆 State = User Authenticated 🎆                      │
  │                                                                              │
- └──────────────────────────────────────────────────────────────────────────────┘&lt;/p&gt;</content><author><name></name></author><summary type="html">The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://howapped.com/assets/files/contacts_oidc_flow.pdf" /><media:content medium="image" url="http://howapped.com/assets/files/contacts_oidc_flow.pdf" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DNS for Developers</title><link href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" rel="alternate" type="text/html" title="DNS for Developers" /><published>2022-03-09T00:00:00-06:00</published><updated>2022-03-09T00:00:00-06:00</updated><id>https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers</id><content type="html" xml:base="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html">&lt;style&gt;
+ └──────────────────────────────────────────────────────────────────────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://howapped.com/assets/files/contacts_oidc_flow.pdf" /><media:content medium="image" url="http://howapped.com/assets/files/contacts_oidc_flow.pdf" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DNS for Developers</title><link href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" rel="alternate" type="text/html" title="DNS for Developers" /><published>2022-03-09T00:00:00-06:00</published><updated>2022-03-09T00:00:00-06:00</updated><id>https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers</id><content type="html" xml:base="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html">&lt;style&gt;
 table {font-size:inherit; white-space:inherit}
 table td, table th {width:100%}
 &lt;/style&gt;
