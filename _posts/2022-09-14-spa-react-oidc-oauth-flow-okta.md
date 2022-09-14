@@ -4,7 +4,7 @@ layout: post
 description: The flow between Client, Resource Server and Auth server
 categories: ["Authentication", "Single Sign On", "SSO"]
 title: An visual guide to OAuth and OpenID Connect (with added SPA)
-image: http://howapped.com/assets/files/openid_connect.png
+image: https://i.imgur.com/Zbj922R.png
 hide: false
 ---
 
