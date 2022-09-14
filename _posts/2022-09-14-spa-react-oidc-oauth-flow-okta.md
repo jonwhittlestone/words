@@ -41,7 +41,7 @@ The following shows the OAuth2.0 flow for granting access to your API, with the 
 
 ### Advanced OIDC Flow between SPA, Resource Server and Auth Server
 
-Front Channel means non-trusted communication from the browser
+Front Channel means non-trusted communication
 
 ```
 ⎼⎼⎼⎼►
