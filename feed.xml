@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-09-14T04:19:38-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">DNS for Developers</title><link href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" rel="alternate" type="text/html" title="DNS for Developers" /><published>2022-03-09T00:00:00-06:00</published><updated>2022-03-09T00:00:00-06:00</updated><id>https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers</id><content type="html" xml:base="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html">&lt;style&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2022-09-14T04:31:28-05:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">An ASCII Art Guide to OAuth and OpenID Connect (with added SPA)</title><link href="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html" rel="alternate" type="text/html" title="An ASCII Art Guide to OAuth and OpenID Connect (with added SPA)" /><published>2022-09-14T00:00:00-05:00</published><updated>2022-09-14T00:00:00-05:00</updated><id>https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta</id><content type="html" xml:base="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html">&lt;p&gt;The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.&lt;/p&gt;
+
+&lt;h3 id=&quot;simple-oidc-flow-between-resource-server-and-auth-server&quot;&gt;Simple OIDC Flow between Resource Server and Auth Server&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. Resource server (our api) &amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt; Auth server (Okta)
+  - API route: /authorization-code/login
+  - Description: redirect to auth server login.
+
+    The resource service and therefore client, expects to receive an authorisation code
+
+  - Python function: authorize()
+  - Example login url
+    - https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;amp;response_type=code&amp;amp;scope=openid profile email&amp;amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback
+
+2. Resource server (our api) &amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt; Auth server (Okta)
+  - API route: /authorization-code/callback
+  - Description: Get tokens
+
+    Swap the auth_code and client_secret for an access token.
+    This is the key that the client will use from that point
+    forward to communicate with the resource server.
+
+  - Python function: callback()
+  - Example to get tokens by providing client_secret:
+    - https://newscorp.oktapreview.com/oauth2/default/v1/token?client_id=0oa10kbogxjjvDCUW0h8&amp;amp;client_secret=5ketFKpwhMGGSnpJyMNLiYlQfrLxhksJDTerqwof&amp;amp;grant_type=authorization_code&amp;amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback&amp;amp;code=DpgBENTLyEV0ZlG9MTv9kGWaTMH2G8nnoh0PejbUvAE
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;advanced-oidc-flow-between-spa-resource-server-and-auth-server&quot;&gt;Advanced OIDC Flow between SPA, Resource Server and Auth Server&lt;/h3&gt;
+
+&lt;p&gt;Front Channel means non-trusted communication from the browser&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;⎼⎼⎼⎼&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Back Channel means ‘trust in the connection’&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;⎼ ⎼ ⎼&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;```
+||     🧔       ||      ||        💻         ||       ||         💻        ||
+=============================================================================&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;SPA (F/E)      ⎼⎼⎼⎼&amp;gt;   Resource Server (API)              Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;XHR request in JS to /api/login&lt;/li&gt;
+      &lt;li&gt;API gets secrets for authorize url (eg client_id)&lt;/li&gt;
+      &lt;li&gt;API returns login_url containing authorize url for Okta Response payload&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SPA (F/E)      &amp;lt;⎼ ⎼ ⎼   Resource Server (API)              Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;API returns json object with login url&lt;/li&gt;
+      &lt;li&gt;{“login_url”: https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;amp;response_type=code&amp;amp;scope=openid profile email&amp;amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&amp;gt;   Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;Frontend pushes user to the login_url&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SPA (F/E)      &amp;lt;⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼   Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;The user will receive Okta challenge login page&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼&amp;gt;   Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;User submits credentials and/or 2FA&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SPA (F/E)      &amp;lt;⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼   Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;If credentials are good the callback on the F/E can proceed&lt;/li&gt;
+      &lt;li&gt;The authorisation code is granted. (“code grant”)&lt;/li&gt;
+      &lt;li&gt;GET https://{CLIENT_URL}/callback?code={UNIQUE_CODE}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SPA (F/E)      ⎼⎼⎼⎼&amp;gt;   Resource Server (API)              Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;XHR request in JS to /api/callback?code={UNIQUE_CODE}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SPA (F/E)              Resource Server (API)     ⎼⎼⎼⎼&amp;gt;    Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;The code grant is then used to retrieve an access token from Okta&lt;/li&gt;
+      &lt;li&gt;The API has the client secret. We have kept it secure and not exposed in in frontend.&lt;/li&gt;
+      &lt;li&gt;POST https://{OKTA_DOMAIN}/token?code={UNIQUE_CODE}&amp;amp;{CLIENT_ID}&amp;amp;client_secret={CLIENT_SECRET}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SPA (F/E)              Resource Server (API)     &amp;lt;⎼ ⎼ ⎼   Auth Server (Okta)
+    &lt;ul&gt;
+      &lt;li&gt;Okta replies to our API with the access token&lt;/li&gt;
+      &lt;li&gt;status=200, data={ACCESS_TOKEN}
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│ Optional - user info                                                                   │
+│                                                                                        |
+│  SPA (F/E)               Resource Server (API)  ───────►     Auth Server (Okta)        |
+│  - Access /userinfo using access token                                                 |
+│  - https://{OKTA_DOMAIN}/userinfo header {Authorization: Bearer {ACCESS_TOKEN}         |
+│                                                                                        │
+│  SPA (F/E)                Resource Server (API) ◄─ - - - -   Auth Server (Okta)        │
+│  - status=200, data={USER_INFO}                                                        │
+│                                                                                        │
+└────────────────────────────────────────────────────────────────────────────────────────┘&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;10  SPA (F/E)   &amp;lt;⎼ ⎼ ⎼       Resource Server (API)             Auth Server (Okta)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Generate a JWT on our API and send back to frontend to avoid exposing the Okta token&lt;/li&gt;
+  &lt;li&gt;status=200, data={JWT_TOKEN}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;┌──────────────────────────────────────────────────────────────────────────────┐
+ │                                                                              │
+ │                        🎆 State = User Authenticated 🎆                      │
+ │                                                                              │
+ └──────────────────────────────────────────────────────────────────────────────┘&lt;/p&gt;</content><author><name></name></author><summary type="html">The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://howapped.com/assets/files/contacts_oidc_flow.pdf" /><media:content medium="image" url="http://howapped.com/assets/files/contacts_oidc_flow.pdf" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DNS for Developers</title><link href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" rel="alternate" type="text/html" title="DNS for Developers" /><published>2022-03-09T00:00:00-06:00</published><updated>2022-03-09T00:00:00-06:00</updated><id>https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers</id><content type="html" xml:base="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html">&lt;style&gt;
 table {font-size:inherit; white-space:inherit}
 table td, table th {width:100%}
 &lt;/style&gt;
@@ -1436,255 +1556,4 @@ When assuming an IAM role (see Trusted Entity), access to a service can be grant
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://i.imgur.com/C2bPqfo.png" /><media:content medium="image" url="http://i.imgur.com/C2bPqfo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Scheduled Severless Startup</title><link href="https://words.howapped.com/aws%20lambda/automation/python/2020/06/11/scheduled-serverless-startup.html" rel="alternate" type="text/html" title="Scheduled Severless Startup" /><published>2020-06-11T00:00:00-05:00</published><updated>2020-06-11T00:00:00-05:00</updated><id>https://words.howapped.com/aws%20lambda/automation/python/2020/06/11/scheduled-serverless-startup</id><content type="html" xml:base="https://words.howapped.com/aws%20lambda/automation/python/2020/06/11/scheduled-serverless-startup.html">&lt;!--
-#################################################
-### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
-#################################################
-# file to edit: _notebooks/2020-06-11-scheduled-serverless-startup.ipynb
---&gt;
-
-&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
-        
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-
-&lt;/div&gt;
-    
-
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;The-Problem&quot;&gt;The Problem&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Problem&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;As part of the Covid-19 effort, Digital Ocean donated some free credit to us to work on a local food delivery scheme.&lt;/p&gt;
-&lt;p&gt;To make that credit go as far as possible and to minimise power consumption, we'd like to power up and down the servers according to a schedule.&lt;/p&gt;
-&lt;h1 id=&quot;The-Solution&quot;&gt;The Solution&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Solution&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Esimated cost saving...&lt;/p&gt;
-&lt;p&gt;Here's how to do that with AWS Lambda, with cloudfront events. We iterate on that to use the Serverless Framework.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TLDR; Have a look at the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;companion repo.&lt;/a&gt;. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This article covers how to automate with a Digital Ocean droplet so to follow along with the code, you can create one using the example from &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet&quot;&gt;a previous article&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We will examine the cURL statements, convert those into Python. We can use AWS Lambda to execute the Python in a serverless environment. Then, the AWS lambda functions can be triggered by Cloudwatch events to a schedule so machines can be brought online only during operating hours.&lt;/p&gt;
-&lt;p&gt;We can notify any interested parties using Microsoft Teams - a topic for a subsequent post.&lt;/p&gt;
-&lt;h2 id=&quot;Prerequisites&quot;&gt;Prerequisites&lt;a class=&quot;anchor-link&quot; href=&quot;#Prerequisites&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;You can always check the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;companion repo.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;You will need to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;.. have &lt;code&gt;jq&lt;/code&gt; installed to format JSON responses&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://stedolan.github.io/jq/download/&quot;&gt;Download JQ&lt;/a&gt; for your OS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;.. have a server on which a dockerized web app will start automatically when the server is restarted&lt;ul&gt;
-&lt;li&gt;See previous article on how to &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet&quot;&gt;create one with DigitalOcean&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;.. have &lt;a href=&quot;https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation&quot;&gt;installed Boto3 with your AWS account credentials&lt;/a&gt; so we can work with the AWS Python SDK.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;cURL-statements-to-boot-down-and-up&quot;&gt;cURL statements to boot down and up&lt;a class=&quot;anchor-link&quot; href=&quot;#cURL-statements-to-boot-down-and-up&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;As covered in a &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html&quot;&gt;previous post&lt;/a&gt;, our web app will restart when rebooted using a systemd service.&lt;/p&gt;
-&lt;p&gt;Rather than ssh or the cloud provider's control panel, the server can be started and stopped using cURL.&lt;/p&gt;
-&lt;p&gt;In the case of DigitalOcean:&lt;/p&gt;
-&lt;p&gt;Find out the ID of the server:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl \
-        -H 'Content-Type: application/json' \
-        -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    &quot;https://api.digitalocean.com/v2/droplets?name=scheduled-serverless&quot; | jq '.droplets[] | {id:.id, name:.name, status: .status}'&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The output gives us the ID&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-    ...
-},
-{
-  &quot;id&quot;: 195786885,
-  &quot;name&quot;: &quot;scheduled-serverless&quot;,
-  &quot;status&quot;: &quot;active&quot;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And then power it down:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    -d '{&quot;type&quot;:&quot;power_off&quot;}' \
-    &quot;https://api.digitalocean.com/v2/droplets/195786885/actions&quot; | jq '.[] | {id:.id, status:.status, type:.type}'&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Which tells us it's in progress&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-  &quot;id&quot;: 955320153,
-  &quot;status&quot;: &quot;in-progress&quot;,
-  &quot;type&quot;: &quot;power_off&quot;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The equivalent cURL for powering on the server is virtual identical&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    -d '{&quot;type&quot;:&quot;power_on&quot;}' \
-    &quot;https://api.digitalocean.com/v2/droplets/195786885/actions&quot; | jq '.[] | {id:.id, status:.status, type:.type}'&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The web app from the example is running on port 80. We know the server's IP address by referring to the control panel. Let's confirm that the service is running by verifying the output in a browser.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/jonwhittlestone/words/master/images/do_ip.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Requests-scripts-in-AWS-Lambda&quot;&gt;Requests scripts in AWS Lambda&lt;a class=&quot;anchor-link&quot; href=&quot;#Requests-scripts-in-AWS-Lambda&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;The-cURL-statements-in-Python&quot;&gt;The cURL statements in Python&lt;a class=&quot;anchor-link&quot; href=&quot;#The-cURL-statements-in-Python&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;First, get the ID of the droplet.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
-
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;DIGITAL_OCEAN_ACCESS_TOKEN&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;DROPLET_NAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;scheduled-serverless&amp;#39;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&amp;#39;Authorization&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Bearer &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Your environment should have the `DIGITAL_OCEAN_ACCESS_TOKEN exported.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_droplet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;droplets&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,{})&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DROPLET_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_droplet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Droplet ID: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
-
-&lt;div class=&quot;output_area&quot;&gt;
-
-&lt;div class=&quot;output_subarea output_stream output_stdout output_text&quot;&gt;
-&lt;pre&gt;Droplet ID: 195786885
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-    
-
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Now we have the ID, let's define the functions for bringing the servers down and back up.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
-
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;power_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;{&amp;quot;type&amp;quot;:&amp;quot;power_off&amp;quot;}&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/actions&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;power_on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;{&amp;quot;type&amp;quot;:&amp;quot;power_on&amp;quot;}&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/actions&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;action&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;action&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;----&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# action_resp = power_on()&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# print(action_resp[&amp;#39;action&amp;#39;][&amp;#39;type&amp;#39;])&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# print(action_resp[&amp;#39;action&amp;#39;][&amp;#39;status&amp;#39;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
-
-&lt;div class=&quot;output_area&quot;&gt;
-
-&lt;div class=&quot;output_subarea output_stream output_stdout output_text&quot;&gt;
-&lt;pre&gt;power_off
-in-progress
-----
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-    
-
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;Running-the-scripts-in-AWS-Lambda&quot;&gt;Running the scripts in AWS Lambda&lt;a class=&quot;anchor-link&quot; href=&quot;#Running-the-scripts-in-AWS-Lambda&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let's translate the cURL statements into Python.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Schedule-the-scripts-with-Cloudwatch-events&quot;&gt;Schedule the scripts with Cloudwatch events&lt;a class=&quot;anchor-link&quot; href=&quot;#Schedule-the-scripts-with-Cloudwatch-events&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Serverless-framework&quot;&gt;Serverless framework&lt;a class=&quot;anchor-link&quot; href=&quot;#Serverless-framework&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Quality-of-Life-enhancements&quot;&gt;Quality of Life enhancements&lt;a class=&quot;anchor-link&quot; href=&quot;#Quality-of-Life-enhancements&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When the target service is unavailable, it's quite unfriendly to show a blank 500 screen. A subsequent post outlines a solution for a forwarding service which can display an Open/Closed for business page to the user, with 'Opening times'&lt;/p&gt;
-&lt;p&gt;As part of what's become known as 'Chatops', it's useful to update team members and stakeholders about the status of the server. A future addition will be to use the Microsoft Teams API to notify interested parties.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Resources&quot;&gt;Resources&lt;a class=&quot;anchor-link&quot; href=&quot;#Resources&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Curl converter - [&lt;a href=&quot;https://github.com/NickCarneiro/curlconverter&quot;&gt;github&lt;/a&gt;]&lt;/p&gt;
-&lt;p&gt;convert curl commands to Python, JavaScript, PHP, R, Go, Rust, Dart, JSON, Ansible, Elixir&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/chart-preview.png" /><media:content medium="image" url="https://words.howapped.com/images/chart-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://i.imgur.com/C2bPqfo.png" /><media:content medium="image" url="http://i.imgur.com/C2bPqfo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
