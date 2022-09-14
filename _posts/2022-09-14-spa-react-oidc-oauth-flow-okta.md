@@ -44,13 +44,13 @@ The following shows the OAuth2.0 flow for granting access to your API, with the 
 Front Channel means non-trusted communication from the browser
 
 ```
-⎼⎼⎼⎼>
+⎼⎼⎼⎼►
 ```
 
 Back Channel means 'trust in the connection'
 
 ```
-⎼ ⎼ ⎼>
+⎼ ⎼ ⎼►
 ```
 
 ```
