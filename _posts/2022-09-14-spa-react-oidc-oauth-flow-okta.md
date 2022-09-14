@@ -4,7 +4,7 @@ layout: post
 description: The flow between Client, Resource Server and Auth server
 categories: ["Authentication", "Single Sign On", "SSO"]
 title: An ASCII Art Guide to OAuth and OpenID Connect (with added SPA)
-image: http://howapped.com/assets/files/contacts_oidc_flow.pdf
+image: http://howapped.com/assets/files/openid_connect.png
 hide: false
 ---
 
