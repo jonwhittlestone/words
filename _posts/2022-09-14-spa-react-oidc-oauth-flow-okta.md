@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: The flow between Client, Resource Server and Auth server
 categories: ["Authentication", "Single Sign On", "SSO"]
-title: An ASCII Art Guide to OAuth and OpenID Connect (with added SPA)
+title: An visual guide to OAuth and OpenID Connect (with added SPA)
 image: http://howapped.com/assets/files/openid_connect.png
 hide: false
 ---
@@ -56,45 +56,45 @@ Back Channel means 'trust in the connection'
 ```
 ||     🧔       ||      ||        💻         ||       ||         💻        ||
 =============================================================================
-1. SPA (F/E)      ⎼⎼⎼⎼>   Resource Server (API)              Auth Server (Okta)
+1. SPA (F/E)      ⎼⎼⎼⎼►   Resource Server (API)              Auth Server (Okta)
   - XHR request in JS to /api/login
   - API gets secrets for authorize url (eg client_id)
   - API returns login_url containing authorize url for Okta Response payload
 
 
-2. SPA (F/E)      <⎼ ⎼ ⎼   Resource Server (API)              Auth Server (Okta)
+2. SPA (F/E)      ◄⎼ ⎼ ⎼   Resource Server (API)              Auth Server (Okta)
   - API returns json object with login url
   - {"login_url": https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&response_type=code&scope=openid profile email&state=cd0348b84d8f45a8808a39d5763b49a3&nonce=c96bdb88ef184a8caaedeefd366e8881&redirect_uri=http://127.0.0.1:3001/authorization-code/callback}
 
 
-3. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼>   Auth Server (Okta)
+3. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼►   Auth Server (Okta)
   - Frontend pushes user to the login_url
 
 
-4. SPA (F/E)      <⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼   Auth Server (Okta)
+4. SPA (F/E)      ◄⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼ ⎼   Auth Server (Okta)
   - The user will receive Okta challenge login page
 
 
-5. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼>   Auth Server (Okta)
+5. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼►   Auth Server (Okta)
   - User submits credentials and/or 2FA
 
 
-6. SPA (F/E)      <⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼   Auth Server (Okta)
+6. SPA (F/E)      ◄⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼   Auth Server (Okta)
   - If credentials are good the callback on the F/E can proceed
   - The authorisation code is granted. ("code grant")
   - GET https://{CLIENT_URL}/callback?code={UNIQUE_CODE}
 
 
-7. SPA (F/E)      ⎼⎼⎼⎼>   Resource Server (API)              Auth Server (Okta)
+7. SPA (F/E)      ⎼⎼⎼⎼►   Resource Server (API)              Auth Server (Okta)
   - XHR request in JS to /api/callback?code={UNIQUE_CODE}
 
 
-8. SPA (F/E)              Resource Server (API)     ⎼⎼⎼⎼>    Auth Server (Okta)
+8. SPA (F/E)              Resource Server (API)     ⎼⎼⎼⎼►    Auth Server (Okta)
   - The code grant is then used to retrieve an access token from Okta
   - The API has the client secret. We have kept it secure and not exposed in in frontend.
   - POST https://{OKTA_DOMAIN}/token?code={UNIQUE_CODE}&{CLIENT_ID}&client_secret={CLIENT_SECRET}
 
-9. SPA (F/E)              Resource Server (API)     <⎼ ⎼ ⎼   Auth Server (Okta)
+9. SPA (F/E)              Resource Server (API)     ◄⎼ ⎼ ⎼   Auth Server (Okta)
   - Okta replies to our API with the access token
   - status=200, data={ACCESS_TOKEN}
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -109,7 +109,7 @@ Back Channel means 'trust in the connection'
 │                                                                                        │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 
-10  SPA (F/E)   <⎼ ⎼ ⎼       Resource Server (API)             Auth Server (Okta)
+10  SPA (F/E)   ◄⎼ ⎼ ⎼       Resource Server (API)             Auth Server (Okta)
   - Generate a JWT on our API and send back to frontend to avoid exposing the Okta token
   - status=200, data={JWT_TOKEN}
 
