@@ -4,7 +4,7 @@ layout: post
 description: Notes on 'No Rules Rules, Netflix and the Culture of Reinvention' by Reed Hastings and Erin Meyer.<br><br>Gripping storytelling on how to create and maintain a dynamic, flexible and creative engineering culture.
 categories: [book notes, work life, non-fiction]
 title: Book Notes - No Rules Rules
-image: https://i.imgur.com/3xLS5Rr.png
+image: images/3xLS5Rr.png
 hide: false
 ---
 

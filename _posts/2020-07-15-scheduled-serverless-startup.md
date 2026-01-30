@@ -6,7 +6,7 @@ toc: true
 badges: true
 comments: true
 categories: [AWS Lambda, automation, python]
-image: http://i.imgur.com/dIAyXJa.png
+image: images/dIAyXJa.png
 show_image: true
 hide: true
 nb_path: _notebooks/2020-07-15-scheduled-serverless-startup.ipynb

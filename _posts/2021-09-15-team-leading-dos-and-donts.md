@@ -4,7 +4,7 @@ layout: post
 description: Leading a Team, Dos and Don'ts - A Google insight.
 categories: [book notes, work life, non-fiction]
 title: Effective Engineering Management
-image: https://i.imgur.com/syhowyL.png
+image: images/syhowyL.png
 hide: false
 ---
 
@@ -132,4 +132,4 @@ You may buy Software Engineering at Google here.
 
 - [Bookshop.org](https://uk.bookshop.org/books/software-engineering-at-google-lessons-learned-from-programming-over-time/9781492082798)
 
-![](https://i.imgur.com/kMpCBtx.png "Software Engineering at Google")
+![](/images/kMpCBtx.png "Software Engineering at Google")

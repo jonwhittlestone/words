@@ -4,7 +4,7 @@ layout: post
 description: Notes on 'Managing Humans' by Michael Lopp.
 categories: [book notes, work life, non-fiction]
 title: Book Notes - Managing Humans
-image: http://i.imgur.com/924BgKj.png
+image: images/924BgKj.png
 ---
 
 I (Jon) have recently finished this book about management and leadership. It does a great job in explaining empathy, archetypes and 'general craziness of dysfunctional bright people' with plenty of pertinent and amusing anecodotes.

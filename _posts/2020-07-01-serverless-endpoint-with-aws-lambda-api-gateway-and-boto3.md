@@ -6,7 +6,7 @@ toc: true
 badges: false
 comments: false
 categories: [AWS Lambda,boto3,python, AWS API Gateway]
-image: http://i.imgur.com/C2bPqfo.png
+image: images/C2bPqfo.png
 show_image: true
 hide: false
 nb_path: _notebooks/2020-07-01-serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.ipynb

@@ -4,7 +4,7 @@ layout: post
 description: Networking for Devs
 categories: ["Cornell Explainers", "Networking for Devs"]
 title: DNS for Developers
-image: https://i.imgur.com/umsJdKF.png
+image: images/umsJdKF.png
 hide: false
 ---
 
@@ -15,7 +15,7 @@ table td, table th {width:100%}
 
 # Networking for Devs - DNS FAQ
 
-![](https://i.imgur.com/umsJdKF.png "The Domain Name System")
+![](/images/umsJdKF.png "The Domain Name System")
 
 As a senior developer, it's clear some other technical staff lack a working knowledge of the Domain Name System.
 

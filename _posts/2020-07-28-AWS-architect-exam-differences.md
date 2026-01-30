@@ -4,7 +4,7 @@ layout: post
 description: 2018 vs. 2020
 categories: [aws]
 title: AWS Certified Solutions Architect - Exam Differences
-image: https://i.imgur.com/UrmOp2V.png
+image: images/UrmOp2V.png
 ---
 
 AWS have released an update on their most popular and wide-ranging certification course. 

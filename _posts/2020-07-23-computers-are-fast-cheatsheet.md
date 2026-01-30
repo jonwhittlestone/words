@@ -4,7 +4,7 @@ layout: post
 description: Data rates of various systems
 categories: [cheatsheet, python performance]
 title: Computers are fast - A cheatsheet
-image: http://i.imgur.com/pkQnonr.png
+image: images/pkQnonr.png
 hide: false
 ---
 

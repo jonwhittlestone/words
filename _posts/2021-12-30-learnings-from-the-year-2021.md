@@ -4,11 +4,11 @@ layout: post
 description: 2021 Edition
 categories: ["year-in-review"]
 title: This Year I Learned
-image: https://i.imgur.com/AKwcpBi.jpg
+image: images/AKwcpBi.jpg
 hide: false
 ---
 
-![](https://i.imgur.com/AKwcpBi.jpg "2021: This Year I Learned")
+![](/images/AKwcpBi.jpg "2021: This Year I Learned")
 
 Here's a roundup of my professional learnings from the year.
 
