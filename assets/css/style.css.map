@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "main.css",
+	"file": "style.css",
 	"sources": [
-		"main.scss",
+		"style.scss",
 		"../../tmp/jekyll-remote-theme-20260130-1-jvxbb8/_sass/minima.scss",
 		"../../tmp/jekyll-remote-theme-20260130-1-jvxbb8/_sass/minima/_base.scss",
 		"../../tmp/jekyll-remote-theme-20260130-1-jvxbb8/_sass/minima/_layout.scss",
