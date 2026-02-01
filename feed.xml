@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2026-01-30T09:53:15-06:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">A visual guide to OAuth and OpenID Connect (with added SPA)</title><link href="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html" rel="alternate" type="text/html" title="A visual guide to OAuth and OpenID Connect (with added SPA)" /><published>2022-09-14T00:00:00-05:00</published><updated>2022-09-14T00:00:00-05:00</updated><id>https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta</id><content type="html" xml:base="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html">&lt;p&gt;The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://words.howapped.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://words.howapped.com/" rel="alternate" type="text/html" /><updated>2026-02-01T06:48:43+00:00</updated><id>https://words.howapped.com/feed.xml</id><title type="html">howapped words</title><subtitle>Learnings and updates from the Howapped labs.</subtitle><entry><title type="html">A visual guide to OAuth and OpenID Connect (with added SPA)</title><link href="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html" rel="alternate" type="text/html" title="A visual guide to OAuth and OpenID Connect (with added SPA)" /><published>2022-09-14T00:00:00+00:00</published><updated>2022-09-14T00:00:00+00:00</updated><id>https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta</id><content type="html" xml:base="https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html"><![CDATA[<p>The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.</p>
 
-&lt;h3 id=&quot;simple-oidc-flow-between-resource-server-and-auth-server&quot;&gt;Simple OIDC Flow between Resource Server and Auth Server&lt;/h3&gt;
+<h3 id="simple-oidc-flow-between-resource-server-and-auth-server">Simple OIDC Flow between Resource Server and Auth Server</h3>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. Resource server (our api) &amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt;-&amp;gt; Auth server (Okta)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Resource server (our api) &gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt; Auth server (Okta)
   - API route: /authorization-code/login
   - Description: redirect to auth server login.
 
@@ -10,9 +10,9 @@
 
   - Python function: authorize()
   - Example login url
-    - https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;amp;response_type=code&amp;amp;scope=openid profile email&amp;amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback
+    - https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;response_type=code&amp;scope=openid profile email&amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback
 
-2. Resource server (our api) &amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt;-&amp;lt; Auth server (Okta)
+2. Resource server (our api) &lt;-&lt;-&lt;-&lt;-&lt;-&lt;-&lt;-&lt;-&lt;-&lt; Auth server (Okta)
   - API route: /authorization-code/callback
   - Description: Get tokens
 
@@ -22,23 +22,23 @@
 
   - Python function: callback()
   - Example to get tokens by providing client_secret:
-    - https://newscorp.oktapreview.com/oauth2/default/v1/token?client_id=0oa10kbogxjjvDCUW0h8&amp;amp;client_secret=5ketFKpwhMGGSnpJyMNLiYlQfrLxhksJDTerqwof&amp;amp;grant_type=authorization_code&amp;amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback&amp;amp;code=DpgBENTLyEV0ZlG9MTv9kGWaTMH2G8nnoh0PejbUvAE
+    - https://newscorp.oktapreview.com/oauth2/default/v1/token?client_id=0oa10kbogxjjvDCUW0h8&amp;client_secret=5ketFKpwhMGGSnpJyMNLiYlQfrLxhksJDTerqwof&amp;grant_type=authorization_code&amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback&amp;code=DpgBENTLyEV0ZlG9MTv9kGWaTMH2G8nnoh0PejbUvAE
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;h3 id=&quot;advanced-oidc-flow-between-spa-resource-server-and-auth-server&quot;&gt;Advanced OIDC Flow between SPA, Resource Server and Auth Server&lt;/h3&gt;
+<h3 id="advanced-oidc-flow-between-spa-resource-server-and-auth-server">Advanced OIDC Flow between SPA, Resource Server and Auth Server</h3>
 
-&lt;p&gt;Front Channel means non-trusted communication&lt;/p&gt;
+<p>Front Channel means non-trusted communication</p>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;⎼⎼⎼⎼►
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⎼⎼⎼⎼►
+</code></pre></div></div>
 
-&lt;p&gt;Back Channel means ‘trust in the connection’&lt;/p&gt;
+<p>Back Channel means ‘trust in the connection’</p>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;⎼ ⎼ ⎼►
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⎼ ⎼ ⎼►
+</code></pre></div></div>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;||     🧔       ||      ||        💻         ||       ||         💻        ||
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>||     🧔       ||      ||        💻         ||       ||         💻        ||
 =============================================================================
 1. SPA (F/E)      ⎼⎼⎼⎼►   Resource Server (API)              Auth Server (Okta)
   - XHR request in JS to /api/login
@@ -48,7 +48,7 @@
 
 2. SPA (F/E)      ◄⎼ ⎼ ⎼   Resource Server (API)              Auth Server (Okta)
   - API returns json object with login url
-  - {&quot;login_url&quot;: https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;amp;response_type=code&amp;amp;scope=openid profile email&amp;amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback}
+  - {"login_url": https://newscorp.oktapreview.com/oauth2/default/v1/authorize?client_id=0oa10kbogxjjvDCUW0h8&amp;response_type=code&amp;scope=openid profile email&amp;state=cd0348b84d8f45a8808a39d5763b49a3&amp;nonce=c96bdb88ef184a8caaedeefd366e8881&amp;redirect_uri=http://127.0.0.1:3001/authorization-code/callback}
 
 
 3. SPA (F/E)      ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼►   Auth Server (Okta)
@@ -65,7 +65,7 @@
 
 6. SPA (F/E)      ◄⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼   Auth Server (Okta)
   - If credentials are good the callback on the F/E can proceed
-  - The authorisation code is granted. (&quot;code grant&quot;)
+  - The authorisation code is granted. ("code grant")
   - GET https://{CLIENT_URL}/callback?code={UNIQUE_CODE}
 
 
@@ -76,7 +76,7 @@
 8. SPA (F/E)              Resource Server (API)     ⎼⎼⎼⎼►    Auth Server (Okta)
   - The code grant is then used to retrieve an access token from Okta
   - The API has the client secret. We have kept it secure and not exposed in in frontend.
-  - POST https://{OKTA_DOMAIN}/token?code={UNIQUE_CODE}&amp;amp;{CLIENT_ID}&amp;amp;client_secret={CLIENT_SECRET}
+  - POST https://{OKTA_DOMAIN}/token?code={UNIQUE_CODE}&amp;{CLIENT_ID}&amp;client_secret={CLIENT_SECRET}
 
 9. SPA (F/E)              Resource Server (API)     ◄⎼ ⎼ ⎼   Auth Server (Okta)
   - Okta replies to our API with the access token
@@ -103,57 +103,57 @@
  │                        🎆 State = User Authenticated 🎆                      │
  │                                                                              │
  └──────────────────────────────────────────────────────────────────────────────┘
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/Zbj922R.png" /><media:content medium="image" url="https://words.howapped.com/images/Zbj922R.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DNS for Developers</title><link href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" rel="alternate" type="text/html" title="DNS for Developers" /><published>2022-03-09T00:00:00-06:00</published><updated>2022-03-09T00:00:00-06:00</updated><id>https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers</id><content type="html" xml:base="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html">&lt;style&gt;
+</code></pre></div></div>]]></content><author><name></name></author><category term="Authentication" /><category term="Single Sign On" /><category term="SSO" /><summary type="html"><![CDATA[The flow between Client, Resource Server and Auth server]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/Zbj922R.png" /><media:content medium="image" url="https://words.howapped.com/images/Zbj922R.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DNS for Developers</title><link href="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html" rel="alternate" type="text/html" title="DNS for Developers" /><published>2022-03-09T00:00:00+00:00</published><updated>2022-03-09T00:00:00+00:00</updated><id>https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers</id><content type="html" xml:base="https://words.howapped.com/cornell%20explainers/networking%20for%20devs/2022/03/09/dns-for-developers.html"><![CDATA[<style>
 table {font-size:inherit; white-space:inherit}
 table td, table th {width:100%}
-&lt;/style&gt;
+</style>
 
-&lt;h1 id=&quot;networking-for-devs---dns-faq&quot;&gt;Networking for Devs - DNS FAQ&lt;/h1&gt;
+<h1 id="networking-for-devs---dns-faq">Networking for Devs - DNS FAQ</h1>
 
-&lt;p&gt;&lt;img src=&quot;/images/umsJdKF.png&quot; alt=&quot;&quot; title=&quot;The Domain Name System&quot; /&gt;&lt;/p&gt;
+<p><img src="/images/umsJdKF.png" alt="" title="The Domain Name System" /></p>
 
-&lt;p&gt;As a senior developer, it’s clear some other technical staff lack a working knowledge of the Domain Name System.&lt;/p&gt;
+<p>As a senior developer, it’s clear some other technical staff lack a working knowledge of the Domain Name System.</p>
 
-&lt;p&gt;Here’s an explainer, using the &lt;a href=&quot;https://en.wikipedia.org/wiki/Cornell_Notes&quot;&gt;Cornell method&lt;/a&gt; - my favourite way to work through a subject quickly.&lt;/p&gt;
+<p>Here’s an explainer, using the <a href="https://en.wikipedia.org/wiki/Cornell_Notes">Cornell method</a> - my favourite way to work through a subject quickly.</p>
 
-&lt;h2 id=&quot;cornell-method-notes&quot;&gt;Cornell Method notes&lt;/h2&gt;
+<h2 id="cornell-method-notes">Cornell Method notes</h2>
 
-&lt;table&gt;
-&lt;tr&gt;
-&lt;th&gt; Q &lt;/th&gt;
-&lt;th&gt; A &lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
+<table>
+<tr>
+<th> Q </th>
+<th> A </th>
+</tr>
+<tr>
+<td>
 What is DNS and a DNS query?
-&lt;/td&gt;
-&lt;td&gt;
+</td>
+<td>
 
 Domain Name System is used to map human-friendly service names ('hosts') to the resource's numerical addresses (IP addresses)
 
 A DNS query and how it is resolved is the process of translating the human-friendly computer host names into IP addresses. DNS 'resolution' and 'translation' are the same thing.
 
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td&gt;How does a DNS query get resolved?&lt;/td&gt;
-  &lt;td&gt;
+</td>
+</tr>
+<tr>
+  <td>How does a DNS query get resolved?</td>
+  <td>
   When a user enters https://blog.howapped.com, the browser initiates a DNS resolver which sequences the query that ultimately leads to a translation.
     
   The recursive resolver function looks in cache
 
 1. If not in cache, it goes to the first of the authoritative nameservers. This is hardcoded in the OS. For example `8.8.8.8`
 2. If translation not found, continue querying
-3. Resolver -- queries --&amp;gt; internal cache
-4. Resolver -- queries --&amp;gt; root nameserver
-5. Resolver -- queries --&amp;gt; `.com` nameserver
+3. Resolver -- queries --&gt; internal cache
+4. Resolver -- queries --&gt; root nameserver
+5. Resolver -- queries --&gt; `.com` nameserver
 
-  &lt;/td&gt;
-&lt;/tr&gt;
+  </td>
+</tr>
 
-&lt;tr&gt;
-  &lt;td&gt;What is the root nameserver?&lt;/td&gt;
-  &lt;td&gt;
+<tr>
+  <td>What is the root nameserver?</td>
+  <td>
   When a client begins to resolve a DNS query, the remote resolution process starts with a request to a root nameserver. It will respond with a referral to further authoritative servers.
 
 A root nameserver is a type of authoritative nameserver.
@@ -163,197 +163,197 @@ Another type of authoritative nameserver is a **TLD nameserver**.
 For example, the request to translate `www.wikipedia.org` will receive a response containing addresses of `.org` authoritative TLD server servers.
 Ao
 
-  &lt;/td&gt;
-&lt;/tr&gt;
+  </td>
+</tr>
 
-&lt;tr&gt;
-  &lt;td&gt;How can performance be increased?&lt;/td&gt;
-  &lt;td&gt;
+<tr>
+  <td>How can performance be increased?</td>
+  <td>
   The are DNS caching servers which store resolved mappings for a specified period. This reduces DNS traffic across the internet.
   How long cache entries are stored is according to the TTL value for the DNS record in question.
-  &lt;/td&gt;
-&lt;/tr&gt;
+  </td>
+</tr>
 
-&lt;tr&gt;
-  &lt;td&gt;What are the various DNS records for?&lt;/td&gt;
-  &lt;td&gt;
+<tr>
+  <td>What are the various DNS records for?</td>
+  <td>
   Besives translating names to IP addresses, DNS can instruct mail agents which is the best mail server to deliver email.
 
 An MX record provides a mapping between a domain a mail exchanges.
 
-  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;!-- --&gt;
+  </td>
+</tr>
+<!-- -->
 
-&lt;tr&gt;
-  &lt;td&gt;Question?&lt;/td&gt;
-  &lt;td&gt;
+<tr>
+  <td>Question?</td>
+  <td>
   Answer
-  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/umsJdKF.png" /><media:content medium="image" url="https://words.howapped.com/images/umsJdKF.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00-06:00</published><updated>2021-12-30T00:00:00-06:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html">&lt;p&gt;&lt;img src=&quot;/images/AKwcpBi.jpg&quot; alt=&quot;&quot; title=&quot;2021: This Year I Learned&quot; /&gt;&lt;/p&gt;
+  </td>
+</tr>
+</table>]]></content><author><name></name></author><category term="Cornell Explainers" /><category term="Networking for Devs" /><summary type="html"><![CDATA[Networking for Devs]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/umsJdKF.png" /><media:content medium="image" url="https://words.howapped.com/images/umsJdKF.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">This Year I Learned</title><link href="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html" rel="alternate" type="text/html" title="This Year I Learned" /><published>2021-12-30T00:00:00+00:00</published><updated>2021-12-30T00:00:00+00:00</updated><id>https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021</id><content type="html" xml:base="https://words.howapped.com/year-in-review/2021/12/30/learnings-from-the-year-2021.html"><![CDATA[<p><img src="/images/AKwcpBi.jpg" alt="" title="2021: This Year I Learned" /></p>
 
-&lt;p&gt;Here’s a roundup of my professional learnings from the year.&lt;/p&gt;
+<p>Here’s a roundup of my professional learnings from the year.</p>
 
-&lt;p&gt;The sections for 2022 goals are limited in scope on account of recently giving birth to our second child :)&lt;/p&gt;
+<p>The sections for 2022 goals are limited in scope on account of recently giving birth to our second child :)</p>
 
-&lt;h2 id=&quot;professional&quot;&gt;Professional&lt;/h2&gt;
+<h2 id="professional">Professional</h2>
 
-&lt;h3 id=&quot;always-be-quitting&quot;&gt;Always be Quitting&lt;/h3&gt;
+<h3 id="always-be-quitting">Always be Quitting</h3>
 
-&lt;p&gt;Thanks to Julio Merino for the phrase and his excellent &lt;a href=&quot;https://jmmv.dev/2021/04/always-be-quitting.html&quot;&gt;article&lt;/a&gt;.&lt;/p&gt;
+<p>Thanks to Julio Merino for the phrase and his excellent <a href="https://jmmv.dev/2021/04/always-be-quitting.html">article</a>.</p>
 
-&lt;p&gt;The phrase describes how we should approach a software project, as participants, owners and stewards. We should be in a permanent state of being able to handover the project.&lt;/p&gt;
+<p>The phrase describes how we should approach a software project, as participants, owners and stewards. We should be in a permanent state of being able to handover the project.</p>
 
-&lt;p&gt;It does not mean, abdicating responsbility.&lt;/p&gt;
+<p>It does not mean, abdicating responsbility.</p>
 
-&lt;p&gt;It means encouraging transparency by promoting documentation as you develop. So that at any one time, A project and user can be onboarded or the project can be demoed. As well as the software itself, this also includes documenting your long-term plans for the project.&lt;/p&gt;
+<p>It means encouraging transparency by promoting documentation as you develop. So that at any one time, A project and user can be onboarded or the project can be demoed. As well as the software itself, this also includes documenting your long-term plans for the project.</p>
 
-&lt;p&gt;It means, eliminating, what Google refer to as The Bus Factor. The act of sharing knowledge so no one individual is a silo or bottleneck. This is covered extensively in &lt;a href=&quot;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/&quot;&gt;O’Reilly’s excellent book, Software Engineering at Google&lt;/a&gt;.&lt;/p&gt;
+<p>It means, eliminating, what Google refer to as The Bus Factor. The act of sharing knowledge so no one individual is a silo or bottleneck. This is covered extensively in <a href="https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/">O’Reilly’s excellent book, Software Engineering at Google</a>.</p>
 
-&lt;p&gt;It means, looking to move on from a project as a positive, rather than a negative move. This can mean sharing your knowledge by training others around you and to identify and train your replacement. When the time is right, this leaves you to focus your efforts on kickstarting new projects.&lt;/p&gt;
+<p>It means, looking to move on from a project as a positive, rather than a negative move. This can mean sharing your knowledge by training others around you and to identify and train your replacement. When the time is right, this leaves you to focus your efforts on kickstarting new projects.</p>
 
-&lt;h4 id=&quot;resources&quot;&gt;Resources&lt;/h4&gt;
+<h4 id="resources">Resources</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;Julio Merino - Always Be Quitting
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://jmmv.dev/2021/04/always-be-quitting.html&quot;&gt;https://jmmv.dev/2021/04/always-be-quitting.html&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Julio Merino - Always Be Quitting
+    <ul>
+      <li><a href="https://jmmv.dev/2021/04/always-be-quitting.html">https://jmmv.dev/2021/04/always-be-quitting.html</a></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;using-a-design-document-to-explain-and-persuade&quot;&gt;Using a design document to explain and persuade.&lt;/h3&gt;
+<h3 id="using-a-design-document-to-explain-and-persuade">Using a design document to explain and persuade.</h3>
 
-&lt;p&gt;This year I’ve found using a platform like Confluence to create a design document has helped to explain and persuade an approach or design strategy.&lt;/p&gt;
+<p>This year I’ve found using a platform like Confluence to create a design document has helped to explain and persuade an approach or design strategy.</p>
 
-&lt;p&gt;This is especially true when time pressures have meant face-to-face, synchronous communications have been harder to come by.&lt;/p&gt;
+<p>This is especially true when time pressures have meant face-to-face, synchronous communications have been harder to come by.</p>
 
-&lt;p&gt;2021 has been a very active year in the hiring market. A shift to permanent work-from-home has contributed to &lt;a href=&quot;https://hbr.org/2021/09/who-is-driving-the-great-resignation&quot;&gt;The Great Resignation&lt;/a&gt;.&lt;/p&gt;
+<p>2021 has been a very active year in the hiring market. A shift to permanent work-from-home has contributed to <a href="https://hbr.org/2021/09/who-is-driving-the-great-resignation">The Great Resignation</a>.</p>
 
-&lt;p&gt;On my own team, we saw quite a radical shift in headcount and time for meetings and proposals has often been cut short as resources are stretched. For a more asynchronous working approach, it’s useful to make a write up with the problem statement and the various approaches available.&lt;/p&gt;
+<p>On my own team, we saw quite a radical shift in headcount and time for meetings and proposals has often been cut short as resources are stretched. For a more asynchronous working approach, it’s useful to make a write up with the problem statement and the various approaches available.</p>
 
-&lt;p&gt;Let your audience understand the various Bronze, Silver and Gold approaches to solving a problem, with its tradeoffs and costs. Subsequently, a team can make a considered judgement in a way that’s been documented for posterity. Further discussion takes place in the page comments rather than taking place on a call, or buried in a ticket.&lt;/p&gt;
+<p>Let your audience understand the various Bronze, Silver and Gold approaches to solving a problem, with its tradeoffs and costs. Subsequently, a team can make a considered judgement in a way that’s been documented for posterity. Further discussion takes place in the page comments rather than taking place on a call, or buried in a ticket.</p>
 
-&lt;h4 id=&quot;resources-1&quot;&gt;Resources&lt;/h4&gt;
+<h4 id="resources-1">Resources</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;Chapter 10 - Design Docs - Sofware Engineering at Google
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs&quot;&gt;https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Chapter 10 - Design Docs - Sofware Engineering at Google
+    <ul>
+      <li><a href="https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs">https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/ch10.html#design_docs</a></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;development-using-static-code-analysis-for-quicker-feedback-loops&quot;&gt;Development using Static Code Analysis for quicker feedback loops&lt;/h3&gt;
+<h3 id="development-using-static-code-analysis-for-quicker-feedback-loops">Development using Static Code Analysis for quicker feedback loops</h3>
 
-&lt;p&gt;In 2021 I dabbled with Rust. It’s my first dive into high-level, compiled languages since my days of C++ and Java at the start of my career.&lt;/p&gt;
+<p>In 2021 I dabbled with Rust. It’s my first dive into high-level, compiled languages since my days of C++ and Java at the start of my career.</p>
 
-&lt;p&gt;It’s worth saying, the tooling around Rust development is first-class and it showed how the compiler is able to present the developer with errors at an early stage so that you fail fast.&lt;/p&gt;
+<p>It’s worth saying, the tooling around Rust development is first-class and it showed how the compiler is able to present the developer with errors at an early stage so that you fail fast.</p>
 
-&lt;p&gt;In a work project, we also used the Typescript template with Create-React-App.&lt;/p&gt;
+<p>In a work project, we also used the Typescript template with Create-React-App.</p>
 
-&lt;p&gt;Using both of these opened my eyes to how the compilation step and static code analysis can help the developer find bugs, antipatterns and other issues at the coding stage of the Software Development Lifecycle without running the program.&lt;/p&gt;
+<p>Using both of these opened my eyes to how the compilation step and static code analysis can help the developer find bugs, antipatterns and other issues at the coding stage of the Software Development Lifecycle without running the program.</p>
 
-&lt;p&gt;Subsequently, in my daily Python-land, this led me to use &lt;code class=&quot;highlighter-rouge&quot;&gt;mypy&lt;/code&gt; and Python’s ‘opt-in’ typing mechanism more thoroughly.&lt;/p&gt;
+<p>Subsequently, in my daily Python-land, this led me to use <code class="language-plaintext highlighter-rouge">mypy</code> and Python’s ‘opt-in’ typing mechanism more thoroughly.</p>
 
-&lt;h4 id=&quot;resources-2&quot;&gt;Resources&lt;/h4&gt;
+<h4 id="resources-2">Resources</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Rust Book&lt;/p&gt;
+<ul>
+  <li>
+    <p>Rust Book</p>
 
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&quot;&gt;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Rustlings&lt;/p&gt;
+    <ul>
+      <li><a href="https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/">https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>Rustlings</p>
 
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rust-lang/rustlings&quot;&gt;https://github.com/rust-lang/rustlings&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;React Typescript cheatsheet&lt;/p&gt;
+    <ul>
+      <li><a href="https://github.com/rust-lang/rustlings">https://github.com/rust-lang/rustlings</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>React Typescript cheatsheet</p>
 
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rust-lang/rustlings&quot;&gt;https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Full-Stack React, Typescript and Node&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/&quot;&gt;https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+    <ul>
+      <li><a href="https://github.com/rust-lang/rustlings">https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>Full-Stack React, Typescript and Node</p>
+    <ul>
+      <li><a href="https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/">https://learning.oreilly.com/library/view/full-stack-react-typescript/9781839219931/</a></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;efficient-learning-using-a-variety-of-senses&quot;&gt;Efficient learning using a variety of senses&lt;/h3&gt;
+<h3 id="efficient-learning-using-a-variety-of-senses">Efficient learning using a variety of senses</h3>
 
-&lt;p&gt;As mentioned above, I was curious about Rust.&lt;/p&gt;
+<p>As mentioned above, I was curious about Rust.</p>
 
-&lt;p&gt;From my learnings, it appears that Rust is a high level language that repeatedly appears as a winner in the &lt;a href=&quot;https://insights.stackoverflow.com/survey/2021#most-loved-dreaded-and-wanted-language-love-dread&quot;&gt;Stack Overflow Developer survey&lt;/a&gt; as the most-loved language. I needed to see what the fuss was all about.&lt;/p&gt;
+<p>From my learnings, it appears that Rust is a high level language that repeatedly appears as a winner in the <a href="https://insights.stackoverflow.com/survey/2021#most-loved-dreaded-and-wanted-language-love-dread">Stack Overflow Developer survey</a> as the most-loved language. I needed to see what the fuss was all about.</p>
 
-&lt;p&gt;I was curious to see how a high-level systems language compares to Python in terms in memory footprint and performance in general.&lt;/p&gt;
+<p>I was curious to see how a high-level systems language compares to Python in terms in memory footprint and performance in general.</p>
 
-&lt;p&gt;Instead of just linearly reading the official Rust book and doing exercies, I used the excellent &lt;a href=&quot;https://github.com/rust-lang/rustlings&quot;&gt;Rustlings&lt;/a&gt; repository which has the user authoring actual rust code samples, correcting the logic and syntax to pass a unit test, and then running the the test suite to ensure it passes.&lt;/p&gt;
+<p>Instead of just linearly reading the official Rust book and doing exercies, I used the excellent <a href="https://github.com/rust-lang/rustlings">Rustlings</a> repository which has the user authoring actual rust code samples, correcting the logic and syntax to pass a unit test, and then running the the test suite to ensure it passes.</p>
 
-&lt;p&gt;By not only reading, but interactively coding with what I’d learnt from the rust book, I was putting knowledge acquired to the test. By using different learning methods, with different media, this helps the brain with retention.&lt;/p&gt;
+<p>By not only reading, but interactively coding with what I’d learnt from the rust book, I was putting knowledge acquired to the test. By using different learning methods, with different media, this helps the brain with retention.</p>
 
-&lt;h4 id=&quot;resources-3&quot;&gt;Resources&lt;/h4&gt;
+<h4 id="resources-3">Resources</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Rust Book&lt;/p&gt;
+<ul>
+  <li>
+    <p>Rust Book</p>
 
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&quot;&gt;https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Rustlings&lt;/p&gt;
+    <ul>
+      <li><a href="https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/">https://learning.oreilly.com/library/view/programming-rust-2nd/9781492052586/</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>Rustlings</p>
 
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rust-lang/rustlings&quot;&gt;https://github.com/rust-lang/rustlings&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+    <ul>
+      <li><a href="https://github.com/rust-lang/rustlings">https://github.com/rust-lang/rustlings</a></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;post-pandemic-remote-teamwork-do-not-rely-on-jira-alone-for-communication&quot;&gt;Post-Pandemic remote teamwork: Do not rely on Jira alone for communication&lt;/h3&gt;
+<h3 id="post-pandemic-remote-teamwork-do-not-rely-on-jira-alone-for-communication">Post-Pandemic remote teamwork: Do not rely on Jira alone for communication</h3>
 
-&lt;p&gt;In 2021 I’ve been involved in consulting for a single software team where we’ve delivered on a couple of data-driven software projects.&lt;/p&gt;
+<p>In 2021 I’ve been involved in consulting for a single software team where we’ve delivered on a couple of data-driven software projects.</p>
 
-&lt;p&gt;I consider this team highly productive and efficient in meeting its bi-weekly sprint goals. One of its strengths has been how we communicate. That is, to use Jira for ticketing, as a documentation tool, rather than a communication tool.&lt;/p&gt;
+<p>I consider this team highly productive and efficient in meeting its bi-weekly sprint goals. One of its strengths has been how we communicate. That is, to use Jira for ticketing, as a documentation tool, rather than a communication tool.</p>
 
-&lt;p&gt;It’s quite easy to fall into the trap of making Jira comments, tagging other team members and then relying on this for inter-team communication.&lt;/p&gt;
+<p>It’s quite easy to fall into the trap of making Jira comments, tagging other team members and then relying on this for inter-team communication.</p>
 
-&lt;p&gt;In a remote-first working world, where an asynchronous communication style takes priority, we cannot rely solely that intended recipients will have digested the Jira notifications. Communications should be reinforced with a quick ping on instant message or voice call.&lt;/p&gt;
+<p>In a remote-first working world, where an asynchronous communication style takes priority, we cannot rely solely that intended recipients will have digested the Jira notifications. Communications should be reinforced with a quick ping on instant message or voice call.</p>
 
-&lt;p&gt;The sheer barrage of notifications (Jira or other platform) will mean your crafted comment or code review note may get buried in the noise. Use a more immediate communication method if applicable.&lt;/p&gt;
+<p>The sheer barrage of notifications (Jira or other platform) will mean your crafted comment or code review note may get buried in the noise. Use a more immediate communication method if applicable.</p>
 
-&lt;h3 id=&quot;tools-and-libraries-fastapi-pydantic-react-context-api-mongo-aggregation-framework&quot;&gt;Tools and Libraries: FastAPI, Pydantic, React Context API, Mongo Aggregation Framework&lt;/h3&gt;
+<h3 id="tools-and-libraries-fastapi-pydantic-react-context-api-mongo-aggregation-framework">Tools and Libraries: FastAPI, Pydantic, React Context API, Mongo Aggregation Framework</h3>
 
-&lt;p&gt;In Python, 2021 I’ve gotten to grips with FastAPI and Pydantic which has greatly helped with rapid application development.&lt;/p&gt;
+<p>In Python, 2021 I’ve gotten to grips with FastAPI and Pydantic which has greatly helped with rapid application development.</p>
 
-&lt;p&gt;FastAPI is an async micro web framework that works beautifully with Pydantic and works with the OpenAPI protocol to produce beauiful API documentation out of the box. This is exactly what our team needed in order to move quickly.&lt;/p&gt;
+<p>FastAPI is an async micro web framework that works beautifully with Pydantic and works with the OpenAPI protocol to produce beauiful API documentation out of the box. This is exactly what our team needed in order to move quickly.</p>
 
-&lt;!-- In frontend land, we've reafactored --&gt;
+<!-- In frontend land, we've reafactored -->
 
-&lt;h3 id=&quot;2022-professional-goals&quot;&gt;2022 Professional Goals&lt;/h3&gt;
+<h3 id="2022-professional-goals">2022 Professional Goals</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Write a Rust crate&lt;/li&gt;
-  &lt;li&gt;Run &lt;a href=&quot;http://www.mypy-lang.org/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mypy&lt;/code&gt;&lt;/a&gt; constantly during development to flag typing errors in Python code as they appear, rather than solely as a &lt;a href=&quot;https://pre-commit.com/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pre-commit&lt;/code&gt;&lt;/a&gt; hook&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Write a Rust crate</li>
+  <li>Run <a href="http://www.mypy-lang.org/"><code class="language-plaintext highlighter-rouge">mypy</code></a> constantly during development to flag typing errors in Python code as they appear, rather than solely as a <a href="https://pre-commit.com/"><code class="language-plaintext highlighter-rouge">pre-commit</code></a> hook</li>
+</ul>
 
-&lt;h2 id=&quot;personal&quot;&gt;Personal&lt;/h2&gt;
+<h2 id="personal">Personal</h2>
 
-&lt;h3 id=&quot;lesser-minds-the-importance-of-engaging-with-strangers&quot;&gt;Lesser Minds, the importance of engaging with strangers&lt;/h3&gt;
+<h3 id="lesser-minds-the-importance-of-engaging-with-strangers">Lesser Minds, the importance of engaging with strangers</h3>
 
-&lt;p&gt;In 2021 I read a very memorable book, &lt;a href=&quot;https://www.goodreads.com/book/show/58377159-the-power-of-strangers?ac=1&amp;amp;from_search=true&amp;amp;qid=RGzexHIQnx&amp;amp;rank=1&quot;&gt;The Power Of Strangers&lt;/a&gt;&lt;/p&gt;
+<p>In 2021 I read a very memorable book, <a href="https://www.goodreads.com/book/show/58377159-the-power-of-strangers?ac=1&amp;from_search=true&amp;qid=RGzexHIQnx&amp;rank=1">The Power Of Strangers</a></p>
 
-&lt;!--
+<!--
 ### Standing desks work well for me
 
 Lorem Ipsum ..
@@ -374,1061 +374,1061 @@ Lorem Ipsum ..
 
 Lorem Ipsum ..
 
---&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/AKwcpBi.jpg" /><media:content medium="image" url="https://words.howapped.com/images/AKwcpBi.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Effective Engineering Management</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Effective Engineering Management" /><published>2021-09-15T00:00:00-05:00</published><updated>2021-09-15T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html">&lt;p&gt;As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.&lt;/p&gt;
+-->]]></content><author><name></name></author><category term="year-in-review" /><summary type="html"><![CDATA[2021 Edition]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/AKwcpBi.jpg" /><media:content medium="image" url="https://words.howapped.com/images/AKwcpBi.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Effective Engineering Management</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html" rel="alternate" type="text/html" title="Effective Engineering Management" /><published>2021-09-15T00:00:00+00:00</published><updated>2021-09-15T00:00:00+00:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/09/15/team-leading-dos-and-donts.html"><![CDATA[<p>As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.</p>
 
-&lt;p&gt;From an essay in &lt;em&gt;Software Engineering at Google&lt;/em&gt;, Brian Fitzpatrick discusses engineering management patterns and anti-patterns. At it’s core are the values of Trust, Humility and Respect.&lt;/p&gt;
+<p>From an essay in <em>Software Engineering at Google</em>, Brian Fitzpatrick discusses engineering management patterns and anti-patterns. At it’s core are the values of Trust, Humility and Respect.</p>
 
-&lt;p&gt;I’ve analysed and summarised below.&lt;/p&gt;
+<p>I’ve analysed and summarised below.</p>
 
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Hire Pushovers&lt;/p&gt;
+<p><strong>Don’t</strong>: Hire Pushovers</p>
 
-&lt;p&gt;This means hiring people that are smarter than you and could eventually replace you.&lt;/p&gt;
+<p>This means hiring people that are smarter than you and could eventually replace you.</p>
 
-&lt;p&gt;When leading a team or as indivividual contributor, our general strategy should be ‘We may leave at any time, so have the project and processes in a state where they are documented and can be handed over.&lt;/p&gt;
+<p>When leading a team or as indivividual contributor, our general strategy should be ‘We may leave at any time, so have the project and processes in a state where they are documented and can be handed over.</p>
 
-&lt;p&gt;At first, the statement above may sound negative. But this approach means you and everyone around you progress on to new projects and opportunities.&lt;/p&gt;
+<p>At first, the statement above may sound negative. But this approach means you and everyone around you progress on to new projects and opportunities.</p>
 
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Ignore Low performers&lt;/p&gt;
+<p><strong>Don’t</strong>: Ignore Low performers</p>
 
-&lt;p&gt;The team suffers if there is a team member who isn’t doing their best and you don’t address it.&lt;/p&gt;
+<p>The team suffers if there is a team member who isn’t doing their best and you don’t address it.</p>
 
-&lt;p&gt;Keeping a low achiever in your team keeps high performers from joining and encourages existing high performers to leave.&lt;/p&gt;
+<p>Keeping a low achiever in your team keeps high performers from joining and encourages existing high performers to leave.</p>
 
-&lt;p&gt;Instead, help the strugglers &lt;strong&gt;up&lt;/strong&gt;, or out.&lt;/p&gt;
+<p>Instead, help the strugglers <strong>up</strong>, or out.</p>
 
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Ignore Human Issues&lt;/p&gt;
+<p><strong>Don’t</strong>: Ignore Human Issues</p>
 
-&lt;p&gt;Focusing all your energies on technical problem solving can mean you’ve neglected colleagues’ personal poblems. This sows discontent, leading to a lack of team productivity.&lt;/p&gt;
+<p>Focusing all your energies on technical problem solving can mean you’ve neglected colleagues’ personal poblems. This sows discontent, leading to a lack of team productivity.</p>
 
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Be everyone’s friend&lt;/p&gt;
+<p><strong>Don’t</strong>: Be everyone’s friend</p>
 
-&lt;p&gt;Becoming a manager or team lead of colleagues where previously you were peers may be uncomfortable at first.&lt;/p&gt;
+<p>Becoming a manager or team lead of colleagues where previously you were peers may be uncomfortable at first.</p>
 
-&lt;p&gt;Having a weekly team lunch can be an effective way to remain socially connected without making them uncomfortable.&lt;/p&gt;
+<p>Having a weekly team lunch can be an effective way to remain socially connected without making them uncomfortable.</p>
 
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Compromise the hiring bar.&lt;/p&gt;
+<p><strong>Don’t</strong>: Compromise the hiring bar.</p>
 
-&lt;p&gt;This can happen when you need to hire quickly, the legendary Blitzscale! Don’t be tempted.&lt;/p&gt;
+<p>This can happen when you need to hire quickly, the legendary Blitzscale! Don’t be tempted.</p>
 
-&lt;p&gt;Don’t sacrifice the hiring standard because, the cost of hiring the appropriate person pales compared to dealing with a bad hire.&lt;/p&gt;
+<p>Don’t sacrifice the hiring standard because, the cost of hiring the appropriate person pales compared to dealing with a bad hire.</p>
 
-&lt;p&gt;In the words of Steve Jobs, &lt;em&gt;A people hire other A people. B people hire C people.&lt;/em&gt;&lt;/p&gt;
+<p>In the words of Steve Jobs, <em>A people hire other A people. B people hire C people.</em></p>
 
-&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;: Treat your team like children&lt;/p&gt;
+<p><strong>Don’t</strong>: Treat your team like children</p>
 
-&lt;p&gt;Trust them to be great, and they will be great.&lt;/p&gt;
+<p>Trust them to be great, and they will be great.</p>
 
-&lt;p&gt;Give them opportunity to be responsible for their work.&lt;/p&gt;
+<p>Give them opportunity to be responsible for their work.</p>
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Lose the Ego&lt;/p&gt;
+<p><strong>Do</strong>: Lose the Ego</p>
 
-&lt;p&gt;This means trusting your team by respecting the abilities and prior accomplishments of team members.&lt;/p&gt;
+<p>This means trusting your team by respecting the abilities and prior accomplishments of team members.</p>
 
-&lt;p&gt;Help to set goals and reach consensus but the details of &lt;strong&gt;how&lt;/strong&gt; to reach them are best decided by the people putting the product together.&lt;/p&gt;
+<p>Help to set goals and reach consensus but the details of <strong>how</strong> to reach them are best decided by the people putting the product together.</p>
 
-&lt;p&gt;This gives the team a better sense of accountability, ownership and responsibility.&lt;/p&gt;
+<p>This gives the team a better sense of accountability, ownership and responsibility.</p>
 
-&lt;p&gt;This also means accepting criticism openly and avoiding the urge to be territorial.&lt;/p&gt;
+<p>This also means accepting criticism openly and avoiding the urge to be territorial.</p>
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a zen master&lt;/p&gt;
+<p><strong>Do</strong>: Be a zen master</p>
 
-&lt;p&gt;Control your emotions and reactions, because a leader is always on stage and your team is always conciously and unconsciously looking to you for cues on how to react.&lt;/p&gt;
+<p>Control your emotions and reactions, because a leader is always on stage and your team is always conciously and unconsciously looking to you for cues on how to react.</p>
 
-&lt;p&gt;This can mean keeping your cynicsm to yourself.&lt;/p&gt;
+<p>This can mean keeping your cynicsm to yourself.</p>
 
-&lt;p&gt;Asking questions is a great way to instill humility, respect and trust because it’s helps the other person problem solve on their own by trying to define and explore the problem.&lt;/p&gt;
+<p>Asking questions is a great way to instill humility, respect and trust because it’s helps the other person problem solve on their own by trying to define and explore the problem.</p>
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a catalyst&lt;/p&gt;
+<p><strong>Do</strong>: Be a catalyst</p>
 
-&lt;p&gt;Encourage democracy rather than a dictatorship by building consensus. This can either mean guiding the process from start to finish, or just giving it a gentle nudge in the right direction.&lt;/p&gt;
+<p>Encourage democracy rather than a dictatorship by building consensus. This can either mean guiding the process from start to finish, or just giving it a gentle nudge in the right direction.</p>
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Remove roadblocks&lt;/p&gt;
+<p><strong>Do</strong>: Remove roadblocks</p>
 
-&lt;p&gt;Help the team overcome technical or organisational hurdles to get it moving again. Often this means contacting the appropriate team for getting access to particular infrastructure.&lt;/p&gt;
+<p>Help the team overcome technical or organisational hurdles to get it moving again. Often this means contacting the appropriate team for getting access to particular infrastructure.</p>
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be a mentor/teacher&lt;/p&gt;
+<p><strong>Do</strong>: Be a mentor/teacher</p>
 
-&lt;p&gt;Whether you like it or not, a team leader will end up guiding a more junior team member through; code, technology or architectural concept or team culture.&lt;/p&gt;
+<p>Whether you like it or not, a team leader will end up guiding a more junior team member through; code, technology or architectural concept or team culture.</p>
 
-&lt;p&gt;For this you need:&lt;/p&gt;
+<p>For this you need:</p>
 
-&lt;ol&gt;
-  &lt;li&gt;Experience with your team’s processes and systems.&lt;/li&gt;
-  &lt;li&gt;The ability to explain things to someone else.&lt;/li&gt;
-  &lt;li&gt;The ability to guage how much help your mentee needs.&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+  <li>Experience with your team’s processes and systems.</li>
+  <li>The ability to explain things to someone else.</li>
+  <li>The ability to guage how much help your mentee needs.</li>
+</ol>
 
-&lt;p&gt;The last point is key because you don’t want to be overexplaining since the mentee will just tune you out.&lt;/p&gt;
+<p>The last point is key because you don’t want to be overexplaining since the mentee will just tune you out.</p>
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Set clear goals&lt;/p&gt;
+<p><strong>Do</strong>: Set clear goals</p>
 
-&lt;p&gt;You need to define a concise team mission statement to ensure your team is aligned about the direction in which it’s heading.&lt;/p&gt;
+<p>You need to define a concise team mission statement to ensure your team is aligned about the direction in which it’s heading.</p>
 
-&lt;p&gt;Then …&lt;/p&gt;
+<p>Then …</p>
 
-&lt;p&gt;Step back and give it more autonomy and periodically checking in to make sure everyone is still on the right track.&lt;/p&gt;
+<p>Step back and give it more autonomy and periodically checking in to make sure everyone is still on the right track.</p>
 
-&lt;p&gt;This drastically improves the efficiency of your team because no energy is wasted where individuals can pull the product in slightly different directions.&lt;/p&gt;
+<p>This drastically improves the efficiency of your team because no energy is wasted where individuals can pull the product in slightly different directions.</p>
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Be Honest&lt;/p&gt;
+<p><strong>Do</strong>: Be Honest</p>
 
-&lt;p&gt;There’s the need for supreme honesty when giving direct feedback. Avoid the &lt;a href=&quot;https://www.psychologytoday.com/us/blog/creative-leadership/201808/no-one-wants-eat-your-compliment-sandwich&quot;&gt;compliment sandwich&lt;/a&gt; since this can deflect attention from the issue that requires change or improvement.&lt;/p&gt;
+<p>There’s the need for supreme honesty when giving direct feedback. Avoid the <a href="https://www.psychologytoday.com/us/blog/creative-leadership/201808/no-one-wants-eat-your-compliment-sandwich">compliment sandwich</a> since this can deflect attention from the issue that requires change or improvement.</p>
 
-&lt;p&gt;When giving critism, delivery is key to making sure the message is heard. Avoid sugarcoating.&lt;/p&gt;
+<p>When giving critism, delivery is key to making sure the message is heard. Avoid sugarcoating.</p>
 
-&lt;p&gt;Kindness and empathy is critical.&lt;/p&gt;
+<p>Kindness and empathy is critical.</p>
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt;: Track Happiness&lt;/p&gt;
+<p><strong>Do</strong>: Track Happiness</p>
 
-&lt;p&gt;To stave off discontent, here are some ideas:&lt;/p&gt;
+<p>To stave off discontent, here are some ideas:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;At the end of a weekly one-on-one, ask “What do you need”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Make sure people get recognition for their work by tracking the mundane tasks and distributing responsibilities evenly.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;To prevent burnout, track hours and exchange them for fun team activities.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>
+    <p>At the end of a weekly one-on-one, ask “What do you need”</p>
+  </li>
+  <li>
+    <p>Make sure people get recognition for their work by tracking the mundane tasks and distributing responsibilities evenly.</p>
+  </li>
+  <li>
+    <p>To prevent burnout, track hours and exchange them for fun team activities.</p>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+<h3 id="conclusion">Conclusion</h3>
 
-&lt;p&gt;Ultimately, you need to be an enabler and plan how you are going to help your team members realise their career wishes and desires. This might be with opportunities to improve themselves or be recognised for the work they do.&lt;/p&gt;
+<p>Ultimately, you need to be an enabler and plan how you are going to help your team members realise their career wishes and desires. This might be with opportunities to improve themselves or be recognised for the work they do.</p>
 
-&lt;hr /&gt;
+<hr />
 
-&lt;p&gt;Please buy! I thoroughly recommend.&lt;/p&gt;
+<p>Please buy! I thoroughly recommend.</p>
 
-&lt;p&gt;You may buy Software Engineering at Google here.&lt;/p&gt;
+<p>You may buy Software Engineering at Google here.</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://uk.bookshop.org/books/software-engineering-at-google-lessons-learned-from-programming-over-time/9781492082798&quot;&gt;Bookshop.org&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><a href="https://uk.bookshop.org/books/software-engineering-at-google-lessons-learned-from-programming-over-time/9781492082798">Bookshop.org</a></li>
+</ul>
 
-&lt;p&gt;&lt;img src=&quot;/images/kMpCBtx.png&quot; alt=&quot;&quot; title=&quot;Software Engineering at Google&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">As we know Software Development is not just about technical problem solving, but the human factors involved when delivering a product at scale.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/syhowyL.png" /><media:content medium="image" url="https://words.howapped.com/images/syhowyL.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Book Notes - No Rules Rules</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html" rel="alternate" type="text/html" title="Book Notes - No Rules Rules" /><published>2021-02-07T00:00:00-06:00</published><updated>2021-02-07T00:00:00-06:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html">&lt;p&gt;As soon as I saw the title, I knew this is a book I had to read.&lt;/p&gt;
+<p><img src="/images/kMpCBtx.png" alt="" title="Software Engineering at Google" /></p>]]></content><author><name></name></author><category term="book notes" /><category term="work life" /><category term="non-fiction" /><summary type="html"><![CDATA[Leading a Team, Dos and Don'ts - A Google insight.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/syhowyL.png" /><media:content medium="image" url="https://words.howapped.com/images/syhowyL.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Book Notes - No Rules Rules</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html" rel="alternate" type="text/html" title="Book Notes - No Rules Rules" /><published>2021-02-07T00:00:00+00:00</published><updated>2021-02-07T00:00:00+00:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2021/02/07/book-notes-no-rules-rules-netflix.html"><![CDATA[<p>As soon as I saw the title, I knew this is a book I had to read.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;NO RULES RULES&lt;/p&gt;
+<blockquote>
+  <p>NO RULES RULES</p>
 
-  &lt;p&gt;NETFLIX and the Culture of Reinvention&lt;/p&gt;
+  <p>NETFLIX and the Culture of Reinvention</p>
 
-  &lt;p&gt;REED HASTINGS&lt;/p&gt;
+  <p>REED HASTINGS</p>
 
-  &lt;p&gt;ERIN MEYER&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;There are 10 chapters which cover the creative workplace culture of Netflix - the highly succesful streaming and film production company.&lt;/p&gt;
+  <p>ERIN MEYER</p>
+</blockquote>
+
+<p>There are 10 chapters which cover the creative workplace culture of Netflix - the highly succesful streaming and film production company.</p>
 
-&lt;p&gt;After having worked in various levels of progressive workplace culture at small and large companies, this book really connected the dots for me.&lt;/p&gt;
+<p>After having worked in various levels of progressive workplace culture at small and large companies, this book really connected the dots for me.</p>
 
-&lt;p&gt;Here are my notes transferred from my &lt;a href=&quot;https://time.com/collection/best-inventions-2020/5911408/remarkable-2/&quot;&gt;Remarkable tablet&lt;/a&gt; (which I’ve fallen in love with)&lt;/p&gt;
+<p>Here are my notes transferred from my <a href="https://time.com/collection/best-inventions-2020/5911408/remarkable-2/">Remarkable tablet</a> (which I’ve fallen in love with)</p>
 
-&lt;h3 id=&quot;1-first-build-up-talent-density&quot;&gt;1. First, build up talent density&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Your number one goal as leader is to develop a work environment consisting of stunning colleagues&lt;/li&gt;
-  &lt;li&gt;Stunning colleagues accomplish significant amounts of important work and are exceptionally creative and passionate&lt;/li&gt;
-  &lt;li&gt;Jerks, slackers and sweet people with non stellar performance or pessimists on the team will bring down the performance of everyone&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-say-what-you-really-think-with-positive-intent&quot;&gt;2. Say what you really think (with positive intent)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;With candour, high performers will become outstanding performers . Frequent candid feedback exponentially magnifies the speed and effectiveness of your work force&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Set the stage for candour by building feedback moments into your regular meetings&lt;/li&gt;
-  &lt;li&gt;Coach your employees to give and receive feedback effectively following the 4A guidelines (live) (Give) )
-    &lt;ul&gt;
-      &lt;li&gt;Aim to Assist (Giving)&lt;/li&gt;
-      &lt;li&gt;Actionable (Giving)&lt;/li&gt;
-      &lt;li&gt;Appreciate (Receiving)&lt;/li&gt;
-      &lt;li&gt;Accept or Discard (Receiving)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;As a leader solicit feedback regularly and respond with belonging cues when you receive&lt;/li&gt;
-  &lt;li&gt;Get rid of jerks as you instill a culture of candour&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;3a-remove-vacation-policy&quot;&gt;3a. Remove Vacation Policy&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;If you aren’t tracking worked in a day, what is the point tracking days per year?&lt;/li&gt;
-  &lt;li&gt;Leaders must model big-vacation taking to set example and precedent to guide employee behaviour&lt;/li&gt;
-  &lt;li&gt;Explain there is no need to ask for prior approval and no one is expected to keep track of days away from the office&lt;/li&gt;
-  &lt;li&gt;Up to employee to take few hours, days, a week, a month off.&lt;/li&gt;
-  &lt;li&gt;Communicate to provide context&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;3b-remove-travel-and-expense-approvals&quot;&gt;3b. Remove travel and expense approvals&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Remove, and encourage managers to set context about how to spend money up front, and check expenses at the back end. If people overspend, set more context&lt;/li&gt;
-  &lt;li&gt;No expense controls mean finance departments must audit annually&lt;/li&gt;
-  &lt;li&gt;Fire people that abuse the system but speak about the abuse opening so everyone knows repercussions&lt;/li&gt;
-  &lt;li&gt;Costs from overspending aren’t nearly as high as the gains that freedom provides because employees are able to make quick decisions to spend money to help the business.&lt;/li&gt;
-  &lt;li&gt;When you tell people you trust them, they will show you how trustworthy they are&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;4-pay-top-of-personal-market&quot;&gt;4. Pay top of personal market&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The methods used by most companies to compensate employees are not ideal for a creative high- talent density workforce&lt;/li&gt;
-  &lt;li&gt;Divide your workforce ‘into creative and operational. and pay creative workers top of market. This might mean hiring one exceptional instead of 10 adequate people&lt;/li&gt;
-  &lt;li&gt;Don’t pay performance-related bonuses and put into salary instead&lt;/li&gt;
-  &lt;li&gt;Teach employees to build their own networks and to invest time getting to know their own - and their teams’ - market value on an on- going bases Adjust salaries accordingly&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;5-open-the-books&quot;&gt;5. Open the books&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A culture of transparency: No closed offices or assistants as guards&lt;/li&gt;
-  &lt;li&gt;Open up books to employees and show how to read Pth accounts. Share sensitive financials&lt;/li&gt;
-  &lt;li&gt;Desicions the might affect workforce well-being be opened up early. May cause anxiety but will create trust (which is more valuable)&lt;/li&gt;
-  &lt;li&gt;If the transparency is at loggerheads with an individual’s privacy - of info is from a work circumstance, be candid but if not, say it’s not your place to share&lt;/li&gt;
-  &lt;li&gt;If you’ve shown yourself to be competent, be open about your own mistakes to increase trust, goodwill, innovation&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-no-decision-making-approvals-needed&quot;&gt;6. No decision-making approvals needed&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;In a fast, innovative company ownership of big - ticket decision should be dispersed across workforce at different levels, not according hierarchical status.&lt;/li&gt;
-  &lt;li&gt;Netflix mantra and the book’s main jacket quote: “Don’t seek to please your boss”&lt;/li&gt;
-  &lt;li&gt;When employees join company, tell them they have a handful of metaphorical chips to make bets with. A workers performance is judged on collective outcome of these bets&lt;/li&gt;
-  &lt;li&gt;To help good bets encourage staff to farm for dissent socialize the idea and test out the big bets. Teach that if a bet fails it should be ‘sunshined’ openly sharing learnings etc&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;7-the-keeper-test&quot;&gt;7. The keeper Test&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Encourage managers to be tough on performance by asking which of my people, if they told me they were leaving for a similar role, would I fight to keep?’&lt;/li&gt;
-  &lt;li&gt;Avoid stack-ranking as they create internal competition. and discourage collaboration&lt;/li&gt;
-  &lt;li&gt;‘Family’ metaphor for workforce isn’t as good as ‘Professional Sports Team’ Teach to instill feelings of . commitment, cohesion , camaraderie&lt;/li&gt;
-  &lt;li&gt;When you realize you need to let someone go, a personal improvement plan is humiliating and costly. Instead use money for a generous severance&lt;/li&gt;
-  &lt;li&gt;Employees may have fear that their job is on the line, so employees should ask their manager to ask ‘If I was thinking of leaving, how hard would you work to change my mind’&lt;/li&gt;
-  &lt;li&gt;When an employee is let go, Speak openly and answer questions candidly. This will diminish their fear of being next and increase trust&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;8-max-up-candour-a-circle-of-trust&quot;&gt;8. Max up candour: A circle of trust&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A thorough live 360/ feedback session every 6- 12 months ensures clear feedback&lt;/li&gt;
-  &lt;li&gt;Performance reviews aren’t the best mechanism as can be one -sided and limited to just one person (employee boys&lt;/li&gt;
-  &lt;li&gt;A 360 written report is good for annual feedback but don’t link to promotions&lt;/li&gt;
-  &lt;li&gt;Use 4A feeback guidelines for live 360 dinners and start, stop, continue method with roughly 25% positive, 75% development with an actionable (no fluff)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;9-lead-with-context-not-control&quot;&gt;9. Lead with context, not control&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The overall goal should be innovation (not error prevention) and operate in a loosely coupled System&lt;/li&gt;
-  &lt;li&gt;To lead with context, you need a high talent density. After this get in lockstep alignment by providing and debating context to enable sound decision - making&lt;/li&gt;
-  &lt;li&gt;If a poor decision has been made, don’t blame. Ask what context you failed to communicate.&lt;/li&gt;
-  &lt;li&gt;Is everyone highly aligned on vision and objectives ?&lt;/li&gt;
-  &lt;li&gt;A loosely coupled organisation should resemble a tree rather than a pyramid. The boss is at the roots, holding up the trunk of senior managers who support the outer branches where decisions are made.&lt;/li&gt;
-  &lt;li&gt;These policies, Reed argues do not work for Netflix/a creative engineering culture.
-    &lt;ul&gt;
-      &lt;li&gt;Vacation Policies&lt;/li&gt;
-      &lt;li&gt;Decision- Making approvals&lt;/li&gt;
-      &lt;li&gt;Expense Policies&lt;/li&gt;
-      &lt;li&gt;Performance Improvement Glans&lt;/li&gt;
-      &lt;li&gt;Approval Processes&lt;/li&gt;
-      &lt;li&gt;Raise Pools&lt;/li&gt;
-      &lt;li&gt;Key Performance Indicators&lt;/li&gt;
-      &lt;li&gt;Management by Objective&lt;/li&gt;
-      &lt;li&gt;Travel Policies&lt;/li&gt;
-      &lt;li&gt;Decision - Making by Committee&lt;/li&gt;
-      &lt;li&gt;Contract Sign offs&lt;/li&gt;
-      &lt;li&gt;ay- Grades&lt;/li&gt;
-      &lt;li&gt;Pay- per performance Bonuses&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;10-going-global&quot;&gt;10. Going Global&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Map out corporate culture and compare to the culture you are expanding into&lt;/li&gt;
-  &lt;li&gt;In less direct countries, implement more formal feedback mechanisms.&lt;/li&gt;
-  &lt;li&gt;Encourage adaptability. Discuss openly what candour means in different parts of world. Work together to adapt&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">As soon as I saw the title, I knew this is a book I had to read.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/3xLS5Rr.png" /><media:content medium="image" url="https://words.howapped.com/images/3xLS5Rr.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">AWS Certified Solutions Architect - Exam Differences</title><link href="https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences.html" rel="alternate" type="text/html" title="AWS Certified Solutions Architect - Exam Differences" /><published>2020-07-28T00:00:00-05:00</published><updated>2020-07-28T00:00:00-05:00</updated><id>https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences</id><content type="html" xml:base="https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences.html">&lt;p&gt;AWS have released an update on their most popular and wide-ranging certification course.&lt;/p&gt;
-
-&lt;p&gt;The software architect exam at associate level SAA-C01 has been retired and SAA-C02 takes its place.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;October 2020 Update: &lt;a href=&quot;https://www.credly.com/badges/de891843-ae2c-44eb-89e2-9aa88367dd07?source=linked_in_profile&quot;&gt;I passed!&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Commenters with experience of the two will maintain that as long as you keep to the fundamentals of the &lt;a href=&quot;https://aws.amazon.com/architecture/well-architected/?wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&amp;amp;wa-lens-whitepapers.sort-order=desc&quot;&gt;5 pillars of the well-architected framework&lt;/a&gt;, the two exams have mostly the same content.&lt;/p&gt;
-
-&lt;p&gt;It pays to be aware of the new products AWS offer. We know that being able to leverage natively provided technologies from a cloud provider will often present efficiency gains in the &lt;a href=&quot;https://en.wikipedia.org/wiki/Systems_development_life_cycle&quot;&gt;Software Development Lifecycle&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In the SAA-C02 exam, the new technologies we should be aware of:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;&lt;!-- What Is it--&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;!--Good to know for--&gt;&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;AWS Global Accelerator&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Elastic Fabric Adapter&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Elastic Network Adapter&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;AWS Parallel Cluster&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Amazon FSx&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;AWS DataSync&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;AWS Directory Service&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;High Performance Computing&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Aurora Serverless&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name></name></author><summary type="html">AWS have released an update on their most popular and wide-ranging certification course.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/UrmOp2V.png" /><media:content medium="image" url="https://words.howapped.com/images/UrmOp2V.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Computers are fast - A cheatsheet</title><link href="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html" rel="alternate" type="text/html" title="Computers are fast - A cheatsheet" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet</id><content type="html" xml:base="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html">&lt;style&gt;
+<h3 id="1-first-build-up-talent-density">1. First, build up talent density</h3>
+
+<ul>
+  <li>Your number one goal as leader is to develop a work environment consisting of stunning colleagues</li>
+  <li>Stunning colleagues accomplish significant amounts of important work and are exceptionally creative and passionate</li>
+  <li>Jerks, slackers and sweet people with non stellar performance or pessimists on the team will bring down the performance of everyone</li>
+</ul>
+
+<h3 id="2-say-what-you-really-think-with-positive-intent">2. Say what you really think (with positive intent)</h3>
+
+<ul>
+  <li>
+    <p>With candour, high performers will become outstanding performers . Frequent candid feedback exponentially magnifies the speed and effectiveness of your work force</p>
+  </li>
+  <li>Set the stage for candour by building feedback moments into your regular meetings</li>
+  <li>Coach your employees to give and receive feedback effectively following the 4A guidelines (live) (Give) )
+    <ul>
+      <li>Aim to Assist (Giving)</li>
+      <li>Actionable (Giving)</li>
+      <li>Appreciate (Receiving)</li>
+      <li>Accept or Discard (Receiving)</li>
+    </ul>
+  </li>
+  <li>As a leader solicit feedback regularly and respond with belonging cues when you receive</li>
+  <li>Get rid of jerks as you instill a culture of candour</li>
+</ul>
+
+<h3 id="3a-remove-vacation-policy">3a. Remove Vacation Policy</h3>
+
+<ul>
+  <li>If you aren’t tracking worked in a day, what is the point tracking days per year?</li>
+  <li>Leaders must model big-vacation taking to set example and precedent to guide employee behaviour</li>
+  <li>Explain there is no need to ask for prior approval and no one is expected to keep track of days away from the office</li>
+  <li>Up to employee to take few hours, days, a week, a month off.</li>
+  <li>Communicate to provide context</li>
+</ul>
+
+<h3 id="3b-remove-travel-and-expense-approvals">3b. Remove travel and expense approvals</h3>
+
+<ul>
+  <li>Remove, and encourage managers to set context about how to spend money up front, and check expenses at the back end. If people overspend, set more context</li>
+  <li>No expense controls mean finance departments must audit annually</li>
+  <li>Fire people that abuse the system but speak about the abuse opening so everyone knows repercussions</li>
+  <li>Costs from overspending aren’t nearly as high as the gains that freedom provides because employees are able to make quick decisions to spend money to help the business.</li>
+  <li>When you tell people you trust them, they will show you how trustworthy they are</li>
+</ul>
+
+<h3 id="4-pay-top-of-personal-market">4. Pay top of personal market</h3>
+
+<ul>
+  <li>The methods used by most companies to compensate employees are not ideal for a creative high- talent density workforce</li>
+  <li>Divide your workforce ‘into creative and operational. and pay creative workers top of market. This might mean hiring one exceptional instead of 10 adequate people</li>
+  <li>Don’t pay performance-related bonuses and put into salary instead</li>
+  <li>Teach employees to build their own networks and to invest time getting to know their own - and their teams’ - market value on an on- going bases Adjust salaries accordingly</li>
+</ul>
+
+<h3 id="5-open-the-books">5. Open the books</h3>
+
+<ul>
+  <li>A culture of transparency: No closed offices or assistants as guards</li>
+  <li>Open up books to employees and show how to read Pth accounts. Share sensitive financials</li>
+  <li>Desicions the might affect workforce well-being be opened up early. May cause anxiety but will create trust (which is more valuable)</li>
+  <li>If the transparency is at loggerheads with an individual’s privacy - of info is from a work circumstance, be candid but if not, say it’s not your place to share</li>
+  <li>If you’ve shown yourself to be competent, be open about your own mistakes to increase trust, goodwill, innovation</li>
+</ul>
+
+<h3 id="6-no-decision-making-approvals-needed">6. No decision-making approvals needed</h3>
+
+<ul>
+  <li>In a fast, innovative company ownership of big - ticket decision should be dispersed across workforce at different levels, not according hierarchical status.</li>
+  <li>Netflix mantra and the book’s main jacket quote: “Don’t seek to please your boss”</li>
+  <li>When employees join company, tell them they have a handful of metaphorical chips to make bets with. A workers performance is judged on collective outcome of these bets</li>
+  <li>To help good bets encourage staff to farm for dissent socialize the idea and test out the big bets. Teach that if a bet fails it should be ‘sunshined’ openly sharing learnings etc</li>
+</ul>
+
+<h3 id="7-the-keeper-test">7. The keeper Test</h3>
+
+<ul>
+  <li>Encourage managers to be tough on performance by asking which of my people, if they told me they were leaving for a similar role, would I fight to keep?’</li>
+  <li>Avoid stack-ranking as they create internal competition. and discourage collaboration</li>
+  <li>‘Family’ metaphor for workforce isn’t as good as ‘Professional Sports Team’ Teach to instill feelings of . commitment, cohesion , camaraderie</li>
+  <li>When you realize you need to let someone go, a personal improvement plan is humiliating and costly. Instead use money for a generous severance</li>
+  <li>Employees may have fear that their job is on the line, so employees should ask their manager to ask ‘If I was thinking of leaving, how hard would you work to change my mind’</li>
+  <li>When an employee is let go, Speak openly and answer questions candidly. This will diminish their fear of being next and increase trust</li>
+</ul>
+
+<h3 id="8-max-up-candour-a-circle-of-trust">8. Max up candour: A circle of trust</h3>
+
+<ul>
+  <li>A thorough live 360/ feedback session every 6- 12 months ensures clear feedback</li>
+  <li>Performance reviews aren’t the best mechanism as can be one -sided and limited to just one person (employee boys</li>
+  <li>A 360 written report is good for annual feedback but don’t link to promotions</li>
+  <li>Use 4A feeback guidelines for live 360 dinners and start, stop, continue method with roughly 25% positive, 75% development with an actionable (no fluff)</li>
+</ul>
+
+<h3 id="9-lead-with-context-not-control">9. Lead with context, not control</h3>
+
+<ul>
+  <li>The overall goal should be innovation (not error prevention) and operate in a loosely coupled System</li>
+  <li>To lead with context, you need a high talent density. After this get in lockstep alignment by providing and debating context to enable sound decision - making</li>
+  <li>If a poor decision has been made, don’t blame. Ask what context you failed to communicate.</li>
+  <li>Is everyone highly aligned on vision and objectives ?</li>
+  <li>A loosely coupled organisation should resemble a tree rather than a pyramid. The boss is at the roots, holding up the trunk of senior managers who support the outer branches where decisions are made.</li>
+  <li>These policies, Reed argues do not work for Netflix/a creative engineering culture.
+    <ul>
+      <li>Vacation Policies</li>
+      <li>Decision- Making approvals</li>
+      <li>Expense Policies</li>
+      <li>Performance Improvement Glans</li>
+      <li>Approval Processes</li>
+      <li>Raise Pools</li>
+      <li>Key Performance Indicators</li>
+      <li>Management by Objective</li>
+      <li>Travel Policies</li>
+      <li>Decision - Making by Committee</li>
+      <li>Contract Sign offs</li>
+      <li>ay- Grades</li>
+      <li>Pay- per performance Bonuses</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="10-going-global">10. Going Global</h3>
+
+<ul>
+  <li>Map out corporate culture and compare to the culture you are expanding into</li>
+  <li>In less direct countries, implement more formal feedback mechanisms.</li>
+  <li>Encourage adaptability. Discuss openly what candour means in different parts of world. Work together to adapt</li>
+</ul>]]></content><author><name></name></author><category term="book notes" /><category term="work life" /><category term="non-fiction" /><summary type="html"><![CDATA[Notes on 'No Rules Rules, Netflix and the Culture of Reinvention' by Reed Hastings and Erin Meyer.Gripping storytelling on how to create and maintain a dynamic, flexible and creative engineering culture.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/3xLS5Rr.png" /><media:content medium="image" url="https://words.howapped.com/images/3xLS5Rr.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">AWS Certified Solutions Architect - Exam Differences</title><link href="https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences.html" rel="alternate" type="text/html" title="AWS Certified Solutions Architect - Exam Differences" /><published>2020-07-28T00:00:00+00:00</published><updated>2020-07-28T00:00:00+00:00</updated><id>https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences</id><content type="html" xml:base="https://words.howapped.com/aws/2020/07/28/AWS-architect-exam-differences.html"><![CDATA[<p>AWS have released an update on their most popular and wide-ranging certification course.</p>
+
+<p>The software architect exam at associate level SAA-C01 has been retired and SAA-C02 takes its place.</p>
+
+<blockquote>
+  <p>October 2020 Update: <a href="https://www.credly.com/badges/de891843-ae2c-44eb-89e2-9aa88367dd07?source=linked_in_profile">I passed!</a></p>
+</blockquote>
+
+<p>Commenters with experience of the two will maintain that as long as you keep to the fundamentals of the <a href="https://aws.amazon.com/architecture/well-architected/?wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&amp;wa-lens-whitepapers.sort-order=desc">5 pillars of the well-architected framework</a>, the two exams have mostly the same content.</p>
+
+<p>It pays to be aware of the new products AWS offer. We know that being able to leverage natively provided technologies from a cloud provider will often present efficiency gains in the <a href="https://en.wikipedia.org/wiki/Systems_development_life_cycle">Software Development Lifecycle</a>.</p>
+
+<p>In the SAA-C02 exam, the new technologies we should be aware of:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th><!-- What Is it--></th>
+      <th><!--Good to know for--></th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AWS Global Accelerator</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Elastic Fabric Adapter</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Elastic Network Adapter</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AWS Parallel Cluster</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Amazon FSx</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AWS DataSync</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AWS Directory Service</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>High Performance Computing</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Aurora Serverless</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name></name></author><category term="aws" /><summary type="html"><![CDATA[2018 vs. 2020]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/UrmOp2V.png" /><media:content medium="image" url="https://words.howapped.com/images/UrmOp2V.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Computers are fast - A cheatsheet</title><link href="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html" rel="alternate" type="text/html" title="Computers are fast - A cheatsheet" /><published>2020-07-23T00:00:00+00:00</published><updated>2020-07-23T00:00:00+00:00</updated><id>https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet</id><content type="html" xml:base="https://words.howapped.com/cheatsheet/python%20performance/2020/07/23/computers-are-fast-cheatsheet.html"><![CDATA[<style>
 table {
     width:100%;
 }
-&lt;/style&gt;
+</style>
 
-&lt;p&gt;This is inspired by Julia Evans and Kamal Marhubi’s excellent mini-quiz on the data rates of systems and components.&lt;/p&gt;
+<p>This is inspired by Julia Evans and Kamal Marhubi’s excellent mini-quiz on the data rates of systems and components.</p>
 
-&lt;p&gt;The below cheatsheet serves as a summary of those benchmark speeds, for at-a-glance consumption.&lt;/p&gt;
+<p>The below cheatsheet serves as a summary of those benchmark speeds, for at-a-glance consumption.</p>
 
-&lt;h2 id=&quot;orders-of-magnitude&quot;&gt;Orders of magnitude&lt;/h2&gt;
+<h2 id="orders-of-magnitude">Orders of magnitude</h2>
 
-&lt;p&gt;The idea is not necessarily know the exact figures for a particular benchmark, just the right order of magnitude.&lt;/p&gt;
+<p>The idea is not necessarily know the exact figures for a particular benchmark, just the right order of magnitude.</p>
 
-&lt;p&gt;🐌 10&lt;sup&gt;0&lt;/sup&gt; 1&lt;/p&gt;
+<p>🐌 10<sup>0</sup> 1</p>
 
-&lt;p&gt;🦥 10&lt;sup&gt;1&lt;/sup&gt; 10&lt;/p&gt;
+<p>🦥 10<sup>1</sup> 10</p>
 
-&lt;p&gt;🚶 10&lt;sup&gt;2&lt;/sup&gt; 100&lt;/p&gt;
+<p>🚶 10<sup>2</sup> 100</p>
 
-&lt;p&gt;🏃‍♀️ 10&lt;sup&gt;3&lt;/sup&gt; 1,000&lt;/p&gt;
+<p>🏃‍♀️ 10<sup>3</sup> 1,000</p>
 
-&lt;p&gt;🏇‍ 10&lt;sup&gt;4&lt;/sup&gt; 10,000&lt;/p&gt;
+<p>🏇‍ 10<sup>4</sup> 10,000</p>
 
-&lt;p&gt;‍🏎️💨 10&lt;sup&gt;5&lt;/sup&gt; 100,000&lt;/p&gt;
+<p>‍🏎️💨 10<sup>5</sup> 100,000</p>
 
-&lt;p&gt;🚁 10&lt;sup&gt;6&lt;/sup&gt; 1,000,000&lt;/p&gt;
+<p>🚁 10<sup>6</sup> 1,000,000</p>
 
-&lt;p&gt;✈️ 10&lt;sup&gt;7&lt;/sup&gt; 10,000,000&lt;/p&gt;
+<p>✈️ 10<sup>7</sup> 10,000,000</p>
 
-&lt;p&gt;🚀 10&lt;sup&gt;8&lt;/sup&gt; 100,000,000&lt;/p&gt;
+<p>🚀 10<sup>8</sup> 100,000,000</p>
 
-&lt;p&gt;🌠 10&lt;sup&gt;9&lt;/sup&gt; 1,000,000,000&lt;/p&gt;
+<p>🌠 10<sup>9</sup> 1,000,000,000</p>
 
-&lt;h2 id=&quot;how-much-can-be-done-in-a-second&quot;&gt;‘How much can be done in a second’&lt;/h2&gt;
+<h2 id="how-much-can-be-done-in-a-second">‘How much can be done in a second’</h2>
 
-&lt;h3 id=&quot;sumc&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/sum.c&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sum.c&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Each loop adds to total&lt;/li&gt;
-  &lt;li&gt;How many loop iterations per second?
-    &lt;ul&gt;
-      &lt;li&gt;🚀 - 🌠&lt;/li&gt;
-      &lt;li&gt;Between 100 million and 1 Billion&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;8&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;9&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="sumc"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/sum.c"><code class="language-plaintext highlighter-rouge">sum.c</code></a></h3>
+<ul>
+  <li>Each loop adds to total</li>
+  <li>How many loop iterations per second?
+    <ul>
+      <li>🚀 - 🌠</li>
+      <li>Between 100 million and 1 Billion</li>
+      <li>10<sup>8</sup> &gt; and &lt; 10<sup>9</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;looppy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/loop.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;loop.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Empty loop contents&lt;/li&gt;
-  &lt;li&gt;How many loop iterations per second?
-    &lt;ul&gt;
-      &lt;li&gt;✈️ - 🚀&lt;/li&gt;
-      &lt;li&gt;Between 10m and 100m&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;7&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;8&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="looppy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/loop.py"><code class="language-plaintext highlighter-rouge">loop.py</code></a></h3>
+<ul>
+  <li>Empty loop contents</li>
+  <li>How many loop iterations per second?
+    <ul>
+      <li>✈️ - 🚀</li>
+      <li>Between 10m and 100m</li>
+      <li>10<sup>7</sup> &gt; and &lt; 10<sup>8</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;dictpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/dict.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dict.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Add elements to a fixed-size dictionary&lt;/li&gt;
-  &lt;li&gt;How many loop iterations per second?
-    &lt;ul&gt;
-      &lt;li&gt;✈️ - 🚀&lt;/li&gt;
-      &lt;li&gt;Between 10m and 100m&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;4&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;5&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="dictpy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/dict.py"><code class="language-plaintext highlighter-rouge">dict.py</code></a></h3>
+<ul>
+  <li>Add elements to a fixed-size dictionary</li>
+  <li>How many loop iterations per second?
+    <ul>
+      <li>✈️ - 🚀</li>
+      <li>Between 10m and 100m</li>
+      <li>10<sup>4</sup> &gt; and &lt; 10<sup>5</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;parse_http_requestpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/parse_http_request.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;parse_http_request.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Using Python built-in HTTP request parser&lt;/li&gt;
-  &lt;li&gt;How many HTTP requests parsed per second?
-    &lt;ul&gt;
-      &lt;li&gt;🏇‍️ - ‍🏎️💨‍&lt;/li&gt;
-      &lt;li&gt;Between 10,000 and 100,000&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;4&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;5&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="parse_http_requestpy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/parse_http_request.py"><code class="language-plaintext highlighter-rouge">parse_http_request.py</code></a></h3>
+<ul>
+  <li>Using Python built-in HTTP request parser</li>
+  <li>How many HTTP requests parsed per second?
+    <ul>
+      <li>🏇‍️ - ‍🏎️💨‍</li>
+      <li>Between 10,000 and 100,000</li>
+      <li>10<sup>4</sup> &gt; and &lt; 10<sup>5</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;download_webpagepy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/download_webpage.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;download_webpage.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Downloading with urllib2&lt;/li&gt;
-  &lt;li&gt;How many HTTP requests completed per second?
-    &lt;ul&gt;
-      &lt;li&gt;🐌‍️ - ‍🦥&lt;/li&gt;
-      &lt;li&gt;Between 1 and 10&lt;/li&gt;
-      &lt;li&gt;
-        &lt;blockquote&gt;
-          &lt;p&gt;The true cost depends on size, connection speed and distance from servers&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="download_webpagepy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/download_webpage.py"><code class="language-plaintext highlighter-rouge">download_webpage.py</code></a></h3>
+<ul>
+  <li>Downloading with urllib2</li>
+  <li>How many HTTP requests completed per second?
+    <ul>
+      <li>🐌‍️ - ‍🦥</li>
+      <li>Between 1 and 10</li>
+      <li>
+        <blockquote>
+          <p>The true cost depends on size, connection speed and distance from servers</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;run_pythonsh&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/run_python.sh&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;run_python.sh&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Running Python script(s) from bash&lt;/li&gt;
-  &lt;li&gt;Bash loop iterations per second
-    &lt;ul&gt;
-      &lt;li&gt;🦥 - ‍🚶‍&lt;/li&gt;
-      &lt;li&gt;Between 10 and 100&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;1&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;2&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="run_pythonsh"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/run_python.sh"><code class="language-plaintext highlighter-rouge">run_python.sh</code></a></h3>
+<ul>
+  <li>Running Python script(s) from bash</li>
+  <li>Bash loop iterations per second
+    <ul>
+      <li>🦥 - ‍🚶‍</li>
+      <li>Between 10 and 100</li>
+      <li>10<sup>1</sup> &gt; and &lt; 10<sup>2</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;write_to_diskpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/write_to_disk.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;write_to_disk.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Code run on a machine with an SSD&lt;/li&gt;
-  &lt;li&gt;How many bytes written to disk in a second
-    &lt;ul&gt;
-      &lt;li&gt;🚀 - 🌠&lt;/li&gt;
-      &lt;li&gt;Between 100 million and 1 Billion&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;How many megabytes written to disk in a second
-    &lt;ul&gt;
-      &lt;li&gt;🚶 - 🏃‍♀️&lt;/li&gt;
-      &lt;li&gt;Between 100 and 1,000&lt;/li&gt;
-      &lt;li&gt;My T480s running Ubuntu with SSD reports write speed: 2.3 GB/s and read 673 MB/s &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="write_to_diskpy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/write_to_disk.py"><code class="language-plaintext highlighter-rouge">write_to_disk.py</code></a></h3>
+<ul>
+  <li>Code run on a machine with an SSD</li>
+  <li>How many bytes written to disk in a second
+    <ul>
+      <li>🚀 - 🌠</li>
+      <li>Between 100 million and 1 Billion</li>
+    </ul>
+  </li>
+  <li>How many megabytes written to disk in a second
+    <ul>
+      <li>🚶 - 🏃‍♀️</li>
+      <li>Between 100 and 1,000</li>
+      <li>My T480s running Ubuntu with SSD reports write speed: 2.3 GB/s and read 673 MB/s <sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;write_to_memorypy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/write_to_memory.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;write_to_memory.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;How many bytes written to a string in memory in a second
-    &lt;ul&gt;
-      &lt;li&gt;🌠+&lt;/li&gt;
-      &lt;li&gt;Above 1 Billion&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="write_to_memorypy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/write_to_memory.py"><code class="language-plaintext highlighter-rouge">write_to_memory.py</code></a></h3>
+<ul>
+  <li>How many bytes written to a string in memory in a second
+    <ul>
+      <li>🌠+</li>
+      <li>Above 1 Billion</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;grep_bytessh&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/grep_bytes.sh&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grep_bytes.sh&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Bytes search in a second
-    &lt;ul&gt;
-      &lt;li&gt;🌠+&lt;/li&gt;
-      &lt;li&gt;Above 1 Billion&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="grep_bytessh"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/grep_bytes.sh"><code class="language-plaintext highlighter-rouge">grep_bytes.sh</code></a></h3>
+<ul>
+  <li>Bytes search in a second
+    <ul>
+      <li>🌠+</li>
+      <li>Above 1 Billion</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;find-filenamessh&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/find-filenames.sh&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find-filenames.sh&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Files come from the filesystem cache&lt;/li&gt;
-  &lt;li&gt;How many files listed in one second?
-    &lt;ul&gt;
-      &lt;li&gt;🏎💨 - ‍🚁&lt;/li&gt;
-      &lt;li&gt;Between 100,000 and 1m&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;5&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;6&lt;/sup&gt;&lt;/li&gt;
-      &lt;li&gt;
-        &lt;blockquote&gt;
-          &lt;p&gt;Grep can search at 2GB/s so more limited by disk speed than grep’s speed&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="find-filenamessh"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/find-filenames.sh"><code class="language-plaintext highlighter-rouge">find-filenames.sh</code></a></h3>
+<ul>
+  <li>Files come from the filesystem cache</li>
+  <li>How many files listed in one second?
+    <ul>
+      <li>🏎💨 - ‍🚁</li>
+      <li>Between 100,000 and 1m</li>
+      <li>10<sup>5</sup> &gt; and &lt; 10<sup>6</sup></li>
+      <li>
+        <blockquote>
+          <p>Grep can search at 2GB/s so more limited by disk speed than grep’s speed</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;json_parsepy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/json-parse.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;json_parse.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Deserializing the same 65k of JSON repeatedly&lt;/li&gt;
-  &lt;li&gt;How many loop iterations in a second?
-    &lt;ul&gt;
-      &lt;li&gt;🚶 - ‍🏃‍♀️&lt;/li&gt;
-      &lt;li&gt;Between 100 and 1,000&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;2&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;3&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="json_parsepy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/json-parse.py"><code class="language-plaintext highlighter-rouge">json_parse.py</code></a></h3>
+<ul>
+  <li>Deserializing the same 65k of JSON repeatedly</li>
+  <li>How many loop iterations in a second?
+    <ul>
+      <li>🚶 - ‍🏃‍♀️</li>
+      <li>Between 100 and 1,000</li>
+      <li>10<sup>2</sup> &gt; and &lt; 10<sup>3</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;msgpack_parsepy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/msgpack_parse.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;msgpack_parse.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Parse 46k of msgpack data&lt;/li&gt;
-  &lt;li&gt;How many loop iterations in a second?
-    &lt;ul&gt;
-      &lt;li&gt;🏃‍♀️ - ‍🏇‍&lt;/li&gt;
-      &lt;li&gt;Between 1,000 and 10,000&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;3&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;4&lt;/sup&gt;&lt;/li&gt;
-      &lt;li&gt;
-        &lt;blockquote&gt;
-          &lt;p&gt;Your choice of format and deserialisation library (eg capnproto) makes a big difference&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="msgpack_parsepy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/msgpack_parse.py"><code class="language-plaintext highlighter-rouge">msgpack_parse.py</code></a></h3>
+<ul>
+  <li>Parse 46k of msgpack data</li>
+  <li>How many loop iterations in a second?
+    <ul>
+      <li>🏃‍♀️ - ‍🏇‍</li>
+      <li>Between 1,000 and 10,000</li>
+      <li>10<sup>3</sup> &gt; and &lt; 10<sup>4</sup></li>
+      <li>
+        <blockquote>
+          <p>Your choice of format and deserialisation library (eg capnproto) makes a big difference</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;database_indexedpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/database_indexed.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;database_indexed.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Select one row from an indexed sqlite table containing 10m rows&lt;/li&gt;
-  &lt;li&gt;How many queries in one second
-    &lt;ul&gt;
-      &lt;li&gt;‍🏇‍ - 🏎️💨&lt;/li&gt;
-      &lt;li&gt;Between 10,000 and 100,000&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;4&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;5&lt;/sup&gt;&lt;/li&gt;
-      &lt;li&gt;Typical query in 20 microseconds&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="database_indexedpy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/database_indexed.py"><code class="language-plaintext highlighter-rouge">database_indexed.py</code></a></h3>
+<ul>
+  <li>Select one row from an indexed sqlite table containing 10m rows</li>
+  <li>How many queries in one second
+    <ul>
+      <li>‍🏇‍ - 🏎️💨</li>
+      <li>Between 10,000 and 100,000</li>
+      <li>10<sup>4</sup> &gt; and &lt; 10<sup>5</sup></li>
+      <li>Typical query in 20 microseconds</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;database_unindexedpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/database_unindexed.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;database_unindexed.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Select one row from an unindexed sqlite table containing 10m rows&lt;/li&gt;
-  &lt;li&gt;How many queries in one second
-    &lt;ul&gt;
-      &lt;li&gt;🐌‍️ - ‍🦥&lt;/li&gt;
-      &lt;li&gt;Between 1 and 10&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;0&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;1&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="database_unindexedpy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/database_unindexed.py"><code class="language-plaintext highlighter-rouge">database_unindexed.py</code></a></h3>
+<ul>
+  <li>Select one row from an unindexed sqlite table containing 10m rows</li>
+  <li>How many queries in one second
+    <ul>
+      <li>🐌‍️ - ‍🦥</li>
+      <li>Between 1 and 10</li>
+      <li>10<sup>0</sup> &gt; and &lt; 10<sup>1</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;hashpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/hash.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hash.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;How many bytes hashed in one second?
-    &lt;ul&gt;
-      &lt;li&gt;🚀 - 🌠&lt;/li&gt;
-      &lt;li&gt;Between 100 million and 1 Billion&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;8&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;9&lt;/sup&gt;&lt;/li&gt;
-      &lt;li&gt;
-        &lt;blockquote&gt;
-          &lt;p&gt;MD5 is designed to be fast&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="hashpy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/hash.py"><code class="language-plaintext highlighter-rouge">hash.py</code></a></h3>
+<ul>
+  <li>How many bytes hashed in one second?
+    <ul>
+      <li>🚀 - 🌠</li>
+      <li>Between 100 million and 1 Billion</li>
+      <li>10<sup>8</sup> &gt; and &lt; 10<sup>9</sup></li>
+      <li>
+        <blockquote>
+          <p>MD5 is designed to be fast</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;bcrypt_hashpy&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/bcrypt_hash.py&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bcrypt_hash.py&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Number of passwords hashed in a second?
-    &lt;ul&gt;
-      &lt;li&gt;🐌‍️ - ‍🦥&lt;/li&gt;
-      &lt;li&gt;Between 1 and 10&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;0&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;1&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="bcrypt_hashpy"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/bcrypt_hash.py"><code class="language-plaintext highlighter-rouge">bcrypt_hash.py</code></a></h3>
+<ul>
+  <li>Number of passwords hashed in a second?
+    <ul>
+      <li>🐌‍️ - ‍🦥</li>
+      <li>Between 1 and 10</li>
+      <li>10<sup>0</sup> &gt; and &lt; 10<sup>1</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;fill_arrayc&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/fill_array.c&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fill_array.c&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Memory is accessed sequentially from a CPU cache&lt;/li&gt;
-  &lt;li&gt;Number of passwords hashed in a second?
-    &lt;ul&gt;
-      &lt;li&gt;🚀 - 🌠&lt;/li&gt;
-      &lt;li&gt;Between 100 million and 1 Billion&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;8&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;9&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="fill_arrayc"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/fill_array.c"><code class="language-plaintext highlighter-rouge">fill_array.c</code></a></h3>
+<ul>
+  <li>Memory is accessed sequentially from a CPU cache</li>
+  <li>Number of passwords hashed in a second?
+    <ul>
+      <li>🚀 - 🌠</li>
+      <li>Between 100 million and 1 Billion</li>
+      <li>10<sup>8</sup> &gt; and &lt; 10<sup>9</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;fill_arrayc-1&quot;&gt;&lt;a href=&quot;https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/fill_array.c&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fill_array.c&lt;/code&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Number of passwords hashed in a second?
-    &lt;ul&gt;
-      &lt;li&gt;✈️ - 🚀&lt;/li&gt;
-      &lt;li&gt;Between 10m and 100m&lt;/li&gt;
-      &lt;li&gt;10&lt;sup&gt;4&lt;/sup&gt; &amp;gt; and &amp;lt; 10&lt;sup&gt;5&lt;/sup&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="fill_arrayc-1"><a href="https://github.com/jonwhittlestone/one-second/blob/master/benchmarks/fill_array.c"><code class="language-plaintext highlighter-rouge">fill_array.c</code></a></h3>
+<ul>
+  <li>Number of passwords hashed in a second?
+    <ul>
+      <li>✈️ - 🚀</li>
+      <li>Between 10m and 100m</li>
+      <li>10<sup>4</sup> &gt; and &lt; 10<sup>5</sup></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h2 id=&quot;resources-used-with-thanks-&quot;&gt;Resources used: with thanks 💚&lt;/h2&gt;
+<h2 id="resources-used-with-thanks-">Resources used: with thanks 💚</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Do you know how much your computer can do in a second? - &lt;a href=&quot;http://computers-are-fast.github.io/&quot;&gt;Mini Quiz&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Do you know how much your computer can do in a second? - <a href="http://computers-are-fast.github.io/">Mini Quiz</a></li>
+</ul>
 
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://www.binarytides.com/linux-test-drive-speed/&quot;&gt;https://www.binarytides.com/linux-test-drive-speed/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/pkQnonr.png" /><media:content medium="image" url="https://words.howapped.com/images/pkQnonr.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Book Notes - Managing Humans</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2020/07/19/book-notes-managing-humans.html" rel="alternate" type="text/html" title="Book Notes - Managing Humans" /><published>2020-07-19T00:00:00-05:00</published><updated>2020-07-19T00:00:00-05:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2020/07/19/book-notes-managing-humans</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2020/07/19/book-notes-managing-humans.html">&lt;p&gt;I (Jon) have recently finished this book about management and leadership. It does a great job in explaining empathy, archetypes and ‘general craziness of dysfunctional bright people’ with plenty of pertinent and amusing anecodotes.&lt;/p&gt;
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="https://www.binarytides.com/linux-test-drive-speed/">https://www.binarytides.com/linux-test-drive-speed/</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="cheatsheet" /><category term="python performance" /><summary type="html"><![CDATA[Data rates of various systems]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/pkQnonr.png" /><media:content medium="image" url="https://words.howapped.com/images/pkQnonr.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Book Notes - Managing Humans</title><link href="https://words.howapped.com/book%20notes/work%20life/non-fiction/2020/07/19/book-notes-managing-humans.html" rel="alternate" type="text/html" title="Book Notes - Managing Humans" /><published>2020-07-19T00:00:00+00:00</published><updated>2020-07-19T00:00:00+00:00</updated><id>https://words.howapped.com/book%20notes/work%20life/non-fiction/2020/07/19/book-notes-managing-humans</id><content type="html" xml:base="https://words.howapped.com/book%20notes/work%20life/non-fiction/2020/07/19/book-notes-managing-humans.html"><![CDATA[<p>I (Jon) have recently finished this book about management and leadership. It does a great job in explaining empathy, archetypes and ‘general craziness of dysfunctional bright people’ with plenty of pertinent and amusing anecodotes.</p>
 
-&lt;p&gt;It’s written for aspiring and current managers and at 3rd edition, Michael writes as though he knows his audience well. He has clearly trodden the boards, delivered software projects, and led teams at Borland and Apple.&lt;/p&gt;
+<p>It’s written for aspiring and current managers and at 3rd edition, Michael writes as though he knows his audience well. He has clearly trodden the boards, delivered software projects, and led teams at Borland and Apple.</p>
 
-&lt;h2 id=&quot;my-rating-45&quot;&gt;My rating: 4/5&lt;/h2&gt;
-&lt;h2 id=&quot;chapter-notes&quot;&gt;Chapter Notes&lt;/h2&gt;
+<h2 id="my-rating-45">My rating: 4/5</h2>
+<h2 id="chapter-notes">Chapter Notes</h2>
 
-&lt;h3 id=&quot;ch4---rands-test&quot;&gt;CH4 - Rands Test&lt;/h3&gt;
+<h3 id="ch4---rands-test">CH4 - Rands Test</h3>
 
-&lt;p&gt;Where the &lt;a href=&quot;https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/&quot;&gt;‘Joel test’&lt;/a&gt; can be an effective way to get a health check on a software team, the Rands test does the same for general team fitness in the context of management.&lt;/p&gt;
+<p>Where the <a href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/">‘Joel test’</a> can be an effective way to get a health check on a software team, the Rands test does the same for general team fitness in the context of management.</p>
 
-&lt;p&gt;A score of 10 or lower - ‘you’ve got serious problems’&lt;/p&gt;
+<p>A score of 10 or lower - ‘you’ve got serious problems’</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Do you have consistent one-on-ones, about topics other than status? (+1)&lt;/li&gt;
-  &lt;li&gt;Do you have consistent team meetings? (+1)&lt;/li&gt;
-  &lt;li&gt;Are handwritten status reports delivered weekly via email? (-1)&lt;/li&gt;
-  &lt;li&gt;Are you comfortable saying ‘no’ to your boss? (+1)&lt;/li&gt;
-  &lt;li&gt;Can you explain the strategy of your company to a stranger? (+1)&lt;/li&gt;
-  &lt;li&gt;Can you explain current health of the business? (+1)&lt;/li&gt;
-  &lt;li&gt;Is there a regular stand-up by the person in charge? Do you buy it? (+1)&lt;/li&gt;
-  &lt;li&gt;Do you know what you want to do next? (+1) Does your boss? (+1)&lt;/li&gt;
-  &lt;li&gt;Do you have time to be strategic? (+1)&lt;/li&gt;
-  &lt;li&gt;Are you actively killing the grapevine? ie. Do you make a point to kill gossip? (+1)&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Do you have consistent one-on-ones, about topics other than status? (+1)</li>
+  <li>Do you have consistent team meetings? (+1)</li>
+  <li>Are handwritten status reports delivered weekly via email? (-1)</li>
+  <li>Are you comfortable saying ‘no’ to your boss? (+1)</li>
+  <li>Can you explain the strategy of your company to a stranger? (+1)</li>
+  <li>Can you explain current health of the business? (+1)</li>
+  <li>Is there a regular stand-up by the person in charge? Do you buy it? (+1)</li>
+  <li>Do you know what you want to do next? (+1) Does your boss? (+1)</li>
+  <li>Do you have time to be strategic? (+1)</li>
+  <li>Are you actively killing the grapevine? ie. Do you make a point to kill gossip? (+1)</li>
+</ul>
 
-&lt;h3 id=&quot;ch39---incrementalist-vs-realists&quot;&gt;CH39 - Incrementalist vs. Realists&lt;/h3&gt;
+<h3 id="ch39---incrementalist-vs-realists">CH39 - Incrementalist vs. Realists</h3>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Incrementalists and Realists don’t disagree about whether or not we should do something about the problem. We are disagreeing about how much we should do. … There are two distinct personalities when it comes to devising solutions.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Incrementalists and Realists don’t disagree about whether or not we should do something about the problem. We are disagreeing about how much we should do. … There are two distinct personalities when it comes to devising solutions.</p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Incrementalists are realists and they have a pretty good idea of what is achievable given a problem to solve, a product to ship. … They tend to know all the secrets.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Incrementalists are realists and they have a pretty good idea of what is achievable given a problem to solve, a product to ship. … They tend to know all the secrets.</p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Completionists are dreamers. Their mantra is “If you’re going to spend the time given to solve a problem, solve it in a manner so you aren’t going to be solving it again in 3 months”&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Completionists are dreamers. Their mantra is “If you’re going to spend the time given to solve a problem, solve it in a manner so you aren’t going to be solving it again in 3 months”</p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Incrementalists need vision and are driven by the goal of progress and constantly moving forward.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Incrementalists need vision and are driven by the goal of progress and constantly moving forward.</p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Completionists can often see the immediate solution, and the two-year solution and the five-year solution.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Completionists can often see the immediate solution, and the two-year solution and the five-year solution.</p>
+</blockquote>
 
-&lt;h3 id=&quot;ch40---organics-and-mechanics&quot;&gt;CH40 - Organics and Mechanics&lt;/h3&gt;
+<h3 id="ch40---organics-and-mechanics">CH40 - Organics and Mechanics</h3>
 
-&lt;p&gt;The chapter covers how to speak to your manager and to identify if they are one of two personalities and the interpersonal conflict that may arise between the two. Lopp comments that the ensuing ‘organisational warfare’ is a waste of time (and money) as it focuses everyone on the peculiar personality quirks of the other rather than on the business.&lt;/p&gt;
+<p>The chapter covers how to speak to your manager and to identify if they are one of two personalities and the interpersonal conflict that may arise between the two. Lopp comments that the ensuing ‘organisational warfare’ is a waste of time (and money) as it focuses everyone on the peculiar personality quirks of the other rather than on the business.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Mechanics move forward methodically. They carefully gather information in a structured manner. They quietly observe and are comfortable predictable. They annoy the hell out of the organics&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Mechanics move forward methodically. They carefully gather information in a structured manner. They quietly observe and are comfortable predictable. They annoy the hell out of the organics</p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Organics are all over the place. They tend to be loud and can tell a joke. They ask seemingly meaningless questions.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Organics are all over the place. They tend to be loud and can tell a joke. They ask seemingly meaningless questions.</p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Mechanic: “This guy is walking chaos”&lt;br /&gt;Organic: “This guy is totally uptight”&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Mechanic: “This guy is walking chaos”<br />Organic: “This guy is totally uptight”</p>
+</blockquote>
 
-&lt;h3 id=&quot;ch52---chaotic-beautiful-snowflakes&quot;&gt;CH52 - Chaotic, Beautiful snowflakes&lt;/h3&gt;
+<h3 id="ch52---chaotic-beautiful-snowflakes">CH52 - Chaotic, Beautiful snowflakes</h3>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Engineers have a well-deserved reputation for regularly being off by a factor of three in their work estimates, partly due to the fact that we are really shitty at estimating the no-linear chaotic work that exists in keeping a group of humans pointed in the right direction.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Engineers have a well-deserved reputation for regularly being off by a factor of three in their work estimates, partly due to the fact that we are really shitty at estimating the no-linear chaotic work that exists in keeping a group of humans pointed in the right direction.</p>
+</blockquote>
 
-&lt;p&gt;Michael’s parting thought&lt;/p&gt;
+<p>Michael’s parting thought</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;The hard work of great leadership isn’t just managing the expected tasks that we can predict - it’s the art of successfully traversing the unexpected.&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">I (Jon) have recently finished this book about management and leadership. It does a great job in explaining empathy, archetypes and ‘general craziness of dysfunctional bright people’ with plenty of pertinent and amusing anecodotes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/924BgKj.png" /><media:content medium="image" url="https://words.howapped.com/images/924BgKj.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Scheduled Severless Startup</title><link href="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html" rel="alternate" type="text/html" title="Scheduled Severless Startup" /><published>2020-07-15T00:00:00-05:00</published><updated>2020-07-15T00:00:00-05:00</updated><id>https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup</id><content type="html" xml:base="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html">&lt;!--
+<blockquote>
+  <p>The hard work of great leadership isn’t just managing the expected tasks that we can predict - it’s the art of successfully traversing the unexpected.</p>
+</blockquote>]]></content><author><name></name></author><category term="book notes" /><category term="work life" /><category term="non-fiction" /><summary type="html"><![CDATA[Notes on 'Managing Humans' by Michael Lopp.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/924BgKj.png" /><media:content medium="image" url="https://words.howapped.com/images/924BgKj.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Scheduled Severless Startup</title><link href="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html" rel="alternate" type="text/html" title="Scheduled Severless Startup" /><published>2020-07-15T00:00:00+00:00</published><updated>2020-07-15T00:00:00+00:00</updated><id>https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup</id><content type="html" xml:base="https://words.howapped.com/aws%20lambda/automation/python/2020/07/15/scheduled-serverless-startup.html"><![CDATA[<!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
 # file to edit: _notebooks/2020-07-15-scheduled-serverless-startup.ipynb
---&gt;
+-->
 
-&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
+<div class="container" id="notebook-container">
         
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
 
-&lt;/div&gt;
+</div>
     
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;The-Problem&quot;&gt;The Problem&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Problem&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;As part of the early Covid-19 response, Digital Ocean donated some free credit to us to host an app for a local food delivery scheme.&lt;/p&gt;
-&lt;p&gt;To make that credit go as far as possible and to minimise power consumption, we'd like to power up and down the servers according to a schedule.&lt;/p&gt;
-&lt;h1 id=&quot;The-Solution&quot;&gt;The Solution&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Solution&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Here's how to do that with AWS Lambda, with cloudfront events. We iterate on that to use the Serverless Framework.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TLDR; Have a look at the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;companion repo.&lt;/a&gt;. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This article covers how to automate with a Digital Ocean droplet so to follow along with the code, you can create one using the example from &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet&quot;&gt;a previous article&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We will examine the cURL statements, convert those into Python. We can use AWS Lambda to execute the Python in a serverless environment. Then, the AWS lambda functions can be triggered by Cloudwatch events to a schedule so machines can be brought online only during operating hours.&lt;/p&gt;
-&lt;p&gt;We can notify any interested parties using Microsoft Teams - a topic for a subsequent post.&lt;/p&gt;
-&lt;h2 id=&quot;Prerequisites&quot;&gt;Prerequisites&lt;a class=&quot;anchor-link&quot; href=&quot;#Prerequisites&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;You can always check the &lt;a href=&quot;https://github.com/jonwhittlestone/scheduled-serverless-startup&quot;&gt;companion repo.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;You will need to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;.. have &lt;code&gt;jq&lt;/code&gt; installed to format JSON responses&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://stedolan.github.io/jq/download/&quot;&gt;Download JQ&lt;/a&gt; for your OS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;.. have a server on which a dockerized web app will start automatically when the server is restarted&lt;ul&gt;
-&lt;li&gt;See previous article on how to &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet&quot;&gt;create one with DigitalOcean&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;.. have &lt;a href=&quot;https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation&quot;&gt;installed Boto3 with your AWS account credentials&lt;/a&gt; so we can work with the AWS Python SDK.&lt;/li&gt;
-&lt;/ul&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-Problem">The Problem<a class="anchor-link" href="#The-Problem"> </a></h1><p>As part of the early Covid-19 response, Digital Ocean donated some free credit to us to host an app for a local food delivery scheme.</p>
+<p>To make that credit go as far as possible and to minimise power consumption, we'd like to power up and down the servers according to a schedule.</p>
+<h1 id="The-Solution">The Solution<a class="anchor-link" href="#The-Solution"> </a></h1><p>Here's how to do that with AWS Lambda, with cloudfront events. We iterate on that to use the Serverless Framework.</p>
+<p><strong>TLDR; Have a look at the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">companion repo.</a>. It contains an example dockerized web app and the shell scripts for starting containers and creating the service.</strong></p>
+<p>This article covers how to automate with a Digital Ocean droplet so to follow along with the code, you can create one using the example from <a href="http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet">a previous article</a>.</p>
+<p>We will examine the cURL statements, convert those into Python. We can use AWS Lambda to execute the Python in a serverless environment. Then, the AWS lambda functions can be triggered by Cloudwatch events to a schedule so machines can be brought online only during operating hours.</p>
+<p>We can notify any interested parties using Microsoft Teams - a topic for a subsequent post.</p>
+<h2 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h2><p>You can always check the <a href="https://github.com/jonwhittlestone/scheduled-serverless-startup">companion repo.</a></p>
+<p>You will need to:</p>
+<ul>
+<li>.. have <code>jq</code> installed to format JSON responses<ul>
+<li><a href="https://stedolan.github.io/jq/download/">Download JQ</a> for your OS</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>.. have a server on which a dockerized web app will start automatically when the server is restarted<ul>
+<li>See previous article on how to <a href="http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html#cURL-to-create-the-droplet">create one with DigitalOcean</a>.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>.. have <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation">installed Boto3 with your AWS account credentials</a> so we can work with the AWS Python SDK.</li>
+</ul>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;cURL-statements-to-boot-down-and-up&quot;&gt;cURL statements to boot down and up&lt;a class=&quot;anchor-link&quot; href=&quot;#cURL-statements-to-boot-down-and-up&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;As covered in a &lt;a href=&quot;http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html&quot;&gt;previous post&lt;/a&gt;, our web app will restart when rebooted using a systemd service.&lt;/p&gt;
-&lt;p&gt;Rather than ssh or the cloud provider's control panel, the server can be started and stopped using cURL.&lt;/p&gt;
-&lt;p&gt;In the case of DigitalOcean:&lt;/p&gt;
-&lt;p&gt;Find out the ID of the server:&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="cURL-statements-to-boot-down-and-up">cURL statements to boot down and up<a class="anchor-link" href="#cURL-statements-to-boot-down-and-up"> </a></h2><p>As covered in a <a href="http://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html">previous post</a>, our web app will restart when rebooted using a systemd service.</p>
+<p>Rather than ssh or the cloud provider's control panel, the server can be started and stopped using cURL.</p>
+<p>In the case of DigitalOcean:</p>
+<p>Find out the ID of the server:</p>
 
-&lt;pre&gt;&lt;code&gt;$ curl \
+<pre><code>$ curl \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    &quot;https://api.digitalocean.com/v2/droplets?name=scheduled-serverless&quot; | jq '.droplets[] | {id:.id, name:.name, status: .status}'&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The output gives us the ID&lt;/p&gt;
+    "https://api.digitalocean.com/v2/droplets?name=scheduled-serverless" | jq '.droplets[] | {id:.id, name:.name, status: .status}'</code></pre>
+<p>The output gives us the ID</p>
 
-&lt;pre&gt;&lt;code&gt;{
+<pre><code>{
     ...
 },
 {
-  &quot;id&quot;: 195786885,
-  &quot;name&quot;: &quot;scheduled-serverless&quot;,
-  &quot;status&quot;: &quot;active&quot;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And then power it down:&lt;/p&gt;
+  "id": 195786885,
+  "name": "scheduled-serverless",
+  "status": "active"
+}</code></pre>
+<p>And then power it down:</p>
 
-&lt;pre&gt;&lt;code&gt;$ curl -X POST \
+<pre><code>$ curl -X POST \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    -d '{&quot;type&quot;:&quot;power_off&quot;}' \
-    &quot;https://api.digitalocean.com/v2/droplets/195786885/actions&quot; | jq '.[] | {id:.id, status:.status, type:.type}'&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Which tells us it's in progress&lt;/p&gt;
+    -d '{"type":"power_off"}' \
+    "https://api.digitalocean.com/v2/droplets/195786885/actions" | jq '.[] | {id:.id, status:.status, type:.type}'</code></pre>
+<p>Which tells us it's in progress</p>
 
-&lt;pre&gt;&lt;code&gt;{
-  &quot;id&quot;: 955320153,
-  &quot;status&quot;: &quot;in-progress&quot;,
-  &quot;type&quot;: &quot;power_off&quot;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The equivalent cURL for powering on the server is virtual identical&lt;/p&gt;
+<pre><code>{
+  "id": 955320153,
+  "status": "in-progress",
+  "type": "power_off"
+}</code></pre>
+<p>The equivalent cURL for powering on the server is virtual identical</p>
 
-&lt;pre&gt;&lt;code&gt;$ curl -X POST \
+<pre><code>$ curl -X POST \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer '$DIGITAL_OCEAN_ACCESS_TOKEN'' \
-    -d '{&quot;type&quot;:&quot;power_on&quot;}' \
-    &quot;https://api.digitalocean.com/v2/droplets/195786885/actions&quot; | jq '.[] | {id:.id, status:.status, type:.type}'&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The web app from the example is running on port 80. We know the server's IP address by referring to the control panel. Let's confirm that the service is running by verifying the output in a browser.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/jonwhittlestone/words/master/images/do_ip.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+    -d '{"type":"power_on"}' \
+    "https://api.digitalocean.com/v2/droplets/195786885/actions" | jq '.[] | {id:.id, status:.status, type:.type}'</code></pre>
+<p>The web app from the example is running on port 80. We know the server's IP address by referring to the control panel. Let's confirm that the service is running by verifying the output in a browser.</p>
+<p><img src="https://raw.githubusercontent.com/jonwhittlestone/words/master/images/do_ip.png" alt="" /></p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Requests-scripts-in-AWS-Lambda&quot;&gt;Requests scripts in AWS Lambda&lt;a class=&quot;anchor-link&quot; href=&quot;#Requests-scripts-in-AWS-Lambda&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;The-cURL-statements-in-Python&quot;&gt;The cURL statements in Python&lt;a class=&quot;anchor-link&quot; href=&quot;#The-cURL-statements-in-Python&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;First, get the ID of the droplet.&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Requests-scripts-in-AWS-Lambda">Requests scripts in AWS Lambda<a class="anchor-link" href="#Requests-scripts-in-AWS-Lambda"> </a></h2><h3 id="The-cURL-statements-in-Python">The cURL statements in Python<a class="anchor-link" href="#The-cURL-statements-in-Python"> </a></h3><p>First, get the ID of the droplet.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">requests</span>
 
-&lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;DIGITAL_OCEAN_ACCESS_TOKEN&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;DROPLET_NAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;scheduled-serverless&amp;#39;&lt;/span&gt;
+<span class="n">TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DIGITAL_OCEAN_ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">DROPLET_NAME</span> <span class="o">=</span> <span class="s1">&#39;scheduled-serverless&#39;</span>
 
-&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&amp;#39;Authorization&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Bearer &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Bearer </span><span class="si">{</span><span class="n">TOKEN</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Your environment should have the `DIGITAL_OCEAN_ACCESS_TOKEN exported.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<span class="k">if</span> <span class="n">TOKEN</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Your environment should have the `DIGITAL_OCEAN_ACCESS_TOKEN exported.&#39;</span><span class="p">)</span>
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_droplet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;droplets&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,{})&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DROPLET_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+<span class="k">def</span> <span class="nf">get_droplet</span><span class="p">():</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.digitalocean.com/v2/droplets&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{})</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;droplets&#39;</span><span class="p">,{})</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">DROPLET_NAME</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
-&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_droplet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Droplet ID: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<span class="n">DROPLET</span> <span class="o">=</span> <span class="n">get_droplet</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Droplet ID: </span><span class="si">{</span><span class="n">DROPLET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
 
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+    </div>
+</div>
+</div>
 
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
+<div class="output_wrapper">
+<div class="output">
 
-&lt;div class=&quot;output_area&quot;&gt;
+<div class="output_area">
 
-&lt;div class=&quot;output_subarea output_stream output_stdout output_text&quot;&gt;
-&lt;pre&gt;Droplet ID: 195786885
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Droplet ID: 195786885
+</pre>
+</div>
+</div>
 
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
 
-&lt;/div&gt;
+</div>
     
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Now we have the ID, let's define the functions for bringing the servers down and back up.&lt;/p&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we have the ID, let's define the functions for bringing the servers down and back up.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;power_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;{&amp;quot;type&amp;quot;:&amp;quot;power_off&amp;quot;}&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/actions&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">power_off</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;type&quot;:&quot;power_off&quot;}&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://api.digitalocean.com/v2/droplets/</span><span class="si">{</span><span class="n">DROPLET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">/actions&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;power_on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;{&amp;quot;type&amp;quot;:&amp;quot;power_on&amp;quot;}&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.digitalocean.com/v2/droplets/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DROPLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/actions&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+<span class="k">def</span> <span class="nf">power_on</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;type&quot;:&quot;power_on&quot;}&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://api.digitalocean.com/v2/droplets/</span><span class="si">{</span><span class="n">DROPLET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">/actions&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
-&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;action&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;action&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+<span class="n">action_resp</span> <span class="o">=</span> <span class="n">power_off</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">action_resp</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">action_resp</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
 
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;----&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----&#39;</span><span class="p">)</span>
 
-&lt;span class=&quot;c1&quot;&gt;# action_resp = power_on()&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# print(action_resp[&amp;#39;action&amp;#39;][&amp;#39;type&amp;#39;])&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# print(action_resp[&amp;#39;action&amp;#39;][&amp;#39;status&amp;#39;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<span class="c1"># action_resp = power_on()</span>
+<span class="c1"># print(action_resp[&#39;action&#39;][&#39;type&#39;])</span>
+<span class="c1"># print(action_resp[&#39;action&#39;][&#39;status&#39;])</span>
+</pre></div>
 
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+    </div>
+</div>
+</div>
 
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
+<div class="output_wrapper">
+<div class="output">
 
-&lt;div class=&quot;output_area&quot;&gt;
+<div class="output_area">
 
-&lt;div class=&quot;output_subarea output_stream output_stdout output_text&quot;&gt;
-&lt;pre&gt;power_off
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>power_off
 in-progress
 ----
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</pre>
+</div>
+</div>
 
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
 
-&lt;/div&gt;
+</div>
     
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;Running-the-scripts-in-AWS-Lambda&quot;&gt;Running the scripts in AWS Lambda&lt;a class=&quot;anchor-link&quot; href=&quot;#Running-the-scripts-in-AWS-Lambda&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let's translate the cURL statements into Python.&lt;/p&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Running-the-scripts-in-AWS-Lambda">Running the scripts in AWS Lambda<a class="anchor-link" href="#Running-the-scripts-in-AWS-Lambda"> </a></h3><p>Let's translate the cURL statements into Python.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Popping on a new on/off timestamp on a firebase stored stack&lt;/span&gt;
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Popping on a new on/off timestamp on a firebase stored stack</span>
 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;arrow&lt;/span&gt;
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">arrow</span>
 
 
-&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;off&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2020-08-11 09:04&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;on&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;2020-08-11 09:03&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;
+<span class="n">start</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;off&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2020-08-11 09:04&#39;</span><span class="p">],</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2020-08-11 09:03&#39;</span><span class="p">]}</span>
 
-&lt;span class=&quot;c1&quot;&gt;# get data&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;https://wordsdothowappeddotcom.firebaseio.com/scheduled-serverless-startup.json?print=pretty&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{},)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<span class="c1"># get data</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://wordsdothowappeddotcom.firebaseio.com/scheduled-serverless-startup.json?print=pretty&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-&lt;span class=&quot;c1&quot;&gt;# replace data&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;off&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<span class="c1"># replace data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;off&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
 
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+    </div>
+</div>
+</div>
 
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
+<div class="output_wrapper">
+<div class="output">
 
-&lt;div class=&quot;output_area&quot;&gt;
+<div class="output_area">
 
-&lt;div class=&quot;output_subarea output_text output_error&quot;&gt;
-&lt;pre&gt;
-&lt;span class=&quot;ansi-red-fg&quot;&gt;---------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class=&quot;ansi-red-fg&quot;&gt;ModuleNotFoundError&lt;/span&gt;                       Traceback (most recent call last)
-In  &lt;span class=&quot;ansi-blue-fg&quot;&gt;[12]&lt;/span&gt;:
-Line &lt;span class=&quot;ansi-blue-fg&quot;&gt;4&lt;/span&gt;:     &lt;span class=&quot;ansi-blue-fg&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;ansi-cyan-fg ansi-underline&quot;&gt;arrow&lt;/span&gt;
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+In  <span class="ansi-blue-fg">[12]</span>:
+Line <span class="ansi-blue-fg">4</span>:     <span class="ansi-blue-fg">import</span> <span class="ansi-cyan-fg ansi-underline">arrow</span>
 
-&lt;span class=&quot;ansi-red-fg&quot;&gt;ModuleNotFoundError&lt;/span&gt;: No module named &amp;#39;arrow&amp;#39;
-&lt;span class=&quot;ansi-red-fg&quot;&gt;---------------------------------------------------------------------------&lt;/span&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;arrow&#39;
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span></pre>
+</div>
+</div>
 
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
 
-&lt;/div&gt;
+</div>
     
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Schedule-the-scripts-with-Cloudwatch-events&quot;&gt;Schedule the scripts with Cloudwatch events&lt;a class=&quot;anchor-link&quot; href=&quot;#Schedule-the-scripts-with-Cloudwatch-events&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Putting-it-all-together-in-a-Serverless-Application-Framework-template&quot;&gt;Putting it all together in a Serverless Application Framework template&lt;a class=&quot;anchor-link&quot; href=&quot;#Putting-it-all-together-in-a-Serverless-Application-Framework-template&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Quality-of-Life-enhancements&quot;&gt;Quality of Life enhancements&lt;a class=&quot;anchor-link&quot; href=&quot;#Quality-of-Life-enhancements&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When the target service is unavailable, it's quite unfriendly to show a blank 500 screen. A subsequent post outlines a solution for a forwarding service which can display an Open/Closed for business page to the user, with 'Opening times'&lt;/p&gt;
-&lt;p&gt;As part of what's become known as 'Chatops', it's useful to update team members and stakeholders about the status of the server. A future addition will be to use the Microsoft Teams API to notify interested parties.&lt;/p&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Schedule-the-scripts-with-Cloudwatch-events">Schedule the scripts with Cloudwatch events<a class="anchor-link" href="#Schedule-the-scripts-with-Cloudwatch-events"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Putting-it-all-together-in-a-Serverless-Application-Framework-template">Putting it all together in a Serverless Application Framework template<a class="anchor-link" href="#Putting-it-all-together-in-a-Serverless-Application-Framework-template"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Quality-of-Life-enhancements">Quality of Life enhancements<a class="anchor-link" href="#Quality-of-Life-enhancements"> </a></h2><p>When the target service is unavailable, it's quite unfriendly to show a blank 500 screen. A subsequent post outlines a solution for a forwarding service which can display an Open/Closed for business page to the user, with 'Opening times'</p>
+<p>As part of what's become known as 'Chatops', it's useful to update team members and stakeholders about the status of the server. A future addition will be to use the Microsoft Teams API to notify interested parties.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Resources-used:-with-thanks-&amp;#128154;&quot;&gt;Resources used: with thanks &amp;#128154;&lt;a class=&quot;anchor-link&quot; href=&quot;#Resources-used:-with-thanks-&amp;#128154;&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;Curl converter &lt;a href=&quot;https://github.com/NickCarneiro/curlconverter&quot;&gt;Github repo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;AWS Lambda and Secret Management Overview &lt;a href=&quot;https://epsagon.com/development/aws-lambda-and-secret-management/&quot;&gt;Blog post from  Espagon&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Sharing Secrets with AWS Lambda Using AWS Systems Manager Parameter Store &lt;a href=&quot;https://aws.amazon.com/blogs/compute/sharing-secrets-with-aws-lambda-using-aws-systems-manager-parameter-store/&quot;&gt;AWS Compute blog post&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Resources-used:-with-thanks-&#128154;">Resources used: with thanks &#128154;<a class="anchor-link" href="#Resources-used:-with-thanks-&#128154;"> </a></h1><ul>
+<li>Curl converter <a href="https://github.com/NickCarneiro/curlconverter">Github repo</a></li>
+</ul>
+<ul>
+<li><p>AWS Lambda and Secret Management Overview <a href="https://epsagon.com/development/aws-lambda-and-secret-management/">Blog post from  Espagon</a></p>
+</li>
+<li><p>Sharing Secrets with AWS Lambda Using AWS Systems Manager Parameter Store <a href="https://aws.amazon.com/blogs/compute/sharing-secrets-with-aws-lambda-using-aws-systems-manager-parameter-store/">AWS Compute blog post</a></p>
+</li>
+</ul>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/dIAyXJa.png" /><media:content medium="image" url="https://words.howapped.com/images/dIAyXJa.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">hello world serverless microservice</title><link href="https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.html" rel="alternate" type="text/html" title="hello world serverless microservice" /><published>2020-07-01T00:00:00-05:00</published><updated>2020-07-01T00:00:00-05:00</updated><id>https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3</id><content type="html" xml:base="https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.html">&lt;!--
+</div>
+</div>
+</div>
+</div>]]></content><author><name></name></author><category term="AWS Lambda" /><category term="automation" /><category term="python" /><summary type="html"><![CDATA[Using AWS lambda to automate boot up and down of a Digital Ocean droplet.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/dIAyXJa.png" /><media:content medium="image" url="https://words.howapped.com/images/dIAyXJa.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">hello world serverless microservice</title><link href="https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.html" rel="alternate" type="text/html" title="hello world serverless microservice" /><published>2020-07-01T00:00:00+00:00</published><updated>2020-07-01T00:00:00+00:00</updated><id>https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3</id><content type="html" xml:base="https://words.howapped.com/aws%20lambda/boto3/python/aws%20api%20gateway/2020/07/01/serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.html"><![CDATA[<!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
 # file to edit: _notebooks/2020-07-01-serverless-endpoint-with-aws-lambda-api-gateway-and-boto3.ipynb
---&gt;
+-->
 
-&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
+<div class="container" id="notebook-container">
         
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
 
-&lt;/div&gt;
+</div>
     
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Problem&quot;&gt;Problem&lt;a class=&quot;anchor-link&quot; href=&quot;#Problem&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;We've been asked for an API that will work at web scale and be cost effective. A serverless API is perfect for this.&lt;/p&gt;
-&lt;p&gt;What are the constituent parts needed to start working with the AWS SDK with Python and steps needed to write and execute a serverless script with AWS Lambda. How can this script be invoked by an HTTP endpoint?&lt;/p&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Problem">Problem<a class="anchor-link" href="#Problem"> </a></h1><p>We've been asked for an API that will work at web scale and be cost effective. A serverless API is perfect for this.</p>
+<p>What are the constituent parts needed to start working with the AWS SDK with Python and steps needed to write and execute a serverless script with AWS Lambda. How can this script be invoked by an HTTP endpoint?</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Solution&quot;&gt;Solution&lt;a class=&quot;anchor-link&quot; href=&quot;#Solution&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The companion repo consists utility code for deploying the lambda with &lt;a href=&quot;https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#lambda&quot;&gt;boto3&lt;/a&gt; as well as detail on the AWS API Gateway service that provides an endpoint to invoke the serverless function.&lt;/p&gt;
-&lt;p&gt;This is the end product; A serverless endpoint.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Ql676IX.png&quot; alt=&quot;End product - a simple serverless endpoint&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&quot;https://github.com/jonwhittlestone/lambdapi&quot;&gt;code can be found on Github.&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Once cloned, install dependencies, set your AWS account ID as an environment variable and run it.&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Solution">Solution<a class="anchor-link" href="#Solution"> </a></h1><p>The companion repo consists utility code for deploying the lambda with <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#lambda">boto3</a> as well as detail on the AWS API Gateway service that provides an endpoint to invoke the serverless function.</p>
+<p>This is the end product; A serverless endpoint.</p>
+<p><img src="http://i.imgur.com/Ql676IX.png" alt="End product - a simple serverless endpoint" /></p>
+<p>The <a href="https://github.com/jonwhittlestone/lambdapi">code can be found on Github.</a>.</p>
+<p>Once cloned, install dependencies, set your AWS account ID as an environment variable and run it.</p>
 
-&lt;pre&gt;&lt;code&gt;(venv) (base) $ python src/main.py 
+<pre><code>(venv) (base) $ python src/main.py 
 
 ✅ Remove existing named lambda/api
 ✅ Create the lambda
@@ -1438,16 +1438,16 @@ Line &lt;span class=&quot;ansi-blue-fg&quot;&gt;4&lt;/span&gt;:     &lt;span cla
 ✅ Deploy API
 ✅ Test API
 SERVERLESS ENDPOINT RESPONSE from https://qvaik2un06.execute-api.eu-west-2.amazonaws.com/hello-world : 
-b'{&quot;querystring_params:&quot;: {}, &quot;err&quot;: null, &quot;message&quot;: &quot;Hello Serverless World&quot;}'&lt;/code&gt;&lt;/pre&gt;
+b'{"querystring_params:": {}, "err": null, "message": "Hello Serverless World"}'</code></pre>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Setup:-Creating-the-Lambda-function-and-deploying&quot;&gt;Setup: Creating the Lambda function and deploying&lt;a class=&quot;anchor-link&quot; href=&quot;#Setup:-Creating-the-Lambda-function-and-deploying&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;Python-module-structure&quot;&gt;Python module structure&lt;a class=&quot;anchor-link&quot; href=&quot;#Python-module-structure&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Like this&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Setup:-Creating-the-Lambda-function-and-deploying">Setup: Creating the Lambda function and deploying<a class="anchor-link" href="#Setup:-Creating-the-Lambda-function-and-deploying"> </a></h2><h3 id="Python-module-structure">Python module structure<a class="anchor-link" href="#Python-module-structure"> </a></h3><p>Like this</p>
 
-&lt;pre&gt;&lt;code&gt;lambdapi
+<pre><code>lambdapi
 ├── src 
 │   ├── __init__.py
 │   ├── settings.py         # constants like AWS account
@@ -1457,88 +1457,88 @@ b'{&quot;querystring_params:&quot;: {}, &quot;err&quot;: null, &quot;message&quo
 │   ├── api_gateway.py      # boto3 for api_gateway
 │   ├── lambda_functions.py # boto3 lambda
 │   └── helpers.py          # file operations
-└── ...&lt;/code&gt;&lt;/pre&gt;
+└── ...</code></pre>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;AWS-Permissions-with-IAM&quot;&gt;AWS Permissions with IAM&lt;a class=&quot;anchor-link&quot; href=&quot;#AWS-Permissions-with-IAM&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;IAM Resources used - policies and roles.&lt;/p&gt;
-&lt;p&gt;IAM Policies define the effect, actions, resources and optional conditions in a JSON document.&lt;/p&gt;
-&lt;p&gt;An IAM user is a person or service that interacts with AWS with their own access to the management console. A user can have a policy attached to them. In this case it is more appropriate to grant policy access with an IAM role.
-When assuming an IAM role (see Trusted Entity), access to a service can be granted to a user without having to give them new keys as the user can use temporary security tokens.&lt;/p&gt;
-&lt;p&gt;Create an IAM Lambda access policy for IAM using an IAM client that you create.&lt;/p&gt;
-&lt;p&gt;The access definition is provided in an &lt;code&gt;s3_access_policy_document&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;JSON dictionary &lt;/li&gt;
-&lt;li&gt;Action key &lt;code&gt;Statement&lt;/code&gt; with &lt;ul&gt;
-&lt;li&gt;all S3 permissions&lt;/li&gt;
-&lt;li&gt;Cloudwatch to create log groups and streams for monitoring of the lamdba events&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;After creating a policy, create role and attach it to an execution role by assuming the role.&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="AWS-Permissions-with-IAM">AWS Permissions with IAM<a class="anchor-link" href="#AWS-Permissions-with-IAM"> </a></h3><p>IAM Resources used - policies and roles.</p>
+<p>IAM Policies define the effect, actions, resources and optional conditions in a JSON document.</p>
+<p>An IAM user is a person or service that interacts with AWS with their own access to the management console. A user can have a policy attached to them. In this case it is more appropriate to grant policy access with an IAM role.
+When assuming an IAM role (see Trusted Entity), access to a service can be granted to a user without having to give them new keys as the user can use temporary security tokens.</p>
+<p>Create an IAM Lambda access policy for IAM using an IAM client that you create.</p>
+<p>The access definition is provided in an <code>s3_access_policy_document</code></p>
+<ul>
+<li>JSON dictionary </li>
+<li>Action key <code>Statement</code> with <ul>
+<li>all S3 permissions</li>
+<li>Cloudwatch to create log groups and streams for monitoring of the lamdba events</li>
+</ul>
+</li>
+</ul>
+<p>After creating a policy, create role and attach it to an execution role by assuming the role.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;Verifying-the-Lambda-was-created-on-AWS-Console&quot;&gt;Verifying the Lambda was created on AWS Console&lt;a class=&quot;anchor-link&quot; href=&quot;#Verifying-the-Lambda-was-created-on-AWS-Console&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;By way of sanity check, we can verify the Lambda function has been uploaded in the AWS Console.&lt;/p&gt;
-&lt;p&gt;For the appropriate region, you may see the function, memory, timeout and our chosen permissions.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/RoOfCJt.gif&quot; alt=&quot;Animation of Console&quot; /&gt;&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Verifying-the-Lambda-was-created-on-AWS-Console">Verifying the Lambda was created on AWS Console<a class="anchor-link" href="#Verifying-the-Lambda-was-created-on-AWS-Console"> </a></h3><p>By way of sanity check, we can verify the Lambda function has been uploaded in the AWS Console.</p>
+<p>For the appropriate region, you may see the function, memory, timeout and our chosen permissions.</p>
+<p><img src="https://i.imgur.com/RoOfCJt.gif" alt="Animation of Console" /></p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;## Testing the endpoint&lt;/span&gt;
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Testing the endpoint</span>
 
-&lt;span class=&quot;c1&quot;&gt;## Parting Note&lt;/span&gt;
+<span class="c1">## Parting Note</span>
 
-&lt;span class=&quot;n&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;brief&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;walkthrough&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;essentially&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;achieves&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;same&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solution&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AWS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Serverless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Hello World&amp;#39;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tutorial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<span class="n">This</span> <span class="n">brief</span> <span class="n">walkthrough</span> <span class="n">essentially</span> <span class="n">achieves</span> <span class="n">the</span> <span class="n">same</span> <span class="n">solution</span> <span class="k">as</span> <span class="n">the</span> <span class="n">AWS</span> <span class="n">Serverless</span> <span class="n">Application</span> <span class="n">model</span> <span class="s1">&#39;Hello World&#39;</span> <span class="n">tutorial</span><span class="o">.</span>
+</pre></div>
 
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+    </div>
+</div>
+</div>
 
-&lt;/div&gt;
+</div>
     
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Alternative-Solution&quot;&gt;Alternative Solution&lt;a class=&quot;anchor-link&quot; href=&quot;#Alternative-Solution&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The &lt;a href=&quot;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html&quot;&gt;AWS Serverless Application Model&lt;/a&gt; is a framework that allows you to build and deploy serverless applications.&lt;/p&gt;
-&lt;p&gt;You may declare the lambda functions to be used and additional resources like APIs and database in a YAML template. It uses an implementation of AWS CloudFormation to define these resources provides myriad other &lt;a href=&quot;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html#benefits-of-using-sam&quot;&gt;benefits&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&quot;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html&quot;&gt;AWS Hello World SAM tutorial&lt;/a&gt; covers what we outlined manually above and also shows how to run the Lambda and API route locally and remove the CloudFormation stack to clean up.&lt;/p&gt;
-&lt;p&gt;However, when dissecting software to understand a technique, it's always useful to strip away layers of abstraction.&lt;/p&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Alternative-Solution">Alternative Solution<a class="anchor-link" href="#Alternative-Solution"> </a></h1><p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html">AWS Serverless Application Model</a> is a framework that allows you to build and deploy serverless applications.</p>
+<p>You may declare the lambda functions to be used and additional resources like APIs and database in a YAML template. It uses an implementation of AWS CloudFormation to define these resources provides myriad other <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html#benefits-of-using-sam">benefits</a>.</p>
+<p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html">AWS Hello World SAM tutorial</a> covers what we outlined manually above and also shows how to run the Lambda and API route locally and remove the CloudFormation stack to clean up.</p>
+<p>However, when dissecting software to understand a technique, it's always useful to strip away layers of abstraction.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;hr /&gt;
-&lt;h2 id=&quot;Resources-used:-with-thanks-&amp;#128154;&quot;&gt;Resources used: with thanks &amp;#128154;&lt;a class=&quot;anchor-link&quot; href=&quot;#Resources-used:-with-thanks-&amp;#128154;&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Niyazi Erdogan's O'Reilly course - Build and Deploy Lambda functions AWS and Python &lt;a href=&quot;https://learning.oreilly.com/videos/build-and-deploy/9781838557751&quot;&gt;Videos&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Building Lambda Functions with Python &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html&quot;&gt;AWS docs&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;boto3 AWS Python SDK &lt;a href=&quot;https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#lambda&quot;&gt;lambda docs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html&quot;&gt;AWS Lambda Execution role&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Using AWS Lambda with Amazon API Gateway &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html&quot;&gt;AWS Tutorial&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Setting up API Gateway and integrating it with Lambda proxy in Richard T. Freeman's serverless microservice course &lt;a href=&quot;https://learning.oreilly.com/videos/building-a-scalable/9781788622318/9781788622318-video4_3&quot;&gt;O'Reilly Videos&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;AWS SAM Hello World Tutorial - &lt;a href=&quot;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html&quot;&gt;AWS Docs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="Resources-used:-with-thanks-&#128154;">Resources used: with thanks &#128154;<a class="anchor-link" href="#Resources-used:-with-thanks-&#128154;"> </a></h2><ul>
+<li><p>Niyazi Erdogan's O'Reilly course - Build and Deploy Lambda functions AWS and Python <a href="https://learning.oreilly.com/videos/build-and-deploy/9781838557751">Videos</a></p>
+</li>
+<li><p>Building Lambda Functions with Python <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html">AWS docs</a></p>
+</li>
+<li>boto3 AWS Python SDK <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#lambda">lambda docs</a></li>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">AWS Lambda Execution role</a></li>
+<li>Using AWS Lambda with Amazon API Gateway <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html">AWS Tutorial</a></li>
+<li>Setting up API Gateway and integrating it with Lambda proxy in Richard T. Freeman's serverless microservice course <a href="https://learning.oreilly.com/videos/building-a-scalable/9781788622318/9781788622318-video4_3">O'Reilly Videos</a></li>
+<li>AWS SAM Hello World Tutorial - <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html">AWS Docs</a></li>
+</ul>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/C2bPqfo.png" /><media:content medium="image" url="https://words.howapped.com/images/C2bPqfo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>
+</div>
+</div>
+</div>]]></content><author><name></name></author><category term="AWS Lambda" /><category term="boto3" /><category term="python" /><category term="AWS API Gateway" /><summary type="html"><![CDATA[Using Python SDK with boto3 to create a serverless endpoint with AWS Lambda and AWS API Gateway.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://words.howapped.com/images/C2bPqfo.png" /><media:content medium="image" url="https://words.howapped.com/images/C2bPqfo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

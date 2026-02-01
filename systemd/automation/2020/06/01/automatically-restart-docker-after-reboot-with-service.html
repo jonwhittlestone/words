@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Automatically restart docker containers after reboot | howapped words</title>
-<meta name="generator" content="Jekyll v4.0.0" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Automatically restart docker containers after reboot" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Creating a cloud server and the service that restarts a web app when rebooted." />
@@ -14,13 +14,16 @@
 <meta property="og:site_name" content="howapped words" />
 <meta property="og:image" content="https://words.howapped.com/images/on.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-06-01T00:00:00-05:00" />
+<meta property="article:published_time" content="2020-06-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://words.howapped.com/images/on.png" />
+<meta property="twitter:title" content="Automatically restart docker containers after reboot" />
 <script type="application/ld+json">
-{"description":"Creating a cloud server and the service that restarts a web app when rebooted.","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html"},"@type":"BlogPosting","url":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html","headline":"Automatically restart docker containers after reboot","dateModified":"2020-06-01T00:00:00-05:00","datePublished":"2020-06-01T00:00:00-05:00","image":"https://words.howapped.com/images/on.png","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-06-01T00:00:00+00:00","datePublished":"2020-06-01T00:00:00+00:00","description":"Creating a cloud server and the service that restarts a web app when rebooted.","headline":"Automatically restart docker containers after reboot","image":"https://words.howapped.com/images/on.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html"},"url":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Automatically restart docker containers after reboot | howapped words</title>
-<meta name="generator" content="Jekyll v4.0.0" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Automatically restart docker containers after reboot" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Creating a cloud server and the service that restarts a web app when rebooted." />
@@ -30,9 +33,12 @@
 <meta property="og:site_name" content="howapped words" />
 <meta property="og:image" content="https://words.howapped.com/images/on.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-06-01T00:00:00-05:00" />
+<meta property="article:published_time" content="2020-06-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://words.howapped.com/images/on.png" />
+<meta property="twitter:title" content="Automatically restart docker containers after reboot" />
 <script type="application/ld+json">
-{"description":"Creating a cloud server and the service that restarts a web app when rebooted.","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html"},"@type":"BlogPosting","url":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html","headline":"Automatically restart docker containers after reboot","dateModified":"2020-06-01T00:00:00-05:00","datePublished":"2020-06-01T00:00:00-05:00","image":"https://words.howapped.com/images/on.png","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-06-01T00:00:00+00:00","datePublished":"2020-06-01T00:00:00+00:00","description":"Creating a cloud server and the service that restarts a web app when rebooted.","headline":"Automatically restart docker containers after reboot","image":"https://words.howapped.com/images/on.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html"},"url":"https://words.howapped.com/systemd/automation/2020/06/01/automatically-restart-docker-after-reboot-with-service.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -87,7 +93,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Automatically restart docker containers after reboot</h1><p class="page-description">Creating a cloud server and the service that restarts a web app when rebooted.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-01T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Automatically restart docker containers after reboot</h1><p class="page-description">Creating a cloud server and the service that restarts a web app when rebooted.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-01T00:00:00+00:00" itemprop="datePublished">
         Jun 1, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -113,7 +119,7 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <ul class="section-nav">
+    <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#The-Problem">The Problem </a></li>
 <li class="toc-entry toc-h1"><a href="#The-Solution">The Solution </a>
 <ul>

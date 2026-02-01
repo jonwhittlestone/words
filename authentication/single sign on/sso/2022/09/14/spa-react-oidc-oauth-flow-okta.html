@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>A visual guide to OAuth and OpenID Connect (with added SPA) | howapped words</title>
-<meta name="generator" content="Jekyll v4.0.0" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="A visual guide to OAuth and OpenID Connect (with added SPA)" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The flow between Client, Resource Server and Auth server" />
@@ -14,13 +14,16 @@
 <meta property="og:site_name" content="howapped words" />
 <meta property="og:image" content="https://words.howapped.com/images/Zbj922R.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-09-14T00:00:00-05:00" />
+<meta property="article:published_time" content="2022-09-14T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://words.howapped.com/images/Zbj922R.png" />
+<meta property="twitter:title" content="A visual guide to OAuth and OpenID Connect (with added SPA)" />
 <script type="application/ld+json">
-{"description":"The flow between Client, Resource Server and Auth server","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html"},"@type":"BlogPosting","url":"https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html","headline":"A visual guide to OAuth and OpenID Connect (with added SPA)","dateModified":"2022-09-14T00:00:00-05:00","datePublished":"2022-09-14T00:00:00-05:00","image":"https://words.howapped.com/images/Zbj922R.png","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-14T00:00:00+00:00","datePublished":"2022-09-14T00:00:00+00:00","description":"The flow between Client, Resource Server and Auth server","headline":"A visual guide to OAuth and OpenID Connect (with added SPA)","image":"https://words.howapped.com/images/Zbj922R.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html"},"url":"https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://words.howapped.com/feed.xml" title="howapped words" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>A visual guide to OAuth and OpenID Connect (with added SPA) | howapped words</title>
-<meta name="generator" content="Jekyll v4.0.0" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="A visual guide to OAuth and OpenID Connect (with added SPA)" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The flow between Client, Resource Server and Auth server" />
@@ -30,9 +33,12 @@
 <meta property="og:site_name" content="howapped words" />
 <meta property="og:image" content="https://words.howapped.com/images/Zbj922R.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-09-14T00:00:00-05:00" />
+<meta property="article:published_time" content="2022-09-14T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://words.howapped.com/images/Zbj922R.png" />
+<meta property="twitter:title" content="A visual guide to OAuth and OpenID Connect (with added SPA)" />
 <script type="application/ld+json">
-{"description":"The flow between Client, Resource Server and Auth server","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html"},"@type":"BlogPosting","url":"https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html","headline":"A visual guide to OAuth and OpenID Connect (with added SPA)","dateModified":"2022-09-14T00:00:00-05:00","datePublished":"2022-09-14T00:00:00-05:00","image":"https://words.howapped.com/images/Zbj922R.png","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-14T00:00:00+00:00","datePublished":"2022-09-14T00:00:00+00:00","description":"The flow between Client, Resource Server and Auth server","headline":"A visual guide to OAuth and OpenID Connect (with added SPA)","image":"https://words.howapped.com/images/Zbj922R.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html"},"url":"https://words.howapped.com/authentication/single%20sign%20on/sso/2022/09/14/spa-react-oidc-oauth-flow-okta.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -87,7 +93,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">A visual guide to OAuth and OpenID Connect (with added SPA)</h1><p class="page-description">The flow between Client, Resource Server and Auth server</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-14T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">A visual guide to OAuth and OpenID Connect (with added SPA)</h1><p class="page-description">The flow between Client, Resource Server and Auth server</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-14T00:00:00+00:00" itemprop="datePublished">
         Sep 14, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -115,7 +121,7 @@ window.onload = wrap_img;
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <ul class="section-nav">
+    <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h3"><a href="#simple-oidc-flow-between-resource-server-and-auth-server">Simple OIDC Flow between Resource Server and Auth Server</a></li>
 <li class="toc-entry toc-h3"><a href="#advanced-oidc-flow-between-spa-resource-server-and-auth-server">Advanced OIDC Flow between SPA, Resource Server and Auth Server</a></li>
 </ul><p>The following shows the OAuth2.0 flow for granting access to your API, with the OpenID connect layer for communicating identity information about the user.</p>
@@ -123,7 +129,7 @@ window.onload = wrap_img;
 <h3 id="simple-oidc-flow-between-resource-server-and-auth-server">
 <a class="anchor" href="#simple-oidc-flow-between-resource-server-and-auth-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple OIDC Flow between Resource Server and Auth Server</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Resource server (our api) &gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt; Auth server (Okta)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Resource server (our api) &gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt; Auth server (Okta)
   - API route: /authorization-code/login
   - Description: redirect to auth server login.
 
@@ -152,15 +158,15 @@ window.onload = wrap_img;
 
 <p>Front Channel means non-trusted communication</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⎼⎼⎼⎼►
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⎼⎼⎼⎼►
 </code></pre></div></div>
 
 <p>Back Channel means ‘trust in the connection’</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⎼ ⎼ ⎼►
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⎼ ⎼ ⎼►
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>||     🧔       ||      ||        💻         ||       ||         💻        ||
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>||     🧔       ||      ||        💻         ||       ||         💻        ||
 =============================================================================
 1. SPA (F/E)      ⎼⎼⎼⎼►   Resource Server (API)              Auth Server (Okta)
   - XHR request in JS to /api/login
